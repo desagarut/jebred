@@ -1,0 +1,5 @@
+*******************************
+Folder: instansi/upload/galeri
+*******************************
+
+Folder ini tempat menyimpan semua gambar yang diunggah sebagai foto galeri.
