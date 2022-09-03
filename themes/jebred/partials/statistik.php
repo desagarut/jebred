@@ -4,10 +4,6 @@ $keluarga = $this->db->query('SELECT COUNT(id) AS jumlah FROM tweb_keluarga')->r
 $rtm = $this->db->query('SELECT COUNT(id) AS jumlah FROM tweb_rtm')->result_array()[0]['jumlah'];
 $id = $this->db->query('SELECT COUNT(id) AS jumlah FROM log_surat')->result_array()[0]['jumlah'];
 $desa = $this->db->query('SELECT COUNT(id) AS jumlah FROM tweb_wilayah WHERE rt = "-"')->result_array()[0]['jumlah'];
-$prioritas_kecamatan = $this->db->query('SELECT COUNT(id) AS jumlah FROM tbl_perencanaan_desa WHERE status_penetapan_musrenbang_kecamatan = 1')->result_array()[0]['jumlah'];
-$rkpdesa = $this->db->query('SELECT COUNT(id) AS jumlah FROM tbl_perencanaan_desa WHERE status_rkpdes = 1')->result_array()[0]['jumlah'];
-$durkpdesa = $this->db->query('SELECT COUNT(id) AS jumlah FROM tbl_perencanaan_desa WHERE status_usulan_musrenbang_kecamatan = 1')->result_array()[0]['jumlah'];
-$skpd_penanggungjawab = $this->db->query('SELECT COUNT(DISTINCT bidang_desa) FROM tbl_perencanaan_desa')->result_array()[0]['jumlah'];
 
 ?>
 
@@ -15,8 +11,8 @@ $skpd_penanggungjawab = $this->db->query('SELECT COUNT(DISTINCT bidang_desa) FRO
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="section-title bg-white text-center text-danger px-3">Statistik</h6>
-                <h1 class="display-6 mb-4"> <?=ucwords($this->setting->sebutan_kecamatan)?> <?=ucwords($this->setting->nama_kecamatan)?></h1>
+                <h6 class="section-title bg-white text-center text-danger px-3">Demografi</h6>
+                <h1 class="display-6 mb-4"> <?=ucwords($this->setting->sebutan_kabupaten)?> Garut</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">

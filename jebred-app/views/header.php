@@ -6,8 +6,8 @@
 	<title><?= $this->setting->website_title ?></title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<meta name="theme-color" content="#E08E0B">
-	<?php if (is_file(LOKASI_LOGO_INSTANSI . "favicon.ico")) : ?>
-		<link rel="shortcut icon" href="<?= base_url() ?><?= LOKASI_LOGO_INSTANSI ?>favicon.ico" />
+	<?php if (is_file(LOKASI_LOGO . "favicon.ico")) : ?>
+		<link rel="shortcut icon" href="<?= base_url() ?><?= LOKASI_LOGO ?>favicon.ico" />
 	<?php else : ?>
 		<link rel="shortcut icon" href="<?= base_url() ?>favicon.ico" />
 	<?php endif; ?>

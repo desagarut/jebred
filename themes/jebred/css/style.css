@@ -415,11 +415,11 @@
 
 .testimonial-carousel .owl-item .testimonial-item,
 .testimonial-carousel .owl-item .testimonial-item * {
-    transition: .5s;
+    transition: .4s;
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item {
-    background: var(--primary) !important;
+   /* background: var(--warning) !important;*/
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item * {

@@ -1,7 +1,7 @@
 <?php
 
 $lang['db_invalid_connection_str'] = 'Tidak dapat menentukan pengaturan basis data berdasarkan string koneksi yang Anda kirimkan.';
-$lang['db_unable_to_connect'] = '<h3>Ada kesalahan dalam setting config database di SiDeGa</h3>Aplikasi tidak bisa terhubung ke database.<br />Silakan salin/tempel folder desa-contoh sebagai folder desa dan periksa isi berkas instansi/config/database.php. Pastikan pada bagian "Data Konfigurasi MySQL yang disesuaikan" terisi dengan benar.<p></p><p>Untuk mengatasi kendala ini anda bisa membaca panduan/petunjuk di <a href="https://desagarut.net" target="_blank">Panduan Instalasi SiDeGa.</a></p>';
+$lang['db_unable_to_connect'] = '<h3>Ada kesalahan dalam setting config database di SiDeGa</h3>Aplikasi tidak bisa terhubung ke database.<br />Silakan periksa isi berkas pada file konfigurasi sistem anda Pastikan pada bagian "Data Konfigurasi MySQL yang disesuaikan" terisi dengan benar.<p></p><p>Untuk mengatasi kendala ini anda bisa membaca panduan/petunjuk di <a href="https://desagarut.net" target="_blank">Panduan Instalasi SiDeGa.</a></p>';
 $lang['db_unable_to_select'] = 'Tidak dapat memilih basis data yang telah ditentukan: %s';
 $lang['db_unable_to_create'] = 'Tidak dapat membuat basis data yang telah ditentukan: %s';
 $lang['db_invalid_query'] = 'Kueri yang Anda kirimkan tidak valid.';

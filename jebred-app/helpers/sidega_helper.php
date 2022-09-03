@@ -13,7 +13,7 @@ define("VERSION", '1.0.1');
 
 define('VERSI_DATABASE', '2022050101');
 
-define("LOKASI_LOGO_INSTANSI", 'instansi/logo/');
+define("LOKASI_LOGO", 'instansi/logo/');
 
 define("LOKASI_ARSIP", 'instansi/arsip/');
 
@@ -649,9 +649,9 @@ function favico_desa()
 
 	$favico = 'favicon.ico';
 
-	$favico_desa = (is_file(APPPATH .'../'. LOKASI_LOGO_INSTANSI . $favico)) ?
+	$favico_desa = (is_file(APPPATH .'../'. LOKASI_LOGO . $favico)) ?
 
-		base_url() . LOKASI_LOGO_INSTANSI . $favico :
+		base_url() . LOKASI_LOGO . $favico :
 
 		base_url() . $favico;
 
@@ -681,13 +681,13 @@ function logo_web($nama_file, $type = FALSE, $file = FALSE)
 
 {
 
-	if (is_file(APPPATH .'../'. LOKASI_LOGO_INSTANSI . $nama_file))
+	if (is_file(APPPATH .'../'. LOKASI_LOGO . $nama_file))
 
 	{
 
 
 
-		return $logo_desa = ($file ? APPPATH.'../' : base_url()) . LOKASI_LOGO_INSTANSI . $nama_file;
+		return $logo_desa = ($file ? APPPATH.'../' : base_url()) . LOKASI_LOGO . $nama_file;
 
 	}
 

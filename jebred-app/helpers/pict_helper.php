@@ -622,7 +622,7 @@ function resizeImage($filepath_in, $tipe_file, $dimensi, $filepath_out='')
 /**   TODO: tulis ulang semua penggunaan supaya menggunakan resizeImage()
 * $jenis_upload contoh "logo", "foto"
 * $dimensi = array("width"=>lebar, "height"=>tinggi)
-* $lokasi contoh LOKASI_LOGO_INSTANSI
+* $lokasi contoh LOKASI_LOGO
 * $nama_simpan contoh "kecil_".$fupload_name
 */
 function UploadResizeImage($lokasi,$dimensi,$jenis_upload,$fupload_name,$nama_simpan,$old_foto,$tipe_file)

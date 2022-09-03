@@ -5,8 +5,8 @@
 		<link rel="stylesheet" href="<?= base_url()?>assets/css/css/screen.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?= base_url()?>assets/css/css/print-preview.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="<?= base_url()?>assets/css/css/print.css" type="text/css" media="print" />
-		<?php if (is_file(LOKASI_LOGO_INSTANSI . "favicon.ico")): ?>
-			<link rel="shortcut icon" href="<?= base_url()?><?= LOKASI_LOGO_INSTANSI?>favicon.ico" />
+		<?php if (is_file(LOKASI_LOGO . "favicon.ico")): ?>
+			<link rel="shortcut icon" href="<?= base_url()?><?= LOKASI_LOGO?>favicon.ico" />
 		<?php else: ?>
 			<link rel="shortcut icon" href="<?= base_url()?>favicon.ico" />
 		<?php endif; ?>

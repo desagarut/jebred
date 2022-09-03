@@ -1,10 +1,10 @@
-</div>
+
 <footer class="main-footer">
-	<div class="float-right d-none d-sm-block hidden-xs"> <b>Version</b>
-		<?= AmbilVersi() ?> <span class="logo-mini logo-text" style="padding-top:7px"><img src="<?php echo base_url() . 'assets/files/logo/pemda_garut.png'; ?>" class="img-circle logo-desa" alt="User Image" width="30px"></span>
-	</div>
-	<span class="logo-mini logo-text" style="padding-top:7px"><img src="<?php echo base_url() . 'assets/files/logo/sisiteras-biru.png'; ?>" class="img-logo" style="height:40px; width:100px" alt="User Image" width="30px"></span> <a href="https://desagarut.net" target="_blank"></a> <br/>Sistem Informasi Partisipasi Masyarakat Dalam Menentukan Prioritas Rencana Pembangunan <strong><a href="https://kecamatancaringin.id" target="_blank"> Kecamatan Caringin </a><a href="https://garutkab.go.id" target="_blank">Kabupaten Garut</a>.</strong>
-</footer>
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2022 <a href="#">Jebred</a>.</strong>  <?= AmbilVersi() ?>.
+  </footer>
 
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url() ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>

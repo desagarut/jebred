@@ -27,8 +27,8 @@
 <!-- Jquery UI -->
 <link rel="stylesheet" href="<?= base_url()?>assets/bootstrap/css/jquery-ui.min.css">
 
-<?php if (is_file(LOKASI_LOGO_INSTANSI ."favicon.ico")): ?>
-<link rel="shortcut icon" href="<?= base_url()?><?=LOKASI_LOGO_INSTANSI?>favicon.ico" />
+<?php if (is_file(LOKASI_LOGO ."favicon.ico")): ?>
+<link rel="shortcut icon" href="<?= base_url()?><?=LOKASI_LOGO?>favicon.ico" />
 <?php else: ?>
 <link rel="shortcut icon" href="<?= base_url()?>favicon.ico" />
 <?php endif; ?>

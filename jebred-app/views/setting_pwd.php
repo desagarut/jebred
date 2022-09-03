@@ -17,8 +17,8 @@
 	<?php if (is_file("instansi/css/insidega.css")): ?>
 		<link type='text/css' href="<?= base_url()?>instansi/css/insidega.css" rel='Stylesheet' />
 	<?php endif; ?>
-	<?php if (is_file(LOKASI_LOGO_INSTANSI ."favicon.ico")): ?>
-		<link rel="shortcut icon" href="<?= base_url()?><?=LOKASI_LOGO_INSTANSI?>favicon.ico" />
+	<?php if (is_file(LOKASI_LOGO ."favicon.ico")): ?>
+		<link rel="shortcut icon" href="<?= base_url()?><?=LOKASI_LOGO?>favicon.ico" />
 	<?php else: ?>
 		<link rel="shortcut icon" href="<?= base_url()?>favicon.ico" />
 	<?php endif; ?>

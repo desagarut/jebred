@@ -48,7 +48,7 @@
 		</button>
 		<div id="collapse2" class="panel-collapse collapse">
 			<br>
-			<?php if (is_file(FCPATH . LOKASI_LOGO_INSTANSI . $desa['kantor_kecamatan'])): ?>
+			<?php if (is_file(FCPATH . LOKASI_LOGO . $desa['kantor_kecamatan'])): ?>
 				<img class="img-responsive" src="<?=logo_web($desa['kantor_kecamatan'], TRUE)?>" alt="Kantor Desa">
 				<hr>
 			<?php endif; ?>

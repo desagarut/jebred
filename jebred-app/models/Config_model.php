@@ -31,8 +31,8 @@ class Config_model extends CI_Model {
 			// Ada logo yang berhasil diunggah --> simpan ukuran 100 x 100
 			$tipe_file = TipeFile($_FILES['logo']);
 			$dimensi = array("width"=>100, "height"=>100);
-			resizeImage(LOKASI_LOGO_INSTANSI.$data['logo'], $tipe_file, $dimensi);
-			resizeImage(LOKASI_LOGO_INSTANSI.$data['logo'], $tipe_file, array("width"=>16, "height"=>16), LOKASI_LOGO_INSTANSI.'favicon.ico');
+			resizeImage(LOKASI_LOGO.$data['logo'], $tipe_file, $dimensi);
+			resizeImage(LOKASI_LOGO.$data['logo'], $tipe_file, array("width"=>16, "height"=>16), LOKASI_LOGO.'favicon.ico');
 		}
 		else
 		{
@@ -94,10 +94,10 @@ class Config_model extends CI_Model {
 			// Ada logo yang berhasil diunggah --> simpan ukuran 100 x 100
 			$tipe_file = TipeFile($_FILES['logo']);
 			$dimensi = array("width"=>100, "height"=>100);
-			resizeImage(LOKASI_LOGO_INSTANSI.$data['logo'], $tipe_file, $dimensi);
-			resizeImage(LOKASI_LOGO_INSTANSI.$data['logo'], $tipe_file, array("width"=>16, "height"=>16), LOKASI_LOGO_INSTANSI.'favicon.ico');
+			resizeImage(LOKASI_LOGO.$data['logo'], $tipe_file, $dimensi);
+			resizeImage(LOKASI_LOGO.$data['logo'], $tipe_file, array("width"=>16, "height"=>16), LOKASI_LOGO.'favicon.ico');
 			// Hapus berkas logo lama
-		  if (!empty($data['old_logo'])) unlink(LOKASI_LOGO_INSTANSI.$data['old_logo']);
+		  if (!empty($data['old_logo'])) unlink(LOKASI_LOGO.$data['old_logo']);
 		}
 		else
 		{
@@ -129,7 +129,7 @@ class Config_model extends CI_Model {
 	{
 		$this->load->library('upload');
 		$this->uploadConfig = array(
-			'upload_path' => LOKASI_LOGO_INSTANSI,
+			'upload_path' => LOKASI_LOGO,
 			'allowed_types' => 'gif|jpg|jpeg|png',
 			'max_size' => max_upload() * 1024,
 		);

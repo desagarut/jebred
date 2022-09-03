@@ -161,6 +161,7 @@
 	{
 		$sql = "SELECT kategori FROM kategori WHERE id = ?";
 		$query = $this->db->query($sql, $cat);
+
 		return $query->row_array();
 	}
 
