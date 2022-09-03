@@ -33,6 +33,7 @@
                         <?= $article['kategori'] ?>
                         </small><br/>
                         <button onClick="trailer();" class="button btn btn-sm btn-success">TRAILER</button>
+                        <button onClick="movies();" class="button btn btn-sm btn-primay">TRAILER</button>
 					</span>
                 </div>
                 

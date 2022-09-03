@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');?>
 
     <!-- Slider Kecil Start -->
-    <div class="container-sm py-4">
+    <div class="container-sm py-4"  style="background-color:#333">
         <div class="container">
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
                 
@@ -14,8 +14,9 @@
                         <div class="text-left">
                             <h5 class="mb-0" style="padding-top:100px; color:#FFF; text-shadow: 4px 4px 4px #081828; -webkit-text-stroke: 0.25px #081828;"><?= $gambar['judul'] ?></h5>
                             <span><?= $gambar['kategori'] ?></span>
-                            <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Movie"><button class="button btn btn-sm btn-success">TRAILER</button></a>
+                            <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Railer"><button class="button btn btn-sm btn-success">TRAILER</button></a>
                             <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Movie"><button class="button btn btn-sm btn-primary">MOVIE</button></a>
+                        <button onClick="trailer();" class="button btn btn-sm btn-success">TRAILER</button>                            
                         </div>
                     </div>
                 </div>
