@@ -14,7 +14,7 @@
                         <div class="text-left">
                             <h5 class="mb-0" style="padding-top:100px; color:#FFF; text-shadow: 4px 4px 4px #081828; -webkit-text-stroke: 0.25px #081828;"><?= $gambar['judul'] ?></h5>
                             <span><?= $gambar['kategori'] ?></span>
-                            <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Railer"><button class="button btn btn-sm btn-success">TRAILER</button></a>
+                            <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Trailer"><button class="button btn btn-sm btn-success">TRAILER</button></a>
                             <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Movie"><button class="button btn btn-sm btn-primary">MOVIE</button></a>
                         <button onClick="trailer();" class="button btn btn-sm btn-success">TRAILER</button>                            
                         </div>
