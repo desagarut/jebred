@@ -78,7 +78,7 @@
                   </select>
                 </div>
                 <div class="col-sm-9">
-                  <div class="input-group input-group float-right" col-md-4">
+                  <div class="input-group input-group float-right col-md-4">
                     <input name="cari" id="cari" class="form-control  float-right" placeholder="Cari..." type="text" value="<?= html_escape($cari) ?>" onkeypress="if (event.keyCode == 13):$('#'+'mainform').attr('action', '<?= site_url('web/filter/cari/$cat') ?>');$('#'+'mainform').submit();endif">
                     <div class="input-group-append">
                       <button type="submit" class="btn btn-default" onclick="$('#'+'mainform').attr('action', '<?= site_url("web/filter/cari/$cat") ?>');$('#'+'mainform').submit();"> <i class="fas fa-search"></i> </button>
@@ -124,7 +124,7 @@
                 </thead>
                 <tbody>
                   <?php foreach ($main as $data) : ?>
-                  <tr>
+                  <tr data-widget="expandable-table" aria-expanded="false">
                     <td class="padat"><input type="checkbox" name="id_cb[]" value="<?= $data['id'] ?>" <?php $data['boleh_ubah'] or print('disabled') ?> /></td>
                     <td class="padat"><?= $data['no'] ?></td>
                     <td nowrap><?php if ($data['boleh_ubah']) : ?>
@@ -146,7 +146,11 @@
                       <a href="<?= site_url('artikel/' . buat_slug($data)); ?>" target="_blank" class="btn bg-green btn-box btn-sm" title="Lihat Artikel"><i class="fa fa-eye"></i></a></td>
                     <td><?= $data['judul'] ?></td>
                     <td><?= $data['tahun'] ?></td>
-                    <td><?= $data['negara'] ?></td>
+                    <td><?= $data['negara1'] ?>
+                      ,<br/>
+                      <?= $data['negara2'] ?>
+                      ,<br/>
+                      <?= $data['negara3'] ?></td>
                     <td><?= $data['genre1'] ?>
                       ,<br/>
                       <?= $data['genre2'] ?>
@@ -156,6 +160,16 @@
                     <td nowrap><?= hit($data['hit']) ?></td>
                     <td nowrap><?= tgl_indo2($data['tgl_upload']) ?></td>
                   </tr>
+                  <tr class="expandable-body">
+                      <td colspan="10">
+                        <p>
+                          Link FEMBED <?= $data['link_fembed'] ?><br/>
+                      <br/>
+                          Link FEMBED <?= $data['link_fembed'] ?><br/>
+                      </p>
+
+                      </td>
+                    </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>

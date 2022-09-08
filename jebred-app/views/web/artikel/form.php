@@ -96,11 +96,11 @@
                       <div class="form-group col-sm-4">
                         <label class="control-label" for="negara2">Negara 2</label>
                         <select class="form-control input-sm" name="negara2">
-                                        <option value="">Pilih Negara 2</option>
-                                        <?php foreach ($negara2 as $data): ?>
-                                            <option value="<?= $data['nama']?>" <?php selected($artikel['negara2'], $data['nama']); ?>><?= $data['nama']?></option>
-                                        <?php endforeach;?>
-                                    </select>
+                            <option value="">Pilih Negara 2</option>
+                            <?php foreach ($negara2 as $data): ?>
+                                <option value="<?= $data['nama']?>" <?php selected($artikel['negara2'], $data['nama']); ?>><?= $data['nama']?></option>
+                            <?php endforeach;?>
+                        </select>
                         </div>
                         </div>
                         <div class="row">
