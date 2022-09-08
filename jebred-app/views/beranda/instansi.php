@@ -12,14 +12,11 @@
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?= site_url() ?>beranda">Beranda</a></li>
 
-            <li class="breadcrumb-item active"><a href="#!">SISITERAS</a></li>
+            <li class="breadcrumb-item active"><a href="#!">Web</a></li>
           </ol>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
 

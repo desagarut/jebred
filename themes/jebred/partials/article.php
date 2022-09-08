@@ -1,18 +1,24 @@
 <?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
+
 <?php $article = $single_artikel ?>
 
 <div class="container-xxl py-5">
   <div class="container">
   
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-9 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
                     <?php if($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'kecil_'.$article['gambar'])) : ?>
-                        <img class="img-fluid" src="<?= AmbilFotoArtikel($article['gambar'],'kecil') ?>" alt="<?= $article['judul'] ?>" alt="">
+                        <!--<img class="img-fluid" src="<?= AmbilFotoArtikel($article['gambar'],'kecil') ?>" alt="<?= $article['judul'] ?>" alt="">-->
+                        <iframe width="695" height="391" src="https://www.youtube.com/embed/jYEejdu4osM" title="The Assistant - Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!--<iframe style="width: 100%; height: 100%" src="https://layarkacaxxi.icu/v/j80gzbdrkjwk7wd" title="Expose SIDeSCi oleh Camat Cisompet" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 					  <?php endif ?>
+                      
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <h6 class="section-title bg-white text-start text-danger pe-3">Artikel</h6>
                         <h1 class="display-6 mb-4"><span class="text-primary"><?= $article['judul'] ?></span></h1>
@@ -38,108 +44,6 @@
                 </div>
             </div>    
             
-<!--            
-            <div class="col-lg-8 entries">
-      <article class="entry entry-single" data-aos="fade-up">
-        <div class="entry-img">
-          <?php if($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'])) : ?>
-          <img src="<?= AmbilFotoArtikel($article['gambar'],'sedang') ?>" alt="<?= $article['judul'] ?>" class="img-fluid">
-          <?php endif ?>
-        </div>
-        <h2 class="entry-title"> <a href="#">
-          <?= $article['judul'] ?>
-          </a> </h2>
-        <div class="entry-meta">
-          <ul>
-            <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">
-              <?= $article['owner'] ?>
-              </a></li>
-            <li class="d-flex align-items-center"> <i class="icofont-wall-clock"></i> <a href="#">
-              <time datetime="2020-01-01">
-                <?= tgl_indo($article['tgl_upload']) ?>
-              </time>
-              </a> </li>
-            <?php if($article['kategori']) : ?>
-            <li class="d-flex align-items-center"> <i class="icofont-folder"></i> <a href="<?= site_url('first/kategori/'.$article['kat_slug']) ?>">
-              <?= $article['kategori'] ?>
-              </a> </li>
-            <?php endif ?>
-            <li class="d-flex align-items-center"><i class="icofont-eye"></i> <a href="#">
-              <?= hit($article['hit']) ?>
-              </a></li>
-          </ul>
-        </div>
-        <div class="entry-content">
-          <p>
-            <?= $article['isi'] ?>
-            <?php for($i = 1; $i <= 3; $i++) : ?>
-            <?php if($article['gambar'.$i] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'.$i])) : ?>
-            <img src="<?= AmbilFotoArtikel($article['gambar'.$i],'sedang') ?>" alt="<?= $article['nama'] ?>" title="<?= $article['nama'] ?>" class="img-fluid" width="100%" style="padding:10px 10px 10px 10px">
-            <?php endif ?>
-            <?php endfor ?>
-            <?php if($article['dokumen']) : ?>
-          <div class="content__attachment --mt-4"> <strong>Dokumen Lampiran</strong> <a href="<?= base_url(LOKASI_DOKUMEN.$article['dokumen']) ?>" class="content__attachment__link"> <i class="fa fa-cloud-download content__attachment__icon"></i> <span>
-            <?= $article['link_dokumen'] ?>
-            </span> </a> </div>
-          <?php endif ?>
-          </p>
-        </div>
-        <div class="entry-footer clearfix">
-          <div class="float-left"> <i class="icofont-folder"></i>
-            <ul class="cats">
-              <li><a href="<?= site_url('first/kategori/'.$article['kat_slug']) ?>">
-                <?= $article['kategori'] ?>
-                </a></li>
-            </ul>
-            <!--<i class="icofont-tags"></i>
-              <ul class="tags">
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Tips</a></li>
-                <li><a href="#">Marketing</a></li>
-              </ul>--> 
-<!--          </div>
-          <div class="float-right share"> <a href="http://twitter.com/share?url=<?= site_url('artikel/'.buat_slug($article)) ?>" title="Share on Twitter"><i class="icofont-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=<?= site_url('artikel/'.buat_slug($article))?>" title="Share on Facebook"><i class="icofont-facebook"></i></a> <a href="https://telegram.me/share/url?url=<?= site_url('artikel/'.buat_slug($article))?>&text=<?= $article["judul"]; ?>" title="Share on Telegram"><i class="icofont-telegram"></i></a> <a href="https://api.whatsapp.com/send?text=<?= site_url('artikel/'.buat_slug($article))?>" title="Share on Whatsapp"><i class="icofont-whatsapp"></i></a> </div>
-        </div>
-      </article>
-    </div>
-    -->
-    
-  </div>
-</div>
-<!-- End blog entry --> 
-
-<!--
-<?php $article = $single_artikel ?>
-<h2 class="content__heading"><?= $article['judul'] ?></h2>
-<div class="content__meta">
-	<span class="content__meta__item"><i class="fa fa-calendar content__meta__icon"></i> <?= tgl_indo($article['tgl_upload']) ?></span>
-	<span class="content__meta__item"><i class="fa fa-user content__meta__icon"></i> <?= $article['owner'] ?></span>
-	<?php if($article['kategori']) : ?>
-		<span class="content__meta__item"><i class="fa fa-tag content__meta__icon"></i> <a href="<?= site_url('first/kategori/'.$article['kat_slug']) ?>" class="content__link"><?= $article['kategori'] ?></a></span>
-	<?php endif ?>
-	<span class="content__meta__item"><i class="fa fa-bookmark content__meta__icon"></i> Dibaca <?= hit($article['hit']) ?></span>
-</div>
-<hr class="--mt-2 --mb-2">
-<?php if($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'])) : ?>
-	<img src="<?= AmbilFotoArtikel($article['gambar'],'sedang') ?>" alt="<?= $article['judul'] ?>" class="content__image --mb-4">
-<?php endif ?>
-<article class="content__article">
-	<?= $article['isi'] ?>
-	<?php for($i = 1; $i <= 3; $i++) : ?>
-		<?php if($article['gambar'.$i] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'.$i])) : ?>
-			<img src="<?= AmbilFotoArtikel($article['gambar'.$i],'sedang') ?>" alt="<?= $article['nama'] ?>" title="<?= $article['nama'] ?>" class="content__image">
-		<?php endif ?>
-	<?php endfor ?>
-	<?php if($article['dokumen']) : ?>
-		<div class="content__attachment --mt-4">
-			<strong>Dokumen Lampiran</strong>
-			<a href="<?= base_url(LOKASI_DOKUMEN.$article['dokumen']) ?>" class="content__attachment__link">
-				<i class="fa fa-cloud-download content__attachment__icon"></i>
-				<span><?= $article['link_dokumen'] ?></span>
-			</a>
-		</div>
-	<?php endif ?>
-</article>
 <div class="--mb-10 --mt-10">
 	<span>Bagikan artikel ini:</span>
 	<ul class="social-media">
@@ -209,7 +113,7 @@
 			</div>
 
 			<!-- Tampilkan hanya jika 'flash_message' ada --> 
-<!--			<?php $label = !empty($_SESSION['validation_error']) ? 'alert-danger' : 'alert-success'; ?>
+			<?php $label = !empty($_SESSION['validation_error']) ? 'alert-danger' : 'alert-success'; ?>
 			<?php if ($flash_message): ?>
 				<div class="box-header alert <?= $label?> mx-2 rounded-0"><?= $flash_message?></div>
 				<?php unset($_SESSION['validation_error']); ?>
@@ -269,4 +173,4 @@
 	<?php else: ?>
 		<span class="d-block alert alert-warning px-2 py-3"><i class="fa fa-exclamation-triangle pl-1 pr-2"></i> Komentar untuk artikel ini telah ditutup.</span>
 	<?php endif; ?>
-</div>-->
+</div>

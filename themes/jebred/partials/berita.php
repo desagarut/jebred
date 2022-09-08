@@ -22,7 +22,8 @@
                 <div class="col-sm-2 project-item rounded h-100 p-2 sm-2" data-dot="">
                     <div class="position-relative mb-4">
                         <img class="img-fluid rounded" src="<?= $image ?>" alt="">
-                        <a href="<?= $image ?>" data-lightbox="project"><i class="fa fa-play fa-2x"></i></a>
+                        
+                        
                     </div>
                     <h6><?= $article['judul'] ?> <?= $article['tahun']; ?></h6>
                     <span>
@@ -33,7 +34,7 @@
                         <?= $article['kategori'] ?>
                         </small><br/>
                         <button onClick="trailer();" class="button btn btn-sm btn-success">TRAILER</button>
-                        <button onClick="movies();" class="button btn btn-sm btn-primay">TRAILER</button>
+                        <button onClick="movies();" class="button btn btn-sm btn-primary">TONTON</button>
 					</span>
                 </div>
                 
@@ -49,11 +50,11 @@
 
 <script>
 function trailer(url){
-    var x = window.open('<?='artikel/'.buat_slug($gambar); ?>','_blank');
+    var x = window.open('<?= $url ?>','_popup');
     x.focus();
 }
 function movies(url){
-    var x = window.open('http://www.dumetschool.com','_blank');
+    var x = window.open('<?= $url ?>','_blank');
     x.focus();
 }
 

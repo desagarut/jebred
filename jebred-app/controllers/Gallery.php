@@ -7,7 +7,7 @@ class Gallery extends Admin_Controller {
 		parent::__construct();
 
 		$this->load->model('web_gallery_model');
-		$this->modul_ini = 13;
+		$this->modul_ini = 2;
 		$this->sub_modul_ini = 51;
 	}
 

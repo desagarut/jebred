@@ -3,7 +3,7 @@
 	tinymce.init(
 	{
 		selector: 'textarea',
-		height: 500,
+		height: 400,
 		theme: 'silver',
 		plugins: [
 					"advlist autolink link image lists charmap print preview hr anchor pagebreak",
@@ -12,7 +12,6 @@
 		],
 		toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
 		toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor | print preview code | fontselect fontsizeselect",
-		toolbar3: "| laporan_keuangan | penerima_bantuan | sotk",
 		image_advtab: true ,
 		external_filemanager_path:"<?= base_url()?>assets/filemanager/",
 		filemanager_title:"Responsive Filemanager" ,
@@ -36,243 +35,281 @@
 		remove_script_host : false
 	});
 </script>
+
 <div class="content-wrapper">
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h5>Film :
-            <?= $kategori['kategori']; ?>
-          </h5>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= site_url() ?>beranda">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="#!">Web</a></li>
-            <li class="breadcrumb-item active"><a href="#!">Artikel</a></li>
-          </ol>
-        </div>
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h5>Film :
+          <?= $kategori['kategori']; ?>
+        </h5>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="<?= site_url() ?>beranda">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="#!">Web</a></li>
+          <li class="breadcrumb-item active"><a href="#!">Posting Film</a></li>
+        </ol>
       </div>
     </div>
   </div>
-
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-            <form id="validasi" action="<?= $form_action; ?>" method="POST" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <a href="<?=site_url("web")?>" class="btn btn-box btn-info btn-sm btn-sm " title="Tambah Artikel">
-                                    <i class="fa fa-arrow-circle-left "></i>Kembali ke Daftar Film
-                                </a>
-                                <?php if ($artikel['slug']): ?>
-                                    <a href="<?= site_url('artikel/' . buat_slug($artikel)); ?>" target="_blank" class="btn btn-box bg-green btn-sm "><i class="fa fa-eye"></i> Lihat Film</a>
-                                <?php endif; ?>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="control-label" for="judul">Judul Film</label>
-                                    <input id="judul" name="judul" class="form-control input-sm required" type="text" placeholder="Judul Artikel" minlength="3" maxlength="100" value="<?= htmlspecialchars($artikel['judul'])?>" ></input>
-                                    <span class="help-block"><code>Judul film minimal 3 karakter dan maksimal 100 karakter</code></span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="kode_desa">Sinopsis</label>
-                                    <textarea name="isi" class="form-control input-sm required" style="height:350px;">
-                                        <?=$artikel['isi']?>
-                                    </textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="card card-info collapsed-box">
-                            <div class="card-header">
-                                <h3 class="card-title">Unggah Gambar</h3>
-                                <div class="box-tools">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <?php if ($artikel['gambar']): ?>
-                                            <input type="hidden" name="old_gambar" value="<?= $artikel['gambar']?>">
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($artikel['gambar'], 'kecil')?>" alt="Gambar Utama">
-                                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar_hapus" value="<?= $artikel['gambar']?>" /> Hapus Gambar</label></p>
-                                        <?php else: ?>
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url()?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
-                                        <?php endif; ?>
-                                        <label class="control-label" for="gambar">Gambar Utama</label>
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" id="file_path">
-                                            <input type="file" class="hidden" id="file" name="gambar">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-info btn-box" id="file_browser"><i class="fa fa-search"></i> Browse</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <?php if ($artikel['gambar1']): ?>
-                                            <input type="hidden" name="old_gambar1" value="<?= $artikel['gambar1']?>">
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($artikel['gambar1'], 'kecil')?>" alt="Gambar Utama">
-                                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar1_hapus" value="<?= $artikel['gambar1']?>" /> Hapus Gambar</label></p>
-                                        <?php else: ?>
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url()?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
-                                        <?php endif; ?>
-                                        <label class="control-label" for="gambar1">Gambar Tambahan</label>
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" id="file_path1">
-                                            <input type="file" class="hidden" id="file1" name="gambar1">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-info btn-box" id="file_browser1"><i class="fa fa-search"></i> Browse</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <?php if ($artikel['gambar2']): ?>
-                                            <input type="hidden" name="old_gambar2" value="<?= $artikel['gambar2']?>">
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($artikel['gambar2'], 'kecil')?>" alt="Gambar Utama">
-                                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar2_hapus" value="<?= $artikel['gambar2']?>" /> Hapus Gambar</label></p>
-                                        <?php else: ?>
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url()?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
-                                        <?php endif; ?>
-                                        <label class="control-label" for="gambar2">Gambar Tambahan</label>
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" id="file_path2">
-                                            <input type="file" class="hidden" id="file2" name="gambar2">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-info btn-box" id="file_browser2"><i class="fa fa-search"></i> Browse</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <?php if ($artikel['gambar3']): ?>
-                                            <input type="hidden" name="old_gambar3" value="<?= $artikel['gambar3']?>">
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($artikel['gambar3'], 'kecil')?>" alt="Gambar Utama">
-                                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar3_hapus" value="<?= $artikel['gambar3']?>" /> Hapus Gambar</label></p>
-                                        <?php else: ?>
-                                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url()?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
-                                        <?php endif; ?>
-                                        <label class="control-label" for="gambar3">Gambar Tambahan</label>
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" id="file_path3">
-                                            <input type="file" class="hidden" id="file3" name="gambar3">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-info btn-box" id="file_browser3"><i class="fa fa-search"></i> Browse</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php if ($cat == 1000): ?>
-                            <input type="hidden" name="id_agenda" value="<?= $artikel['id_agenda']?>">
-                            
-                                <div class="card-header">
-                                    <h3 class="card-title">Pengaturan Agenda Desa</h3>
-                                    <div class="box-tools">
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                    </div>
-                                </div>
-                                <div class="card-body no-padding">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label class="control-label" for="tgl_agenda">Tanggal Kegiatan</label>
-                                            <div class="input-group input-group-sm date">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar-check-o"></i>
-                                                </div>
-                                                <input class="form-control input-sm pull-right tgl_jam" name="tgl_agenda" type="text" value="<?= $artikel['tgl_agenda']?>">
-                                            </div>
-                                            <span class="help-block"><code>(Isikan Tanggal Kegiatan)</code></span>
-                                            <label class="control-label" for="lokasi_kegiatan">Lokasi Kegiatan</label>
-                                            <div class="input-group input-group-sm">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-map-marker"></i>
-                                                </div>
-                                                <input class="form-control input-sm pull-right" name="lokasi_kegiatan" type="text" placeholder="Masukan lokasi tempat dilakukan kegiatan" value="<?= $artikel['lokasi_kegiatan']?>">
-                                            </div>
-                                            <span class="help-block"><code>(Isikan Lokasi Tempat Dilakukan Kegiatan)</code></span>
-                                            <label class="control-label" for="koordinator_kegiatan">Koordinator Kegiatan</label>
-                                            <div class="input-group input-group-sm">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-user"></i>
-                                                </div>
-                                                <input class="form-control input-sm pull-right" name="koordinator_kegiatan" type="text" placeholder="Masukan nama koordinator" value="<?= $artikel['koordinator_kegiatan']?>">
-                                            </div>
-                                            <span class="help-block"><code>(Isikan Koordinator Kegiatan)</code></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Pengaturan Lainnya</h3>
-                                <div class="box-tools">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                </div>
-                            </div>
-                            <div class="card-body no-padding">
-                                <div class="col-sm-12">
-                                    <?php if ($artikel['dokumen']): ?>
-                                        <div class="form-group">
-                                            <div class="mailbox-attachment-info">
-                                                <a href="<?= base_url().LOKASI_DOKUMEN.$artikel['dokumen']?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> Unduh Dokumen</a>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <div class="form-group">
-                                        <label class="control-label" for="dokumen">Dokumen Lampiran</label>
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" id="file_path4">
-                                            <input type="file" class="hidden" id="file4" name="dokumen">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-info btn-box" id="file_browser4"><i class="fa fa-search"></i> Browse</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="nama_dokumen">Nama Dokumen</label>
-                                        <input id="link_dokumen" name="link_dokumen" class="form-control input-sm" type="text" value="<?= $artikel['link_dokumen']?>"></input>
-                                        <span class="help-block"><code>(Nantinya akan menjadi link unduh/download)</code></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="tgl_upload">Tanggal Posting</label>
-                                        <div class="input-group input-group-sm date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input class="form-control input-sm pull-right tgl_jam" name="tgl_upload" type="text" value="<?= $artikel['tgl_upload']?>">
-                                        </div>
-                                        <span class="help-block"><code>(Kosongkan jika ingin langsung di post, bisa digunakan untuk artikel terjadwal)</code></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            </div>
+</div>
+<section class="content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+                <?php $this->load->view('web/artikel/menu'); ?>
         </div>
-        </card>
-    </section>
-					
-						<div class="card-body no-padding">
-							<div class='card-footer'>
-								<button type='reset' class='btn btn-box btn-danger btn-sm' ><i class='fa fa-times'></i> Batal</button>
-								<button type='submit' class='btn btn-box btn-info btn-sm pull-right'><i class='fa fa-check'></i> Simpan</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
+        <div class="col-md-9">
+            <div class="row">
+            <form id="validasi" action="<?= $form_action; ?>" method="POST" enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header"> <a href="<?=site_url("web")?>" class="btn btn-box btn-info btn-sm " title="Tambah Artikel"> <i class="fa fa-arrow-circle-left "></i> Kembali ke Daftar Film </a>
+                      <?php if ($artikel['slug']): ?>
+                      <a href="<?= site_url('artikel/' . buat_slug($artikel)); ?>" target="_blank" class="btn btn-box bg-green btn-sm "><i class="fa fa-eye"></i> Lihat Film</a>
+                      <?php endif; ?>
+                    </div>
+                    <div class="card-body">
+                      <div class="form-group">
+                        <label class="control-label" for="judul">Judul Film</label>
+                        <input id="judul" name="judul" class="form-control input-sm required" type="text" placeholder="Judul Film" minlength="3" maxlength="100" value="<?= htmlspecialchars($artikel['judul'])?>" >
+                        </input>
+                        <span class="help-block"><code>Judul film minimal 3 karakter dan maksimal 100 karakter</code></span> </div>
+                      <div class="row">
+                      <div class="form-group col-sm-4">
+                        <label class="control-label" for="tahun">Tahun</label>
+                        <input id="tahun" name="tahun" class="form-control input-sm required" type="text" placeholder="Tahun Film" minlength="3" maxlength="100" value="<?= htmlspecialchars($artikel['tahun'])?>" >
+                        </input>
+                        </div>
+                      <div class="form-group col-sm-4">
+                        <label class="control-label" for="negara1">Negara 1</label>
+                        <select class="form-control input-sm required" name="negara1">
+                            <option value="">Pilih Negara 1</option>
+                            <?php foreach ($negara1 as $data): ?>
+                                <option value="<?= $data['nama']?>" <?php selected($artikel['negara1'], $data['nama']); ?>><?= $data['nama']?></option>
+                            <?php endforeach;?>
+                        </select>
+                        </div>
+                      <div class="form-group col-sm-4">
+                        <label class="control-label" for="negara2">Negara 2</label>
+                        <select class="form-control input-sm" name="negara2">
+                                        <option value="">Pilih Negara 2</option>
+                                        <?php foreach ($negara2 as $data): ?>
+                                            <option value="<?= $data['nama']?>" <?php selected($artikel['negara2'], $data['nama']); ?>><?= $data['nama']?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                        </div>
+                        </div>
+                        <div class="row">
+                          <div class="form-group col-sm-4">
+                            <label class="control-label" for="genre1">Genre 1</label>
+                            <select class="form-control input-sm required" name="genre1">
+                                            <option value="">Pilih Genre 1</option>
+                                            <?php foreach ($genre1 as $data): ?>
+                                                <option value="<?= $data['nama']?>" <?php selected($artikel['genre1'], $data['nama']); ?>><?= $data['nama']?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                            </div>
+                          <div class="form-group col-sm-4">
+                            <label class="control-label" for="genre2">Genre 2</label>
+                            <select class="form-control input-sm required" name="genre2">
+                                <option value="">Pilih Genre 2</option>
+                                <?php foreach ($genre2 as $data): ?>
+                                    <option value="<?= $data['nama']?>" <?php selected($artikel['genre2'], $data['nama']); ?>><?= $data['nama']?></option>
+                                <?php endforeach;?>
+                            </select>
+                            </div>
+                          <div class="form-group col-sm-4">
+                            <label class="control-label" for="genre3">Genre 3</label>
+                            <select class="form-control input-sm" name="genre3">
+                                <option value="">Pilih Genre 3</option>
+                                <?php foreach ($genre2 as $data): ?>
+                                    <option value="<?= $data['nama']?>" <?php selected($artikel['genre3'], $data['nama']); ?>><?= $data['nama']?></option>
+                                <?php endforeach;?>
+                            </select>
+                            </div>
+                        </div>
+                        
+                      <div class="row">
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="link_fembed">Link FEMBED</label>
+                            <input id="link_fembed" name="link_fembed" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_fembed'])?>" >
+                            </input>
+                            </div>
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="link_p2p">Link P2P/480</label>
+                            <input id="link_p2p" name="link_p2p" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_p2p'])?>" >
+                            </input>
+                            </div>
+            
+                        </div>
+                      <div class="row">
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="link_ustream">Link USTREAM</label>
+                            <input id="link_ustream" name="link_ustream" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_ustream'])?>" >
+                            </input>
+                            </div>
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="link_gdiframe">Link GDIFRAME</label>
+                            <input id="link_gdiframe" name="link_gdiframe" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_gdiframe'])?>" >
+                            </input>
+                            </div>
+            
+                        </div>
+                        
+                      <div class="row">
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="link_hydrax">Link HYDRAX</label>
+                            <input id="link_hydrax" name="link_hydrax" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_hydrax'])?>" >
+                            </input>
+                            </div>
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="link_trailer">Link TRAILER</label>
+                            <input id="link_trailer" name="link_trailer" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_trailer'])?>" >
+                            </input>
+                            </div>
+                        </div>
+                        
+                      <div class="row">
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="durasi">Durasi</label>
+                            <input id="durasi" name="durasi" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['durasi'])?>" >
+                            </input>
+                            </div>
+                          <div class="form-group col-sm-6">
+                            <label class="control-label" for="rilis">Rilis</label>
+                            <input id="rilis" name="rilis" class="form-control input-sm" type="text" placeholder="dd-mm-yyyy" value="<?= $artikel['rilis']?>" >
+                            </input>
+                            </div>
+                       </div>
+                      <div class="row">
+                          <div class="form-group col-sm-4">
+                            <label class="control-label" for="artis1">Pemain 1</label>
+                            <input id="artis1" name="artis1" class="form-control input-sm" type="text" placeholder="" value="<?= $artikel['artis1']?>" >
+                            </input>
+                            </div>
+                          <div class="form-group col-sm-4">
+                            <label class="control-label" for="artis2">Pemain 2</label>
+                            <input id="artis2" name="artis2" class="form-control input-sm" type="text" placeholder="" value="<?= $artikel['artis2']?>" >
+                            </input>
+                            </div>
+                          <div class="form-group col-sm-4">
+                            <label class="control-label" for="artis3">Pemain 3</label>
+                            <input id="artis3" name="artis3" class="form-control input-sm" type="text" placeholder="" value="<?= $artikel['artis3']?>" >
+                            </input>
+                            </div>
+                        </div>
+                        
+                      <div class="form-group">
+                        <label class="control-label" for="kode_desa">Sinopsis</label>
+                        <textarea name="isi" class="form-control input-sm required" style="height:350px;">
+                                                    <?=$artikel['isi']?>
+                                                </textarea>
+                      </div>
+                    </div>
+                    <div class='card-footer text-right'>
+                      <button type='reset' class='btn btn-box btn-danger btn-sm' ><i class='fa fa-times'></i> Batal</button>
+                      <button type='submit' class='btn btn-box btn-info btn-sm pull-right'><i class='fa fa-check'></i> Simpan</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Cover Film</h4>
+                          <div class="card-tools"> <span title="3 New Messages" class="badge badge-primary"></span>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"> <i class="fas fa-minus"></i> </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"> <i class="fas fa-times"></i> </button>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body"> 
+                
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <?php if ($artikel['gambar']): ?>
+                              <input type="hidden" name="old_gambar" value="<?= $artikel['gambar']?>">
+                              <img class="profile-user-img img-responsive" src="<?= AmbilFotoArtikel($artikel['gambar'], 'kecil')?>" alt="Cover Film">
+                              <p class="text-center">
+                                <label class="control-label">
+                                  <input type="checkbox" name="gambar_hapus" value="<?= $artikel['gambar']?>" />
+                                  Hapus Gambar</label>
+                              </p>
+                              <?php else: ?>
+                              <img class="profile-user-img img-responsive img-circle" src="<?= base_url()?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
+                              <?php endif; ?>
+                              <label class="control-label" for="gambar">Gambar Utama</label>
+                              <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" id="file_path">
+                                <input type="file" class="hidden" id="file" name="gambar">
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-box" id="file_browser"><i class="fa fa-search"></i> Browse</button>
+                                </span> </div>
+                            </div>
+                          </div>
+                
+                
+                        </div>
+                        <div class='card-footer text-right'>
+                          <button type='reset' class='btn btn-box btn-danger btn-sm' ><i class='fa fa-times'></i> Batal</button>
+                          <button type='submit' class='btn btn-box btn-info btn-sm pull-right'><i class='fa fa-check'></i> Simpan</button>
+                        </div>
+
+                      </div>
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Pengaturan Lainnya</h4>
+                          <div class="card-tools"> <span title="3 New Messages" class="badge badge-primary"></span>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"> <i class="fas fa-minus"></i> </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"> <i class="fas fa-times"></i> </button>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body"> 
+                            <div class="col-sm-12">
+                              <?php if ($artikel['dokumen']): ?>
+                              <div class="form-group">
+                                <div class="mailbox-attachment-info"> <a href="<?= base_url().LOKASI_DOKUMEN.$artikel['dokumen']?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> Unduh Dokumen</a> </div>
+                              </div>
+                              <?php endif; ?>
+                              <div class="form-group">
+                                <label class="control-label" for="dokumen">Dokumen Lampiran</label>
+                                <div class="input-group input-group-sm">
+                                  <input type="text" class="form-control" id="file_path4">
+                                  <input type="file" class="hidden" id="file4" name="dokumen">
+                                  <span class="input-group-btn">
+                                  <button type="button" class="btn btn-info btn-box" id="file_browser4"><i class="fa fa-search"></i> Browse</button>
+                                  </span> </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="nama_dokumen">Nama Dokumen</label>
+                                <input id="link_dokumen" name="link_dokumen" class="form-control input-sm" type="text" value="<?= $artikel['link_dokumen']?>">
+                                </input>
+                                <span class="help-block"><code>(Nantinya akan menjadi link unduh/download)</code></span> </div>
+                              <div class="form-group">
+                                <label class="control-label" for="tgl_upload">Tanggal Posting</label>
+                                <div class="input-group input-group-sm date">
+                                  <div class="input-group-addon"> <i class="fa fa-calendar"></i> </div>
+                                  <input class="form-control input-sm pull-right tgl_jam" name="tgl_upload" type="text" value="<?= $artikel['tgl_upload']?>">
+                                </div>
+                                <span class="help-block"><code>(Kosongkan jika ingin langsung di post, bisa digunakan untuk artikel terjadwal)</code></span> </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+                <div class='card-footer text-right'>
+                  <button type='reset' class='btn btn-box btn-danger btn-sm' ><i class='fa fa-times'></i> Batal</button>
+                  <button type='submit' class='btn btn-box btn-info btn-sm pull-right'><i class='fa fa-check'></i> Simpan</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      
+    </div>
+</div>
+</section>
 </div>
