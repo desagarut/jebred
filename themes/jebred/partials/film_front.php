@@ -19,7 +19,17 @@
               <?php $image = ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'])) ? 
                                 AmbilFotoArtikel($article['gambar'],'sedang') : 
                                 base_url($this->theme_folder.'/'.$this->theme .'/assets/img/placeholder.png');?>
-                
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-x+s8-19-44+c7"
+     data-ad-client="ca-pub-1823410826720847"
+     data-ad-slot="9571148667"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                 <div class="col-sm-2 text-center">
                     <div>
                     <a href="<?= $url ?>">
@@ -34,6 +44,8 @@
                         <a href="<?= $url ?>"><?= $article['judul'] ?> (<?= $article['tahun']; ?>)</a>
                     </h6>
                 </div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
+     crossorigin="anonymous"></script>
                 
 			  <?php endforeach ?>
               <?php endif ?>

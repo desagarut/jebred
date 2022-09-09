@@ -6,7 +6,18 @@
 
 <div class="container-xxl py-5">
 	<div class="container">
-
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
+			crossorigin="anonymous"></script>
+		<!-- Jebred H1 -->
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="ca-pub-1823410826720847"
+			data-ad-slot="9420735733"
+			data-ad-format="auto"
+			data-full-width-responsive="true"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 		<div class="row g-5">
 			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
 				<div class="img">
@@ -23,7 +34,7 @@
 			</div>
 		</div>
 		<div class="row" style="padding-top: 20px;">
-			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="h-100">
 					<h6 class="section-title bg-white text-start text-danger pe-3">FILM <?= strtoupper($article['genre1']) ?> GRATIS</h6>
 					<h1 class="display-6 mb-4"><span class="text-primary"><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
@@ -64,11 +75,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
 		</div>
 
 
 		<div class="row g-5">
-			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
 				<h5 class="content__title" style="color: rgb(204, 204, 204);">Komentar</h5>
 				<ul class="--mt-4 content__list">
 					<?php foreach ($komentar as $comment) : ?>
