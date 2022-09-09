@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="row" style="padding-top: 20px;">
-			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="h-100">
 					<h6 class="section-title bg-white text-start text-danger pe-3">FILM <?= strtoupper($article['genre1']) ?> GRATIS</h6>
 					<h1 class="display-6 mb-4"><span class="text-primary"><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
@@ -42,19 +42,17 @@
 					<p><?= $article['isi'] ?></p>
 					<?php for ($i = 1; $i <= 3; $i++) : ?>
 						<?php if ($article['gambar' . $i] && is_file(LOKASI_FOTO_ARTIKEL . 'sedang_' . $article['gambar' . $i])) : ?>
-							<p> ggkjbkjbkj</p>
+							<p></p>
 						<?php endif ?>
 					<?php endfor ?>
 
 					<div class="d-flex align-items-center mb-4 pb-2">
 
-						<div class="col-sm-2 h-100 p-2 sm-2">
-							<div class="position-relative mb-4">
-								<img class="img-fluid border w-75 p-2 mb-4" src="<?php echo base_url() . $slider_gambar['lokasi'] . 'sedang_' . $article['gambar'] ?>" alt="">
-							</div>
+						<div >
+								<img class="img-fluid border w-75 p-2 mb-4" src="<?php echo base_url() . $slider_gambar['lokasi'] . 'sedang_' . $article['gambar'] ?>" alt="<?= $article['judul'] ?>" width="100px">
 						</div>
 
-						<div class="ps-4">
+						<div class="ps-0">
 							<h6 style="color: rgb(204, 204, 204);">Judul: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
 							<small>
 								Sutradara: <?= $article['sutradara'] ?><br />
@@ -75,13 +73,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
 		</div>
 
 
 		<div class="row g-5">
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-				<h5 class="content__title" style="color: rgb(204, 204, 204);">Komentar</h5>
+					<h6 class="section-title bg-white text-start text-danger pe-3">KOMENTAR ANDA</h6>
 				<ul class="--mt-4 content__list">
 					<?php foreach ($komentar as $comment) : ?>
 						<li class="--mt-2 --mb-2">
@@ -194,6 +191,14 @@
 						<span class="d-block alert alert-warning px-2 py-3"><i class="fa fa-exclamation-triangle pl-1 pr-2"></i> Komentar untuk film ini telah ditutup.</span>
 					<?php endif; ?>
 				</div>
+			</div>
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+				<div class="h-100">
+					<h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM SEJENIS</h6>
+					
+					<?php $this->load->view($folder_themes .'/widgets/arsip_film') ?>
+
+				</div>			
 			</div>
 		</div>
 	</div>
