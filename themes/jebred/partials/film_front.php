@@ -20,8 +20,8 @@
                                 AmbilFotoArtikel($article['gambar'],'sedang') : 
                                 base_url($this->theme_folder.'/'.$this->theme .'/assets/img/placeholder.png');?>
                 
-                <div class="col-sm-2 h-100 p-2 sm-2">
-                    <div class="position-relative mb-4">
+                <div class="col-sm-2 text-center">
+                    <div>
                     <a href="<?= $url ?>">
                         <img class="img-fluid border w-75 p-2 mb-4" src="<?= $image ?>" alt="<?= $article['judul'] ?>">
                     </a>
@@ -30,18 +30,9 @@
                             <a class="btn btn-sm btn-warning" href="<?= $url ?>">Movie</a>
                         </div>
                     </div>
-                    <h5 style="color: rgb(204, 204, 204);">
+                    <h6 style="color: rgb(204, 204, 204); padding-top: 5px;" class="text-center">
                         <a href="<?= $url ?>"><?= $article['judul'] ?> (<?= $article['tahun']; ?>)</a>
-                    </h5>
-                    <span>
-                    	<small>
-						<?= tgl_indo($article['tgl_upload']) ?><br/>
-                        Ditonton: <?= hit($article['hit']) ?><br/>
-                    	Negara: <?= $article['negara1'] ?>, <?= $article['negara2'] ?><br/>
-                    	Genre: <?= $article['genre1'] ?>, <?= $article['genre2'] ?>, <?= $article['genre3'] ?><br/>
-                        Kategori: <?= $article['kategori'] ?>
-                        </small><br/>
-					</span>
+                    </h6>
                 </div>
                 
 			  <?php endforeach ?>
