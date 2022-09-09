@@ -34,7 +34,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3">
-        <?php $this->load->view('web/artikel/menu'); ?>
+        <?php $this->load->view('web/film/menu'); ?>
       </div>
       <div class="col-md-9">
         <form id="mainform" name="mainform" action="" method="post">
@@ -143,7 +143,7 @@
                       <a href="<?= site_url("web/artikel_lock/$data[id]/1"); ?>" class="btn bg-navy btn-box btn-sm" title="Aktifkan Artikel"><i class="fa fa-lock"></i></a>
                       <?php endif ?>
                       <?php endif; ?>
-                      <a href="<?= site_url('artikel/' . buat_slug($data)); ?>" target="_blank" class="btn bg-green btn-box btn-sm" title="Lihat Artikel"><i class="fa fa-eye"></i></a></td>
+                      <a href="<?= site_url('film/' . buat_slug($data)); ?>" target="_blank" class="btn bg-green btn-box btn-sm" title="Lihat Artikel"><i class="fa fa-eye"></i></a></td>
                     <td><?= $data['judul'] ?></td>
                     <td><?= $data['tahun'] ?></td>
                     <td><?= $data['negara1'] ?>
@@ -195,7 +195,7 @@
           <h4 class='modal-title' id='myModalLabel'></i> Reset Hit</h4>
         </div>
         <div class='modal-body'>
-          <div class="form-group"> <code>Lakukan hapus hit ini jika artikel statis di menu atas website anda terkena kunjungan tak terduga, seperti robot(crawler), yang berlebihan. </code><br>
+          <div class="form-group"> <code>Lakukan hapus hit ini jika film statis di menu atas website anda terkena kunjungan tak terduga, seperti robot(crawler), yang berlebihan. </code><br>
             <br>
             <label for="hit">Reset Hit</label>
             <select class="form-control input-sm" required name="hit" width="100%">

@@ -6,11 +6,11 @@
         <div class="row">
 
           <div class="col-lg-6 entries">
-            <?php if($artikel) : ?>
-            <?php foreach($artikel as $article) : ?>
+            <?php if($film) : ?>
+            <?php foreach($film as $article) : ?>
 				
 				<?php $data['article'] = $article ?>                
-                <?php $url = site_url('artikel/'.buat_slug($article)) ?>
+                <?php $url = site_url('film/'.buat_slug($article)) ?>
                 <?php $abstract = potong_teks(strip_tags($article['isi']), 200) ?>
                 <?php $image = ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'kecil_'.$article['gambar'])) ? 
                     AmbilFotoArtikel($article['gambar'],'kecil') :

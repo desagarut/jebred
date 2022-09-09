@@ -396,14 +396,14 @@ class Database_model extends CI_Model {
 			}
 			else
 			{
-				// ambil teks dari artikel, tulis ke tabel teks_berjalan
-				// hapus artikel
+				// ambil teks dari film, tulis ke tabel teks_berjalan
+				// hapus film
 				$id_kategori = $this->db->select('id')->where('kategori', 'teks_berjalan')->limit(1)->get('kategori')->row()->id;
 				if ($id_kategori)
 				{
-					// Ambil teks dari artikel
+					// Ambil teks dari film
 					$teks = $this->db->select('a.isi, a.enabled')
-						->from('artikel a')
+						->from('film a')
 						->join('kategori k', 'a.id_kategori = k.id', 'left')
 						->where('k.kategori', 'teks_berjalan')
 						->get()->result_array();
@@ -417,8 +417,8 @@ class Database_model extends CI_Model {
 						);
 						$this->db->insert('teks_berjalan', $isi);
 					}
-					// Hapus artikel dan kategori teks berjalan
-					$this->db->where('id_kategori', $id_kategori)->delete('artikel');
+					// Hapus film dan kategori teks berjalan
+					$this->db->where('id_kategori', $id_kategori)->delete('film');
 					$this->db->where('kategori', 'teks_berjalan')->delete('kategori');
 				}
 			}
@@ -602,14 +602,14 @@ class Database_model extends CI_Model {
 			$this->dbforge->create_table($tb, false, array('ENGINE' => $this->engine));
 			$this->dbforge->add_column(
 				'agenda',
-				array('CONSTRAINT `id_artikel_fk` FOREIGN KEY (`id_artikel`) REFERENCES `artikel` (`id`) ON DELETE CASCADE ON UPDATE CASCADE')
+				array('CONSTRAINT `id_artikel_fk` FOREIGN KEY (`id_artikel`) REFERENCES `film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE')
 			);
 		}
 		// Pindahkan tgl_agenda kalau sudah sempat membuatnya
-  	if ($this->db->field_exists('tgl_agenda', 'artikel'))
+  	if ($this->db->field_exists('tgl_agenda', 'film'))
   	{
   		$data = $this->db->select('id, tgl_agenda')->where('id_kategori', AGENDA)
-  			->get('artikel')
+  			->get('film')
   			->result_array();
   		if (count($data))
   		{
@@ -620,7 +620,7 @@ class Database_model extends CI_Model {
 	  		}
 	  		$this->db->insert_batch('agenda', $artikel_agenda);
   		}
-			$this->dbforge->drop_column('artikel', 'tgl_agenda');
+			$this->dbforge->drop_column('film', 'tgl_agenda');
   	}
 		// Tambah tombol media sosial whatsapp
 		$query = "
@@ -861,7 +861,7 @@ class Database_model extends CI_Model {
 		$this->db->query($sql);
 
 		$query = $this->db->select('1')->where('key', 'web_artikel_per_page')->get('setting_aplikasi');
-		$query->result() OR	$this->db->insert('setting_aplikasi', array('key'=>'web_artikel_per_page', 'value'=>8, 'jenis'=>'int', 'keterangan'=>'Jumlah artikel dalam satu halaman', 'kategori'=>'web_theme'));
+		$query->result() OR	$this->db->insert('setting_aplikasi', array('key'=>'web_artikel_per_page', 'value'=>8, 'jenis'=>'int', 'keterangan'=>'Jumlah film dalam satu halaman', 'kategori'=>'web_theme'));
 
 		$this->db->where('id', 42)->update('setting_modul', array('url'=>'modul/clear', 'aktif'=>'1'));
 
@@ -2467,7 +2467,7 @@ class Database_model extends CI_Model {
 			$this->db->query($query);
 		}
 		// Artikel bisa di-comment atau tidak
-		if (!$this->db->field_exists('boleh_komentar', 'artikel'))
+		if (!$this->db->field_exists('boleh_komentar', 'film'))
 		{
 			$fields = array(
 				'boleh_komentar' => array(
@@ -2476,7 +2476,7 @@ class Database_model extends CI_Model {
 					'default' => 1
 				)
 			);
-			$this->dbforge->add_column('artikel', $fields);
+			$this->dbforge->add_column('film', $fields);
 		}
 	}
 
@@ -2519,21 +2519,21 @@ class Database_model extends CI_Model {
 				);
 			";
 			$this->db->query($query);
-			// Pindahkan data widget dari tabel artikel ke tabel widget
-			$widgets = $this->db->select('isi, enabled, judul, jenis_widget, urut')->where('id_kategori', 1003)->get('artikel')->result_array();
+			// Pindahkan data widget dari tabel film ke tabel widget
+			$widgets = $this->db->select('isi, enabled, judul, jenis_widget, urut')->where('id_kategori', 1003)->get('film')->result_array();
 			foreach ($widgets as $widget)
 			{
 				$this->db->insert('widget', $widget);
 			}
-			// Hapus kolom widget dari tabel artikel
+			// Hapus kolom widget dari tabel film
 			$kolom_untuk_dihapus = array("urut", "jenis_widget");
 			foreach ($kolom_untuk_dihapus as $kolom){
-				$this->dbforge->drop_column('artikel', $kolom);
+				$this->dbforge->drop_column('film', $kolom);
 			}
 		}
 		// Hapus setiap kali migrasi, karena ternyata masih ada di database contoh s/d v2.4
 		// TODO: pindahkan ini jika nanti ada kategori dengan nilai 1003.
-		$this->db->where('id_kategori',1003)->delete('artikel');
+		$this->db->where('id_kategori',1003)->delete('film');
 		// Tambah tautan ke form administrasi widget
 		if (!$this->db->field_exists('form_admin', 'widget'))
 		{
@@ -2598,11 +2598,11 @@ class Database_model extends CI_Model {
 		$this->db->where('id',3)->update('media_sosial',array('nama'=>'Google Plus'));
 		$this->db->where('id',4)->update('media_sosial',array('nama'=>'YouTube'));
 		// Tambah widget aparatur_desa
-		$widget = $this->db->select('id')->where(array('isi'=>'aparatur_desa.php', 'id_kategori'=>1003))->get('artikel')->row();
+		$widget = $this->db->select('id')->where(array('isi'=>'aparatur_desa.php', 'id_kategori'=>1003))->get('film')->row();
 		if (!$widget->id)
 		{
 			$aparatur_desa = array('judul'=>'Aparatur Desa','isi'=>'aparatur_desa.php','enabled'=>1,'id_kategori'=>1003,'urut'=>1,'jenis_widget'=>1);
-			$this->db->insert('artikel',$aparatur_desa);
+			$this->db->insert('film',$aparatur_desa);
 		}
 		// Tambah foto aparatur desa
 		if (!$this->db->field_exists('foto', 'tweb_pamong'))
@@ -2979,14 +2979,14 @@ class Database_model extends CI_Model {
 			$this->db->query($query);
 		}
 
-		if (!$this->db->field_exists('urut', 'artikel'))
+		if (!$this->db->field_exists('urut', 'film'))
 		{
-			$query = "ALTER TABLE artikel ADD urut int(5)";
+			$query = "ALTER TABLE film ADD urut int(5)";
 			$this->db->query($query);
 		}
-		if (!$this->db->field_exists('jenis_widget', 'artikel'))
+		if (!$this->db->field_exists('jenis_widget', 'film'))
 		{
-			$query = "ALTER TABLE artikel ADD jenis_widget tinyint(2) NOT NULL DEFAULT 3";
+			$query = "ALTER TABLE film ADD jenis_widget tinyint(2) NOT NULL DEFAULT 3";
 			$this->db->query($query);
 		}
 
@@ -3037,12 +3037,12 @@ class Database_model extends CI_Model {
 		{
 			$this->db->select('id');
 			$this->db->where(array('isi' => $value, 'id_kategori' => 1003));
-			$q = $this->db->get('artikel');
+			$q = $this->db->get('film');
 			$widget = $q->row_array();
 			if (!$widget['id'])
 			{
 				$query = "
-					INSERT INTO artikel (judul,isi,enabled,id_kategori,urut,jenis_widget)
+					INSERT INTO film (judul,isi,enabled,id_kategori,urut,jenis_widget)
 					VALUES ('$key','$value',1,1003,1,1);";
 				$this->db->query($query);
 			}
@@ -3658,7 +3658,7 @@ class Database_model extends CI_Model {
 			"analisis_ref_state",
 			"analisis_ref_subjek",
 			"analisis_tipe_indikator",
-			"artikel", //remove everything except widgets 1003
+			"film", //remove everything except widgets 1003
 			"gis_simbol",
 			"klasifikasi_surat",
 			"keuangan_manual_ref_rek1",
@@ -3712,9 +3712,9 @@ class Database_model extends CI_Model {
 
 		$jangan_kosongkan = array_merge($views, $table_lookup);
 
-		// Hapus semua artikel kecuali artikel widget dengan kategori 1003
+		// Hapus semua film kecuali film widget dengan kategori 1003
 		$this->db->where("id_kategori !=", "1003");
-		$query = $this->db->delete('artikel');
+		$query = $this->db->delete('film');
 		// Kosongkan semua tabel kecuali table lookup dan views
 		// Tabel yang ada foreign key akan dikosongkan secara otomatis
 		$semua_table = $this->db->list_tables();

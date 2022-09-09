@@ -15,8 +15,8 @@
 		<?php foreach ($feeds as $key): ?>
 			<item>
 				<title><?= htmlspecialchars($key->judul); ?></title>
-				<link><?= site_url("artikel/".buat_slug((array) $key)); ?></link>
-				<guid><?= site_url("artikel/".buat_slug((array) $key)); ?></guid>
+				<link><?= site_url("film/".buat_slug((array) $key)); ?></link>
+				<guid><?= site_url("film/".buat_slug((array) $key)); ?></guid>
 				<pubDate><?= date(DATE_RSS, strtotime($key->tgl_upload)); ?></pubDate>
 				<description>
 					<![CDATA[

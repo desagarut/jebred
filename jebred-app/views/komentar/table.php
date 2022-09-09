@@ -116,7 +116,7 @@
 																				<td><?= $data['no_hp'] ?></td>
 																				<td><?= $data['email'] ?></td>
 																				<td>
-																					<a href="<?= site_url("artikel/" . buat_slug($data)) ?>" target="_blank"><?= $data['artikel'] ?></a>
+																					<a href="<?= site_url("film/" . buat_slug($data)) ?>" target="_blank"><?= $data['film'] ?></a>
 																				</td>
 																				<td><?= $data['aktif'] ?></td>
 																				<td nowrap><?= tgl_indo2($data['tgl_upload']) ?></td>

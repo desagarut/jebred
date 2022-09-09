@@ -98,7 +98,7 @@
                                                                 <a href="<?= site_url("web/artikel_lock/$data[id]/1"); ?>" class="btn bg-navy btn-box btn-sm" title="Aktifkan Artikel"><i class="fa fa-lock"></i></a>
                                                             <?php endif ?>
                                                         <?php endif; ?>
-                                                        <a href="<?= site_url('artikel/'.buat_slug($data)); ?>" target="_blank" class="btn bg-green btn-box btn-sm" title="Lihat Artikel"><i class="fa fa-eye"></i></a>
+                                                        <a href="<?= site_url('film/'.buat_slug($data)); ?>" target="_blank" class="btn bg-green btn-box btn-sm" title="Lihat Artikel"><i class="fa fa-eye"></i></a>
                                                     </td>
                                                     <td><?= $data['judul']?></td>
                                                     <td nowrap><?= hit($data['hit'])?></td>

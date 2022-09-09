@@ -22,7 +22,7 @@ body{
   display: block;
 }
 
-/* Aktifkan untuk mengubah judul artikel dengan awalan huruf kapital setelah spasi */
-.artikel .judul {
+/* Aktifkan untuk mengubah judul film dengan awalan huruf kapital setelah spasi */
+.film .judul {
 	/* text-transform: capitalize; */
 }

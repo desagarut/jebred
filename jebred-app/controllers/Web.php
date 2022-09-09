@@ -53,14 +53,14 @@ class Web extends Admin_Controller {
 		$data['list_kategori'] = $this->web_artikel_model->list_kategori();
 		$data['kategori'] = $this->web_artikel_model->get_kategori($cat);
 		$data['negara1'] = $this->referensi_model->list_data('ref_negara');
-		$data['negara'] = $this->referensi_model->list_data('ref_negara');
+		$data['negara2'] = $this->referensi_model->list_data('ref_negara');
 		$data['genre'] = $this->referensi_model->list_data('ref_genre');
 		$data = $this->security->xss_clean($data);
 		$data['paging'] = $paging;
 
 		$this->sub_modul_ini = 47;
 		$this->set_minsidebar(1);
-		$this->render('web/artikel/table', $data);
+		$this->render('web/film/table', $data);
 	}
 
 	public function tab($cat = 0)
@@ -88,12 +88,12 @@ class Web extends Admin_Controller {
 			$data['genre1'] = $this->referensi_model->list_data('ref_genre');
 			$data['genre2'] = $this->referensi_model->list_data('ref_genre');
 			$data['genre3'] = $this->referensi_model->list_data('ref_genre');
-			$data['artikel'] = $cek_data;
+			$data['film'] = $cek_data;
 			$data['form_action'] = site_url("web/update/$id");
 		}
 		else
 		{
-			$data['artikel'] = NULL;
+			$data['film'] = NULL;
 			$data['negara1'] = $this->referensi_model->list_data('ref_negara');
 			$data['negara2'] = $this->referensi_model->list_data('ref_negara');
 			$data['genre1'] = $this->referensi_model->list_data('ref_genre');
@@ -108,7 +108,7 @@ class Web extends Admin_Controller {
 			$data['genre'] = $this->referensi_model->list_data('ref_genre');
 
 		$this->set_minsidebar(1);
-		$this->render('web/artikel/form', $data);
+		$this->render('web/film/form', $data);
 	}
 
 	public function filter($filter)
@@ -174,7 +174,7 @@ class Web extends Admin_Controller {
 		$data['list_kategori'] = $this->web_kategori_model->list_kategori("kategori");
 		$data['form_action'] = site_url("web/update_kategori/$id");
 		$data['kategori_sekarang'] = $this->web_artikel_model->get_kategori_artikel($id);
-		$this->load->view('web/artikel/ajax_ubah_kategori_form', $data);
+		$this->load->view('web/film/ajax_ubah_kategori_form', $data);
 	}
 
 	public function update_kategori($id = 0)
@@ -189,7 +189,7 @@ class Web extends Admin_Controller {
 
 	public function artikel_lock($id = 0, $val = 1)
 	{
-		// Kontributor tidak boleh mengubah status aktif artikel
+		// Kontributor tidak boleh mengubah status aktif film
 		$this->redirect_hak_akses('u');
 
 		$this->web_artikel_model->artikel_lock($id, $val);
@@ -198,7 +198,7 @@ class Web extends Admin_Controller {
 
 	public function komentar_lock($id = 0, $val = 1)
 	{
-		// Kontributor tidak boleh mengubah status komentar artikel
+		// Kontributor tidak boleh mengubah status komentar film
 		$this->redirect_hak_akses('u');
 
 		$this->web_artikel_model->komentar_lock($id, $val);
@@ -209,7 +209,7 @@ class Web extends Admin_Controller {
 	public function ajax_add_kategori($cat = 1, $p = 1, $o = 0)
 	{
 		$data['form_action'] = site_url("web/insert_kategori/$cat/$p/$o");
-		$this->load->view('web/artikel/ajax_add_kategori_form', $data);
+		$this->load->view('web/film/ajax_add_kategori_form', $data);
 	}
 
 	// TODO: Pindahkan ke controller kategori

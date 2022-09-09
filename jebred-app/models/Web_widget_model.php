@@ -313,14 +313,14 @@
 	public function get_widget_data(&$data)
 	{
 		$data['w_gal']  = $this->first_gallery_m->gallery_widget();
-		$data['hari_ini'] = $this->first_artikel_m->agenda_show('hari_ini');
-		$data['yad'] = $this->first_artikel_m->agenda_show('yad');
-		$data['lama'] = $this->first_artikel_m->agenda_show('lama');
-		$data['komen'] = $this->first_artikel_m->komentar_show();
-		$data['sosmed'] = $this->first_artikel_m->list_sosmed();
-		$data['arsip_terkini'] = $this->first_artikel_m->arsip_show('terkini');
-		$data['arsip_populer'] = $this->first_artikel_m->arsip_show('populer');
-		$data['arsip_acak'] = $this->first_artikel_m->arsip_show('acak');
+		$data['hari_ini'] = $this->first_film_m->agenda_show('hari_ini');
+		$data['yad'] = $this->first_film_m->agenda_show('yad');
+		$data['lama'] = $this->first_film_m->agenda_show('lama');
+		$data['komen'] = $this->first_film_m->komentar_show();
+		$data['sosmed'] = $this->first_film_m->list_sosmed();
+		$data['arsip_terkini'] = $this->first_film_m->arsip_show('terkini');
+		$data['arsip_populer'] = $this->first_film_m->arsip_show('populer');
+		$data['arsip_acak'] = $this->first_film_m->arsip_show('acak');
 		$data['sinergi_program'] = $this->get_setting('sinergi_program');
 	}
 

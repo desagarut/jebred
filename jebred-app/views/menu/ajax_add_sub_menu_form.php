@@ -27,7 +27,7 @@
 			<select id="artikel_statis" class="form-control input-sm jenis_link select2" name="<?= jecho($submenu['link_tipe'], 1, 'link'); ?>" style="<?php ($submenu['link_tipe'] != 1) and print('display:none;'); ?>">
 				<option value="">-- Pilih Artikel Statis --</option>
 				<?php foreach ($artikel_statis as $data): ?>
-					<option value="artikel/<?= $data['id']; ?>" <?= selected($submenu['link'], "artikel/$data[id]"); ?>><?=$data['judul']; ?></option>
+					<option value="film/<?= $data['id']; ?>" <?= selected($submenu['link'], "film/$data[id]"); ?>><?=$data['judul']; ?></option>
 				<?php endforeach; ?>
 			</select>
 			<select id="kategori_artikel" class="form-control input-sm jenis_link" name="<?= jecho($submenu['link_tipe'], 8, 'link'); ?>" style="<?php ($submenu['link_tipe'] != 8) and print('display:none;');; ?>">

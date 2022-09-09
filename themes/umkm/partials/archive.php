@@ -21,7 +21,7 @@
           <td><?= $data["no"]?></td>
           <td><?= mdate($data["tgl_upload"])?></td>
           <td><img src="<?= AmbilFotoArtikel($article['gambar'.$i],'sedang') ?>" alt="<?= $article['nama'] ?>" title="<?= $article['nama'] ?>" class="content__image"></td>
-          <td><a class="archive__link" href="<?= site_url('artikel/'.buat_slug($data))?>">
+          <td><a class="archive__link" href="<?= site_url('film/'.buat_slug($data))?>">
             <?= $data["judul"]?>
             </a></td>
           <td><?= $data["owner"]?></td>

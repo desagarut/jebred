@@ -1,7 +1,7 @@
 <?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <div class="stat">
-	<h2 class="judul-artikel mb-3">LAPORAN PENDUDUK</h2>
+	<h2 class="judul-film mb-3">LAPORAN PENDUDUK</h2>
 
 	<!-- Tampilkan hanya jika 'flash_message' ada -->
 	<?php $label = !empty($_SESSION['validation_error']) ? 'alert-danger' : 'alert-success'; ?>

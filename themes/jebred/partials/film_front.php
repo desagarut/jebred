@@ -3,7 +3,7 @@
     <!-- Project Start -->
 
     
-    <div class="container-xxl py-2 data-wow-delay="0.1s"">
+    <div class="container-xxl py-2" data-wow-delay="0.1s">
         <div class="container">
             <!--<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-danger px-3">Terbaru</h6>
@@ -11,30 +11,36 @@
             <div class="col-md-12 wow fadeInUp" data-wow-delay="0.1s">
             <div class="row">
             
-			  <?php if($artikel) : ?>
-              <?php foreach($artikel as $article) : ?>
+			  <?php if($film) : ?>
+              <?php foreach($film as $article) : ?>
               <?php $data['article'] = $article ?>
-              <?php $url = site_url('artikel/'.buat_slug($article)) ?>
+              <?php $url = site_url('film/'.buat_slug($article)) ?>
               <?php $abstract = potong_teks(strip_tags($article['isi']), 200) ?>
               <?php $image = ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'])) ? 
                                 AmbilFotoArtikel($article['gambar'],'sedang') : 
                                 base_url($this->theme_folder.'/'.$this->theme .'/assets/img/placeholder.png');?>
-                <div class="col-sm-2 project-item rounded h-100 p-2 sm-2" data-dot="">
+                
+                <div class="col-sm-2 h-100 p-2 sm-2">
                     <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="<?= $image ?>" alt="">
-                        
-                        
+                    <a href="<?= $url ?>">
+                        <img class="img-fluid border w-75 p-2 mb-4" src="<?= $image ?>" alt="<?= $article['judul'] ?>">
+                    </a>
+                        <div style="padding-top: -100px;">
+                            <a class="btn btn-sm btn-danger" href="<?= $url ?>">Trailer</a>
+                            <a class="btn btn-sm btn-warning" href="<?= $url ?>">Movie</a>
+                        </div>
                     </div>
-                    <h6><?= $article['judul'] ?> <?= $article['tahun']; ?></h6>
+                    <h5 style="color: rgb(204, 204, 204);">
+                        <a href="<?= $url ?>"><?= $article['judul'] ?> (<?= $article['tahun']; ?>)</a>
+                    </h5>
                     <span>
                     	<small>
 						<?= tgl_indo($article['tgl_upload']) ?><br/>
                         Ditonton: <?= hit($article['hit']) ?><br/>
-                    	<?= $article['negara'] ?><br/><?= $article['owner'] ?><br/>
-                        <?= $article['kategori'] ?>
+                    	Negara: <?= $article['negara1'] ?>, <?= $article['negara2'] ?><br/>
+                    	Genre: <?= $article['genre1'] ?>, <?= $article['genre2'] ?>, <?= $article['genre3'] ?><br/>
+                        Kategori: <?= $article['kategori'] ?>
                         </small><br/>
-                        <button onClick="trailer();" class="button btn btn-sm btn-success">TRAILER</button>
-                        <button onClick="movies();" class="button btn btn-sm btn-primary">TONTON</button>
 					</span>
                 </div>
                 
@@ -48,14 +54,3 @@
     </div>
     <!-- Project End -->
 
-<script>
-function trailer(url){
-    var x = window.open('<?= $url ?>','_popup');
-    x.focus();
-}
-function movies(url){
-    var x = window.open('<?= $url ?>','_blank');
-    x.focus();
-}
-
-</script>

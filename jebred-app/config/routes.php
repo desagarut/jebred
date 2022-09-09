@@ -9,16 +9,16 @@ $route['feed\.xml'] = "Feed/index";
 $route ['ppid'] = "Api_informasi_publik/ppid";
 
 // Artikel
-$route['artikel/(:num)'] = 'first/artikel/$1'; // Contoh : artikel/1
-$route['artikel/(:num)/(:num)/(:num)/(:any)'] = 'first/artikel/$4'; // Contoh : artikel/2020/5/15/contoh-artikel
+$route['film/(:num)'] = 'first/film/$1'; // Contoh : film/1
+$route['film/(:num)/(:num)/(:num)/(:any)'] = 'first/film/$4'; // Contoh : film/2020/5/15/contoh-film
 
 // Artikel lama (Agar url lama masih dpt di akases)
-$route['first/artikel/(:num)'] = 'first/artikel/$1'; // Contoh : Contoh : first/artikel/1
-$route['first/artikel/(:num)/(:num)/(:num)/(:any)'] = 'first/artikel/$4'; // Contoh : first/artikel/2020/5/15/contoh-artikel
+$route['first/film/(:num)'] = 'first/film/$1'; // Contoh : Contoh : first/film/1
+$route['first/film/(:num)/(:num)/(:num)/(:any)'] = 'first/film/$4'; // Contoh : first/film/2020/5/15/contoh-film
 
-// Kategori artikel
-$route['artikel/kategori/(:any)'] = 'first/kategori/$1'; // Contoh : Contoh : artikel/kategori/berita-desa
-$route['artikel/kategori/(:any)/(:num)'] = 'first/kategori/$1/$2'; // Contoh : Contoh : artikel/kategori/berita-desa/1
+// Kategori film
+$route['film/kategori/(:any)'] = 'first/kategori/$1'; // Contoh : Contoh : film/kategori/berita-desa
+$route['film/kategori/(:any)/(:num)'] = 'first/kategori/$1/$2'; // Contoh : Contoh : film/kategori/berita-desa/1
 
 
 $buku_umum = ['ekspedisi', 'lembaran_desa', 'surat_keluar', 'surat_masuk'];

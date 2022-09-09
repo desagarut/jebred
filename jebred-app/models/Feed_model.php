@@ -9,7 +9,7 @@ class Feed_model extends CI_Model
 	public function list_feeds()
 	{
 		$this->db->select('a.*, u.nama AS owner, k.kategori, k.slug AS kat_slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
-			->from('artikel a')
+			->from('film a')
 			->join('user u', 'a.id_user = u.id', 'left')
 			->join('kategori k', 'a.id_kategori = k.id', 'left')
 			->where('a.enabled', static::ENABLE)

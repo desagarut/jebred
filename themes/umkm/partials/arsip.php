@@ -7,7 +7,7 @@
         <div class="product-image"> <img src="<?= AmbilFotoArtikel($data['gambar' . $i], 'sedang') ?>" alt="#">
         </div>
         <div class="product-info">
-          <h4 class="title"> <a href="<?= site_url('artikel/' . buat_slug($data)) ?>" alt="<?= $data['judul'] ?>">
+          <h4 class="title"> <a href="<?= site_url('film/' . buat_slug($data)) ?>" alt="<?= $data['judul'] ?>">
               <?= $data['judul'] ?>
             </a> </h4>
           <time>
@@ -16,7 +16,7 @@
           | <span>
             <?= $data['owner'] ?>
           </span><br />
-          <a class="button btn btn-warning" href="<?= site_url('artikel/' . buat_slug($data)) ?>"> Baca</a>
+          <a class="button btn btn-warning" href="<?= site_url('film/' . buat_slug($data)) ?>"> Baca</a>
         </div>
       </div>
   <?php endforeach; ?>

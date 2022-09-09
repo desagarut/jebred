@@ -54,7 +54,7 @@ class Web_widget extends Admin_Controller {
 			'max' => $data['main'][count($data['main'])-1]['urut']
 		);
 
-		$this->render('web/artikel/widget', $data);
+		$this->render('web/film/widget', $data);
 	}
 
 	public function form($p = 1, $o = 0, $id = '')
@@ -75,7 +75,7 @@ class Web_widget extends Admin_Controller {
 			$data['form_action'] = site_url("web_widget/insert");
 		}
 
-		$this->render('web/artikel/widget-form', $data);
+		$this->render('web/film/widget-form', $data);
 	}
 
 	public function filter($filter)

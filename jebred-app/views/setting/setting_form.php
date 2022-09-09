@@ -69,8 +69,8 @@
 										<?php elseif ($setting->key == 'sumber_gambar_slider'): ?>
 											<div class="col-sm-12 col-md-4">
 												<select class="form-control input-sm" id="<?= $setting->key?>" name="<?= $setting->key?>">
-													<option value="1" <?php selected($setting->value, 1) ?>>Gambar utama artikel terbaru</option>
-													<option value="2" <?php selected($setting->value, 2) ?>>Gambar utama artikel terbaru yang masuk ke slider atas</option>
+													<option value="1" <?php selected($setting->value, 1) ?>>Gambar utama film terbaru</option>
+													<option value="2" <?php selected($setting->value, 2) ?>>Gambar utama film terbaru yang masuk ke slider atas</option>
 													<option value="3" <?php selected($setting->value, 3) ?>>Gambar dalam album galeri yang dimasukkan ke slider</option>
 												</select>
 											</div>

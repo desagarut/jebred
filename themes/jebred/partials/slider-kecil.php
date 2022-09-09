@@ -10,15 +10,14 @@
             <?php if(is_file($file_gambar)) : ?>
                 <div class="testimonial-item bg-light rounded p-4" style="background-image: url(<?php echo base_url().$slider_gambar['lokasi'].'sedang_'.$gambar['gambar']?>); background-size: cover; background-position: center; background-repeat: no-repeat; height: 200px; position: relative;
 ">
-                    <div class="d-flex align-items-start mb-0" >
-                        <div class="text-left">
-                            <h5 class="mb-0" style="padding-top:100px; color:#FFF; text-shadow: 4px 4px 4px #081828; -webkit-text-stroke: 0.25px #081828;"><?= $gambar['judul'] ?></h5>
-                            <span><?= $gambar['kategori'] ?></span>
-                            <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Trailer"><button class="button btn btn-sm btn-success">TRAILER</button></a>
-                            <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Movie"><button class="button btn btn-sm btn-primary">MOVIE</button></a>
-                        <button onClick="trailer();" class="button btn btn-sm btn-success">TRAILER</button>                            
+                        <div class="text-center">
+                            <p class="mb-0" style="padding-top:100px; color:#FFF; text-shadow: 4px 4px 4px #081828; -webkit-text-stroke: 0.25px #081828;"><?= $gambar['judul'] ?> (<?= $gambar['thn'] ?>)</p>
+                            <span></span>
+                            <div style="padding-top: 10px;">
+                                <a href="<?='film/'.buat_slug($gambar); ?>" title="Trailer"><button class="button btn btn-sm btn-danger">TRAILER</button></a>
+                                <a href="<?='film/'.buat_slug($gambar); ?>" title="Movie"><button class="button btn btn-sm btn-warning">MOVIE</button></a>
+                            </div>
                         </div>
-                    </div>
                 </div>
 			<?php $active = false; ?>
             <?php endif; ?>
@@ -28,4 +27,3 @@
         </div>
     </div>
     <!-- Slider Kecil End -->
-

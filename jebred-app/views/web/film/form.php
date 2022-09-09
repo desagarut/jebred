@@ -59,7 +59,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-                <?php $this->load->view('web/artikel/menu'); ?>
+                <?php $this->load->view('web/film/menu'); ?>
         </div>
         <div class="col-md-9">
             <div class="row">
@@ -68,20 +68,20 @@
                 <div class="col-md-8">
                   <div class="card">
                     <div class="card-header"> <a href="<?=site_url("web")?>" class="btn btn-box btn-info btn-sm " title="Tambah Artikel"> <i class="fa fa-arrow-circle-left "></i> Kembali ke Daftar Film </a>
-                      <?php if ($artikel['slug']): ?>
-                      <a href="<?= site_url('artikel/' . buat_slug($artikel)); ?>" target="_blank" class="btn btn-box bg-green btn-sm "><i class="fa fa-eye"></i> Lihat Film</a>
+                      <?php if ($film['slug']): ?>
+                      <a href="<?= site_url('film/' . buat_slug($film)); ?>" target="_blank" class="btn btn-box bg-green btn-sm "><i class="fa fa-eye"></i> Lihat Film</a>
                       <?php endif; ?>
                     </div>
                     <div class="card-body">
                       <div class="form-group">
                         <label class="control-label" for="judul">Judul Film</label>
-                        <input id="judul" name="judul" class="form-control input-sm required" type="text" placeholder="Judul Film" minlength="3" maxlength="100" value="<?= htmlspecialchars($artikel['judul'])?>" >
+                        <input id="judul" name="judul" class="form-control input-sm required" type="text" placeholder="Judul Film" minlength="3" maxlength="100" value="<?= htmlspecialchars($film['judul'])?>" >
                         </input>
                         <span class="help-block"><code>Judul film minimal 3 karakter dan maksimal 100 karakter</code></span> </div>
                       <div class="row">
                       <div class="form-group col-sm-4">
                         <label class="control-label" for="tahun">Tahun</label>
-                        <input id="tahun" name="tahun" class="form-control input-sm required" type="text" placeholder="Tahun Film" minlength="3" maxlength="100" value="<?= htmlspecialchars($artikel['tahun'])?>" >
+                        <input id="tahun" name="tahun" class="form-control input-sm required" type="text" placeholder="Tahun Film" minlength="3" maxlength="100" value="<?= htmlspecialchars($film['tahun'])?>" >
                         </input>
                         </div>
                       <div class="form-group col-sm-4">
@@ -89,7 +89,7 @@
                         <select class="form-control input-sm required" name="negara1">
                             <option value="">Pilih Negara 1</option>
                             <?php foreach ($negara1 as $data): ?>
-                                <option value="<?= $data['nama']?>" <?php selected($artikel['negara1'], $data['nama']); ?>><?= $data['nama']?></option>
+                                <option value="<?= $data['nama']?>" <?php selected($film['negara1'], $data['nama']); ?>><?= $data['nama']?></option>
                             <?php endforeach;?>
                         </select>
                         </div>
@@ -98,7 +98,7 @@
                         <select class="form-control input-sm" name="negara2">
                             <option value="">Pilih Negara 2</option>
                             <?php foreach ($negara2 as $data): ?>
-                                <option value="<?= $data['nama']?>" <?php selected($artikel['negara2'], $data['nama']); ?>><?= $data['nama']?></option>
+                                <option value="<?= $data['nama']?>" <?php selected($film['negara2'], $data['nama']); ?>><?= $data['nama']?></option>
                             <?php endforeach;?>
                         </select>
                         </div>
@@ -109,7 +109,7 @@
                             <select class="form-control input-sm required" name="genre1">
                                             <option value="">Pilih Genre 1</option>
                                             <?php foreach ($genre1 as $data): ?>
-                                                <option value="<?= $data['nama']?>" <?php selected($artikel['genre1'], $data['nama']); ?>><?= $data['nama']?></option>
+                                                <option value="<?= $data['nama']?>" <?php selected($film['genre1'], $data['nama']); ?>><?= $data['nama']?></option>
                                             <?php endforeach;?>
                                         </select>
                             </div>
@@ -118,7 +118,7 @@
                             <select class="form-control input-sm required" name="genre2">
                                 <option value="">Pilih Genre 2</option>
                                 <?php foreach ($genre2 as $data): ?>
-                                    <option value="<?= $data['nama']?>" <?php selected($artikel['genre2'], $data['nama']); ?>><?= $data['nama']?></option>
+                                    <option value="<?= $data['nama']?>" <?php selected($film['genre2'], $data['nama']); ?>><?= $data['nama']?></option>
                                 <?php endforeach;?>
                             </select>
                             </div>
@@ -127,7 +127,7 @@
                             <select class="form-control input-sm" name="genre3">
                                 <option value="">Pilih Genre 3</option>
                                 <?php foreach ($genre2 as $data): ?>
-                                    <option value="<?= $data['nama']?>" <?php selected($artikel['genre3'], $data['nama']); ?>><?= $data['nama']?></option>
+                                    <option value="<?= $data['nama']?>" <?php selected($film['genre3'], $data['nama']); ?>><?= $data['nama']?></option>
                                 <?php endforeach;?>
                             </select>
                             </div>
@@ -136,12 +136,12 @@
                       <div class="row">
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="link_fembed">Link FEMBED</label>
-                            <input id="link_fembed" name="link_fembed" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_fembed'])?>" >
+                            <input id="link_fembed" name="link_fembed" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_fembed'])?>" >
                             </input>
                             </div>
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="link_p2p">Link P2P/480</label>
-                            <input id="link_p2p" name="link_p2p" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_p2p'])?>" >
+                            <input id="link_p2p" name="link_p2p" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_p2p'])?>" >
                             </input>
                             </div>
             
@@ -149,12 +149,12 @@
                       <div class="row">
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="link_ustream">Link USTREAM</label>
-                            <input id="link_ustream" name="link_ustream" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_ustream'])?>" >
+                            <input id="link_ustream" name="link_ustream" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_ustream'])?>" >
                             </input>
                             </div>
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="link_gdiframe">Link GDIFRAME</label>
-                            <input id="link_gdiframe" name="link_gdiframe" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_gdiframe'])?>" >
+                            <input id="link_gdiframe" name="link_gdiframe" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_gdiframe'])?>" >
                             </input>
                             </div>
             
@@ -163,12 +163,12 @@
                       <div class="row">
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="link_hydrax">Link HYDRAX</label>
-                            <input id="link_hydrax" name="link_hydrax" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_hydrax'])?>" >
+                            <input id="link_hydrax" name="link_hydrax" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_hydrax'])?>" >
                             </input>
                             </div>
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="link_trailer">Link TRAILER</label>
-                            <input id="link_trailer" name="link_trailer" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['link_trailer'])?>" >
+                            <input id="link_trailer" name="link_trailer" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_trailer'])?>" >
                             </input>
                             </div>
                         </div>
@@ -176,29 +176,29 @@
                       <div class="row">
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="durasi">Durasi</label>
-                            <input id="durasi" name="durasi" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($artikel['durasi'])?>" >
+                            <input id="durasi" name="durasi" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['durasi'])?>" >
                             </input>
                             </div>
                           <div class="form-group col-sm-6">
                             <label class="control-label" for="rilis">Rilis</label>
-                            <input id="rilis" name="rilis" class="form-control input-sm" type="text" placeholder="dd-mm-yyyy" value="<?= $artikel['rilis']?>" >
+                            <input id="rilis" name="rilis" class="form-control input-sm" type="text" placeholder="dd-mm-yyyy" value="<?= $film['rilis']?>" >
                             </input>
                             </div>
                        </div>
                       <div class="row">
                           <div class="form-group col-sm-4">
                             <label class="control-label" for="artis1">Pemain 1</label>
-                            <input id="artis1" name="artis1" class="form-control input-sm" type="text" placeholder="" value="<?= $artikel['artis1']?>" >
+                            <input id="artis1" name="artis1" class="form-control input-sm" type="text" placeholder="" value="<?= $film['artis1']?>" >
                             </input>
                             </div>
                           <div class="form-group col-sm-4">
                             <label class="control-label" for="artis2">Pemain 2</label>
-                            <input id="artis2" name="artis2" class="form-control input-sm" type="text" placeholder="" value="<?= $artikel['artis2']?>" >
+                            <input id="artis2" name="artis2" class="form-control input-sm" type="text" placeholder="" value="<?= $film['artis2']?>" >
                             </input>
                             </div>
                           <div class="form-group col-sm-4">
                             <label class="control-label" for="artis3">Pemain 3</label>
-                            <input id="artis3" name="artis3" class="form-control input-sm" type="text" placeholder="" value="<?= $artikel['artis3']?>" >
+                            <input id="artis3" name="artis3" class="form-control input-sm" type="text" placeholder="" value="<?= $film['artis3']?>" >
                             </input>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                       <div class="form-group">
                         <label class="control-label" for="kode_desa">Sinopsis</label>
                         <textarea name="isi" class="form-control input-sm required" style="height:350px;">
-                                                    <?=$artikel['isi']?>
+                                                    <?=$film['isi']?>
                                                 </textarea>
                       </div>
                     </div>
@@ -230,12 +230,12 @@
                 
                           <div class="col-sm-12">
                             <div class="form-group">
-                              <?php if ($artikel['gambar']): ?>
-                              <input type="hidden" name="old_gambar" value="<?= $artikel['gambar']?>">
-                              <img class="profile-user-img img-responsive" src="<?= AmbilFotoArtikel($artikel['gambar'], 'kecil')?>" alt="Cover Film">
+                              <?php if ($film['gambar']): ?>
+                              <input type="hidden" name="old_gambar" value="<?= $film['gambar']?>">
+                              <img class="profile-user-img img-responsive" src="<?= AmbilFotoArtikel($film['gambar'], 'kecil')?>" alt="Cover Film">
                               <p class="text-center">
                                 <label class="control-label">
-                                  <input type="checkbox" name="gambar_hapus" value="<?= $artikel['gambar']?>" />
+                                  <input type="checkbox" name="gambar_hapus" value="<?= $film['gambar']?>" />
                                   Hapus Gambar</label>
                               </p>
                               <?php else: ?>
@@ -270,9 +270,9 @@
                         <!-- /.card-header -->
                         <div class="card-body"> 
                             <div class="col-sm-12">
-                              <?php if ($artikel['dokumen']): ?>
+                              <?php if ($film['dokumen']): ?>
                               <div class="form-group">
-                                <div class="mailbox-attachment-info"> <a href="<?= base_url().LOKASI_DOKUMEN.$artikel['dokumen']?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> Unduh Dokumen</a> </div>
+                                <div class="mailbox-attachment-info"> <a href="<?= base_url().LOKASI_DOKUMEN.$film['dokumen']?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> Unduh Dokumen</a> </div>
                               </div>
                               <?php endif; ?>
                               <div class="form-group">
@@ -286,16 +286,16 @@
                               </div>
                               <div class="form-group">
                                 <label class="control-label" for="nama_dokumen">Nama Dokumen</label>
-                                <input id="link_dokumen" name="link_dokumen" class="form-control input-sm" type="text" value="<?= $artikel['link_dokumen']?>">
+                                <input id="link_dokumen" name="link_dokumen" class="form-control input-sm" type="text" value="<?= $film['link_dokumen']?>">
                                 </input>
                                 <span class="help-block"><code>(Nantinya akan menjadi link unduh/download)</code></span> </div>
                               <div class="form-group">
                                 <label class="control-label" for="tgl_upload">Tanggal Posting</label>
                                 <div class="input-group input-group-sm date">
                                   <div class="input-group-addon"> <i class="fa fa-calendar"></i> </div>
-                                  <input class="form-control input-sm pull-right tgl_jam" name="tgl_upload" type="text" value="<?= $artikel['tgl_upload']?>">
+                                  <input class="form-control input-sm pull-right tgl_jam" name="tgl_upload" type="text" value="<?= $film['tgl_upload']?>">
                                 </div>
-                                <span class="help-block"><code>(Kosongkan jika ingin langsung di post, bisa digunakan untuk artikel terjadwal)</code></span> </div>
+                                <span class="help-block"><code>(Kosongkan jika ingin langsung di post, bisa digunakan untuk film terjadwal)</code></span> </div>
                             </div>
                           </div>
                         </div>

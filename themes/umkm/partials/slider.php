@@ -89,7 +89,7 @@
                                     <p></p>
                                     <h3><span>Now Only</span> $320.99</h3>
                                     <div class="button">
-                                        <a href="<?='artikel/'.buat_slug($gambar); ?>" class="btn">Shop Now</a>
+                                        <a href="<?='film/'.buat_slug($gambar); ?>" class="btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>

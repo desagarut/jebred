@@ -1,20 +1,20 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class First_artikel_m extends CI_Model {
+class First_film_m extends CI_Model {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('web_sosmed_model');
 		$this->load->model('shortcode_model');
-		if (!isset($_SESSION['artikel']))
-			$_SESSION['artikel'] = array();
+		if (!isset($_SESSION['film']))
+			$_SESSION['film'] = array();
 	}
 
 	public function get_headline()
 	{
 		$sql = "SELECT a.*, u.nama AS owner, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri
-			FROM artikel a
+			FROM film a
 			LEFT JOIN user u ON a.id_user = u.id
 			WHERE headline = 1 AND a.tgl_upload < NOW()
 			ORDER BY tgl_upload DESC LIMIT 1 ";
@@ -26,7 +26,7 @@ class First_artikel_m extends CI_Model {
 		{
 			$id = $data['id'];
 			//$panjang=str_split($data['isi'],800);
-			//$data['isi'] = "<label>".strip_tags($panjang[0])."...</label><a href='".site_url("artikel/$id")."'>Baca Selengkapnya</a>";
+			//$data['isi'] = "<label>".strip_tags($panjang[0])."...</label><a href='".site_url("film/$id")."'>Baca Selengkapnya</a>";
 		}
 		return $data;
 	}
@@ -120,7 +120,7 @@ class First_artikel_m extends CI_Model {
 	private function paging_artikel_sql()
 	{
 		$this->db
-			->from('artikel a')
+			->from('film a')
 			->join('user u', 'a.id_user = u.id', 'LEFT')
 			->join('kategori k', 'a.id_kategori = k.id', 'LEFT')
 			->where('a.enabled', 1)
@@ -194,7 +194,7 @@ class First_artikel_m extends CI_Model {
 		}
 
 		$this->db->limit(7);
-		$data = $this->db->get('artikel a')->result_array();
+		$data = $this->db->get('film a')->result_array();
 
 		for ($i=0; $i < count($data); $i++)
 		{
@@ -206,7 +206,7 @@ class First_artikel_m extends CI_Model {
 
 	public function paging_arsip($p=1)
 	{
-		$sql = "SELECT COUNT(a.id) AS id FROM artikel a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=1 AND a.tgl_upload < NOW()";
+		$sql = "SELECT COUNT(a.id) AS id FROM film a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=1 AND a.tgl_upload < NOW()";
 		$query = $this->db->query($sql);
 		$row = $query->row_array();
 		$jml_data = $row['id'];
@@ -223,7 +223,7 @@ class First_artikel_m extends CI_Model {
 	public function full_arsip($offset=0, $limit=50)
 	{
 		$paging_sql = ' LIMIT ' .$offset. ',' .$limit;
-		$sql = "SELECT a.*,u.nama AS owner,k.kategori, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri FROM artikel a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=?
+		$sql = "SELECT a.*,u.nama AS owner,k.kategori, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri FROM film a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=?
 			AND a.tgl_upload < NOW()
 		ORDER BY a.tgl_upload DESC";
 
@@ -240,7 +240,7 @@ class First_artikel_m extends CI_Model {
 				$tgl = date("d/m/Y",strtotime($data[$i]['tgl_upload']));
 				$data[$i]['no'] = $nomer;
 				$data[$i]['tgl'] = $tgl;
-				$data[$i]['isi'] = "<a href='".site_url("artikel/$id")."'>".$data[$i]['judul']."</a>, <i class=\"fa fa-user\"></i> ".$data[$i]['owner'];
+				$data[$i]['isi'] = "<a href='".site_url("film/$id")."'>".$data[$i]['judul']."</a>, <i class=\"fa fa-user\"></i> ".$data[$i]['owner'];
 			}
 		}
 		else
@@ -254,7 +254,7 @@ class First_artikel_m extends CI_Model {
 	{
 		$this->db
 			->select('id, judul, gambar, slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
-			->from('artikel')
+			->from('film')
 			->where('enabled', 1)
 			->where('headline', 3)
 			->where($gambar.' !=', '')
@@ -263,7 +263,7 @@ class First_artikel_m extends CI_Model {
 
 	}
 
-	// Jika $gambar_utama, hanya tampilkan gambar utama masing2 artikel terbaru
+	// Jika $gambar_utama, hanya tampilkan gambar utama masing2 film terbaru
 	public function slide_show($gambar_utama=FALSE)
 	{
 		$sql = [];
@@ -292,19 +292,19 @@ class First_artikel_m extends CI_Model {
 		switch ($sumber)
 		{
 			case '1':
-				# 10 gambar utama semua artikel terbaru
+				# 10 gambar utama semua film terbaru
 				$slider_gambar['gambar'] = $this->db
 					->select('id, judul, gambar, slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
 					->where('enabled', 1)
 					->where('gambar !=', '')
 					->where('tgl_upload < NOW()')
 					->order_by('tgl_upload DESC')
-					->limit(10)->get('artikel')->result_array();
+					->limit(10)->get('film')->result_array();
 				$slider_gambar['lokasi'] = LOKASI_FOTO_ARTIKEL;
 				break;
 
 			case '2':
-				# 10 gambar utama artikel terbaru yang masuk ke slider atas
+				# 10 gambar utama film terbaru yang masuk ke slider atas
 				$slider_gambar['gambar'] = $this->slide_show(true);
 				$slider_gambar['lokasi'] = LOKASI_FOTO_ARTIKEL;
 				break;
@@ -329,7 +329,7 @@ class First_artikel_m extends CI_Model {
 	{
 		$this->db
 			->select('a.*, g.*, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
-			->join('artikel a', 'a.id = g.id_artikel', 'LEFT')
+			->join('film a', 'a.id = g.id_artikel', 'LEFT')
 			->where('a.enabled', 1)
 			->where('a.id_kategori', '1000');
 
@@ -360,7 +360,7 @@ class First_artikel_m extends CI_Model {
 	{
 		$sql = "SELECT a.*, b.*, YEAR(b.tgl_upload) AS thn, MONTH(b.tgl_upload) AS bln, DAY(b.tgl_upload) AS hri, b.slug as slug
 			FROM komentar a
-			INNER JOIN artikel b ON a.id_artikel = b.id
+			INNER JOIN film b ON a.id_artikel = b.id
 			WHERE a.status = ? AND a.id_artikel <> 775
 			ORDER BY a.tgl_upload DESC LIMIT 10 ";
 		$query = $this->db->query($sql, 1);
@@ -373,7 +373,7 @@ class First_artikel_m extends CI_Model {
 			$pendek2 = str_split($pendek[0], 90);
 			$data[$i]['komentar_short'] = $pendek2[0]."...";
 			$panjang = str_split($data[$i]['komentar'], 50);
-			$data[$i]['komentar'] = "".$panjang[0]."...<a href='".site_url("artikel/".$data[$i]['thn']."/".$data[$i]['bln']."/".$data[$i]['hri']."/".$data[$i]['slug']." ")."'>baca selengkapnya</a>";
+			$data[$i]['komentar'] = "".$panjang[0]."...<a href='".site_url("film/".$data[$i]['thn']."/".$data[$i]['bln']."/".$data[$i]['hri']."/".$data[$i]['slug']." ")."'>baca selengkapnya</a>";
 		}
 
 		return $data;
@@ -407,7 +407,7 @@ class First_artikel_m extends CI_Model {
 	public function get_artikel($url)
 	{
 		$this->db->select('a.*, u.nama AS owner, k.kategori, k.slug AS kat_slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
-			->from('artikel a')
+			->from('film a')
 			->join('user u', 'a.id_user = u.id', 'left')
 			->join('kategori k', 'a.id_kategori = k.id', 'left')
 			->where('a.enabled', 1)
@@ -454,11 +454,11 @@ class First_artikel_m extends CI_Model {
 		return $this->paging;
 	}
 
-	// Query sama untuk paging and ambil daftar artikel menurut kategori
+	// Query sama untuk paging and ambil daftar film menurut kategori
 	private function list_artikel_sql($id)
 	{
 		$this->db
-			->from('artikel a')
+			->from('film a')
 			->join('user u', 'a.id_user = u.id', 'left')
 			->join('kategori k', 'a.id_kategori = k.id', 'left')
 			->where('a.enabled', 1)
@@ -568,20 +568,20 @@ class First_artikel_m extends CI_Model {
 		$id = $this->db->select('id')
 			->where('slug', $url)
 			->or_where('id', $url)
-			->get('artikel')
+			->get('film')
 			->row()->id;
 
 		//membatasi hit hanya satu kali dalam setiap session
-		if (in_array($id, $_SESSION['artikel']) OR $this->agent->is_robot() OR crawler() === TRUE) return;
+		if (in_array($id, $_SESSION['film']) OR $this->agent->is_robot() OR crawler() === TRUE) return;
 
 		$this->db->set('hit', 'hit + 1', false)
 			->where('id', $id)
-			->update('artikel');
-		$_SESSION['artikel'][] = $id;
+			->update('film');
+		$_SESSION['film'][] = $id;
 	}
 
 	public function get_artikel_by_id($id)
 	{
-		return $this->db->select('slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')->where(array('id' => $id))->get('artikel')->row_array();
+		return $this->db->select('slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')->where(array('id' => $id))->get('film')->row_array();
 	}
 }

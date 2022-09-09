@@ -31,7 +31,7 @@ define("LOKASI_USER_PICT", 'instansi/upload/user_pict/');
 
 define("LOKASI_GALERI", 'instansi/upload/galeri/');
 
-define("LOKASI_FOTO_ARTIKEL", 'instansi/upload/artikel/');
+define("LOKASI_FOTO_ARTIKEL", 'instansi/upload/film/');
 
 define("LOKASI_FOTO_LOKASI", 'instansi/upload/gis/lokasi/');
 
@@ -77,7 +77,7 @@ define('LAPORAN_MANDIRI', 775);
 
 
 
-// Kode artikel terkait agenda
+// Kode film terkait agenda
 
 define('AGENDA', 1000);
 

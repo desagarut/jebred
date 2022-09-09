@@ -154,7 +154,7 @@ class Release
 	/**
 	 * Ambil deskripsi rilis (github menamainya body).
 	 * Contoh return value di rilis v20.07:
-	 * 'Di rilis ini, versi 20.07, tersedia fitur untuk membuat file QR Code yg bisa dipasang di artikel,
+	 * 'Di rilis ini, versi 20.07, tersedia fitur untuk membuat file QR Code yg bisa dipasang di film,
 	 * surat atau materi lain. Rilis ini juga berisi perbaikan lain yang diminta Komunitas SID ... dst.'
 	 *
 	 * @return string

@@ -2,4 +2,4 @@
 Folder: sidega/upload/media
 *******************************
 
-Folder ini tempat menyimpan semua file media yang diunggah melalui File Manager (di form artikel).
+Folder ini tempat menyimpan semua file media yang diunggah melalui File Manager (di form film).

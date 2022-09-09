@@ -13,21 +13,21 @@ class MY_Model extends CI_Model {
 	// Konversi url menu menjadi slug tanpa mengubah data
 	public function menu_slug($url)
 	{
-		$this->load->model('first_artikel_m');
+		$this->load->model('first_film_m');
 
 		$cut = explode('/', $url);
 
 		switch ($cut[0])
 		{
-			case 'artikel':
+			case 'film':
 
-				$data = $this->first_artikel_m->get_artikel($cut[1]);
+				$data = $this->first_film_m->get_artikel($cut[1]);
 				$url = ($data) ? ($cut[0] . '/' . buat_slug($data)) : ($url);
 				break;
 
 			case 'kategori':
-				$data = $this->first_artikel_m->get_kategori($cut[1]);
-				$url = ($data) ? ('artikel/' . $cut[0] . '/' . $data['slug']) : ($url);
+				$data = $this->first_film_m->get_kategori($cut[1]);
+				$url = ($data) ? ('film/' . $cut[0] . '/' . $data['slug']) : ($url);
 				break;
 
 			case 'arsip':

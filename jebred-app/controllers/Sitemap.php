@@ -6,10 +6,10 @@ class Sitemap extends CI_Controller {
 	{
 		$query = $this->db
 			->select('a.*, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
-			->from("artikel a")
+			->from("film a")
 			->get();
 
-		$data['artikel'] = $query->result_array();
+		$data['film'] = $query->result_array();
 
 		$this->output->set_content_type('text/xml', 'UTF-8');
 		$this->load->view('sitemap', $data);

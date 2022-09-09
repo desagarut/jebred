@@ -95,7 +95,7 @@
 </style>
 <div class="card card-primary box-solid">
   <div class="card-header">
-    <h3 class="card-title"><a href="<?= site_url('artikel/kategori/1001') ?>"><i class="fa fa-bar-chart"></i> Statistik Keuangan Desa</a></h3>
+    <h3 class="card-title"><a href="<?= site_url('film/kategori/1001') ?>"><i class="fa fa-bar-chart"></i> Statistik Keuangan Desa</a></h3>
   </div>
   <div class="card-body">
     <div id="widget-keuangan-container">

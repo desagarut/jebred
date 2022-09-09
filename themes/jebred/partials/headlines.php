@@ -2,7 +2,7 @@
 
 <?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <?php $abstract = potong_teks($headline['isi'], 250); ?>
-<?php $url = site_url('artikel/'.buat_slug($headline)); ?>
+<?php $url = site_url('film/'.buat_slug($headline)); ?>
 <?php $image = ($headline['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'kecil_'.$headline['gambar'])) ? 
 	AmbilFotoArtikel($headline['gambar'],'kecil') :
 	base_url($this->theme_folder.'/'.$this->theme .'/assets/images/placeholder.png') ?>

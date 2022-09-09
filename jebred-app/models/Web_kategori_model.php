@@ -202,7 +202,7 @@ class Web_kategori_model extends CI_Model {
 	public function list_link()
 	{
 		$sql = "SELECT a.*
-			FROM artikel a
+			FROM film a
 			INNER JOIN kategori k ON a.id_kategori = k.id
 			WHERE tipe = '2'";
 

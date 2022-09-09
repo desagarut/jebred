@@ -32,7 +32,7 @@
 		for ($i=0; $i<count($data); $i++)
 		{
 			$data[$i]['no'] = $i + 1;
-			$data[$i]['tautan'] = $this->menu_slug('artikel/'.$data[$i]['tautan']);
+			$data[$i]['tautan'] = $this->menu_slug('film/'.$data[$i]['tautan']);
 		}
 
 		return $data;
@@ -43,7 +43,7 @@
 		$this->db
 			->select('t.*, a.judul, a.tgl_upload')
 			->from('teks_berjalan t')
-			->join('artikel a', 't.tautan = a.id', 'left')
+			->join('film a', 't.tautan = a.id', 'left')
 			->order_by('urut');
 	}
 

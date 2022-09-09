@@ -10,7 +10,7 @@
 	{
 		$this->db->where('id_kategori', $cat);
 
-		return $this->autocomplete_str('judul', 'artikel');
+		return $this->autocomplete_str('judul', 'film');
 	}
 
 	private function search_sql()
@@ -41,7 +41,7 @@
 
 	private function grup_sql()
 	{
-		// Kontributor hanya dapat melihat artikel yg dibuatnya sendiri
+		// Kontributor hanya dapat melihat film yg dibuatnya sendiri
 		if ($this->session->grup == 4)
 		{
 			$kf = $this->session->user;
@@ -69,17 +69,17 @@
 	private function list_data_sql($cat)
 	{
 		if ($cat > 0)
-			$sql = "FROM artikel a
+			$sql = "FROM film a
 				LEFT JOIN kategori k ON a.id_kategori = k.id
 				WHERE id_kategori = ? ";
 		elseif ($cat == -1)
-			// Semua artikel dinamis (tidak termasuk artikel statis)
-			$sql = "FROM artikel a
+			// Semua film dinamis (tidak termasuk film statis)
+			$sql = "FROM film a
 				LEFT JOIN kategori k ON a.id_kategori = k.id
 				WHERE 1 AND id_kategori NOT IN ('999', '1000', '1001')";
 		else
 			// Artikel dinamis tidak berkategori
-			$sql = "FROM artikel a
+			$sql = "FROM film a
 				LEFT JOIN kategori k ON a.id_kategori = k.id
 				WHERE a.id_kategori <> 999 AND a.id_kategori <> 1000 AND a.id_kategori <> 1001 AND k.id IS NULL ";
 		$sql .= $this->search_sql();
@@ -153,7 +153,7 @@
 	// TODO: pindahkan dan gunakan web_kategori_model
 	public function get_kategori_artikel($id)
 	{
-		return $this->db->select('id_kategori')->where('id', $id)->get('artikel')->row_array();
+		return $this->db->select('id_kategori')->where('id', $id)->get('film')->row_array();
 	}
 
 	// TODO: pindahkan dan gunakan web_kategori_model
@@ -178,7 +178,7 @@
 		// Batasi judul menggunakan teks polos
 		$data['judul'] = strip_tags($data['judul']);
 
-		// Gunakan judul untuk url artikel
+		// Gunakan judul untuk url film
 		$slug = $this->str_slug($data['judul']);
 
 		$fp = time();
@@ -197,7 +197,7 @@
 		$data['id_kategori'] = $cat;
 		$data['id_user'] = $_SESSION['user'];
 
-		// Kontributor tidak dapat mengaktifkan artikel
+		// Kontributor tidak dapat mengaktifkan film
 		if ($_SESSION['grup'] == 4)
 		{
 			$data['enabled'] = 2;
@@ -254,7 +254,7 @@
 		}
 		else
 		{
-			$outp = $this->db->insert('artikel', $data);
+			$outp = $this->db->insert('film', $data);
 		}
 		if (!$outp) $_SESSION['success'] = -1;
 	}
@@ -268,7 +268,7 @@
 		$slug_unik = $slug;
 		while ($cek_slug)
 		{
-			$cek_slug = $this->db->where('slug', $slug_unik)->get('artikel')->num_rows();
+			$cek_slug = $this->db->where('slug', $slug_unik)->get('film')->num_rows();
 			if ($cek_slug)
 			{
 				$slug_unik = $slug . '-' . $n++;
@@ -293,7 +293,7 @@
 	{
 		$agenda = $this->ambil_data_agenda($data);
 		unset($data['id_agenda']);
-		$outp = $this->db->insert('artikel', $data);
+		$outp = $this->db->insert('film', $data);
 		if ($outp)
 		{
 			$insert_id = $this->db->insert_id();
@@ -405,7 +405,7 @@
 		else
 		{
 			$this->db->where('id', $id);
-			$outp = $this->db->update('artikel', $data);
+			$outp = $this->db->update('film', $data);
 		}
 		if (!$outp) $_SESSION['success'] = -1;
 	}
@@ -415,7 +415,7 @@
 		$agenda = $this->ambil_data_agenda($data);
 		$id = $data['id_agenda'];
 		unset($data['id_agenda']);
-		$outp = $this->db->where('id', $id_artikel)->update('artikel', $data);
+		$outp = $this->db->where('id', $id_artikel)->update('film', $data);
 		if ($outp)
 		{
 			if (empty($id))
@@ -433,7 +433,7 @@
 
 	public function update_kategori($id, $id_kategori)
 	{
-		$this->db->where('id', $id)->update('artikel', ['id_kategori' => $id_kategori]);
+		$this->db->where('id', $id)->update('film', ['id_kategori' => $id_kategori]);
 	}
 
 	public function delete($id = 0, $semua = FALSE)
@@ -443,7 +443,7 @@
 		$list_gambar = $this->db
 			->select('gambar, gambar1, gambar2, gambar3')
 			->where('id', $id)
-			->get('artikel')
+			->get('film')
 			->row_array();
 
 		foreach ($list_gambar as $key => $gambar)
@@ -451,7 +451,7 @@
 			HapusArtikel($gambar);
 		}
 
-		$outp = $this->db->where('id', $id)->delete('artikel');
+		$outp = $this->db->where('id', $id)->delete('film');
 
 		status_sukses($outp, $gagal_saja = TRUE); //Tampilkan Pesan
 	}
@@ -479,14 +479,14 @@
 
 	public function artikel_lock($id = 0, $val = 1)
 	{
-		$outp = $this->db->where('id', $id)->update('artikel', ['enabled' => $val]);
+		$outp = $this->db->where('id', $id)->update('film', ['enabled' => $val]);
 
 		status_sukses($outp); //Tampilkan Pesan
 	}
 
 	public function komentar_lock($id = 0, $val = 1)
 	{
-		$outp = $this->db->where('id', $id)->update('artikel', array('boleh_komentar' => $val));
+		$outp = $this->db->where('id', $id)->update('film', array('boleh_komentar' => $val));
 
 		status_sukses($outp); //Tampilkan Pesan
 	}
@@ -496,14 +496,14 @@
 		$data = $this->db
 			->select('a.*, g.*, g.id as id_agenda, u.nama AS owner')
 			->select('YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
-			->from('artikel a')
+			->from('film a')
 			->join('user u', 'a.id_user = u.id', 'LEFT')
 			->join('agenda g', 'g.id_artikel = a.id', 'LEFT')
 			->where('a.id', $id)
 			->get()
 			->row_array();
 
-		// Jika artikel tdk ditemukan
+		// Jika film tdk ditemukan
 		if ( ! $data) return FALSE;
 
 		$data['judul'] = $this->security->xss_clean($data['judul']);
@@ -513,7 +513,7 @@
 		// Digunakan untuk timepicker
 		$tempTgl = date_create_from_format('Y-m-d H:i:s', $data['tgl_upload']);
 		$data['tgl_upload'] = $tempTgl->format('d-m-Y H:i:s');
-		// Data artikel terkait agenda
+		// Data film terkait agenda
 		if ( ! empty($data['tgl_agenda']))
 		{
 			$tempTgl = date_create_from_format('Y-m-d H:i:s', $data['tgl_agenda']);
@@ -528,7 +528,7 @@
 	public function get_headline()
 	{
 		$sql = "SELECT a.*, u.nama AS owner
-			FROM artikel a
+			FROM film a
 			LEFT JOIN user u ON a.id_user = u.id
 			WHERE headline = 1
 			ORDER BY tgl_upload DESC LIMIT 1 ";
@@ -541,7 +541,7 @@
 		{
 			$id = $data['id'];
 			$panjang = str_split($data['isi'], 300);
-			$data['isi'] = "<label>".$panjang[0]."...</label><a href='".site_url("artikel/$id")."'>Baca Selengkapnya</a>";
+			$data['isi'] = "<label>".$panjang[0]."...</label><a href='".site_url("film/$id")."'>Baca Selengkapnya</a>";
 		}
 		return $data;
 	}
@@ -566,10 +566,10 @@
 
 	public function headline($id=0)
 	{
-		$sql1 = "UPDATE artikel SET headline = 0 WHERE headline = 1";
+		$sql1 = "UPDATE film SET headline = 0 WHERE headline = 1";
 		$this->db->query($sql1);
 
-		$sql = "UPDATE artikel SET headline = 1 WHERE id = ?";
+		$sql = "UPDATE film SET headline = 1 WHERE id = ?";
 		$outp = $this->db->query($sql, $id);
 
 		status_sukses($outp); //Tampilkan Pesan
@@ -577,18 +577,18 @@
 
 	public function slide($id=0)
 	{
-		$sql = "SELECT * FROM artikel WHERE id = ?";
+		$sql = "SELECT * FROM film WHERE id = ?";
 		$query = $this->db->query($sql, $id);
 		$data = $query->row_array();
 
 		if ($data['headline'] == '3')
 		{
-			$sql = "UPDATE artikel SET headline = 0 WHERE id = ?";
+			$sql = "UPDATE film SET headline = 0 WHERE id = ?";
 			$outp = $this->db->query($sql, $id);
 		}
 		else
 		{
-			$sql = "UPDATE artikel SET headline = 3 WHERE id = ?";
+			$sql = "UPDATE film SET headline = 3 WHERE id = ?";
 			$outp = $this->db->query($sql, $id);
 		}
 
@@ -597,46 +597,46 @@
 
 	public function jml_artikel()
 	{
-		$jml = $this->db->select('count(*) as jml')->get('artikel')->row()->jml;
+		$jml = $this->db->select('count(*) as jml')->get('film')->row()->jml;
 		return $jml;
 	}
 
 	public function boleh_ubah($id, $user)
 	{
-		// Kontributor hanya boleh mengubah artikel yg ditulisnya sendiri
-		$id_user = $this->db->select('id_user')->where('id', $id)->get('artikel')->row()->id_user;
+		// Kontributor hanya boleh mengubah film yg ditulisnya sendiri
+		$id_user = $this->db->select('id_user')->where('id', $id)->get('film')->row()->id_user;
 		return ($user == $id_user OR $this->session->grup != 4);
 	}
 
 	public function reset($cat)
 	{
-		// Normalkan kembali hit artikel kategori 999 (yg ditampilkan di menu) akibat robot (crawler)
+		// Normalkan kembali hit film kategori 999 (yg ditampilkan di menu) akibat robot (crawler)
 		$persen = $this->input->post('hit');
 		$list_menu = $this->db
 			->distinct()
 			->select('link')
-			->like('link', 'artikel/')
+			->like('link', 'film/')
 			->where('enabled', 1)
 			->get('menu')
 			->result_array();
 
 		foreach ($list_menu as $list)
 		{
-			$id = str_replace('artikel/', '', $list['link']);
-			$artikel = $this->db->where('id', $id)->get('artikel')->row_array();
-			$hit = $artikel['hit'] * ($persen / 100);
-			if ($artikel)
-				$this->db->where('id', $id)->update('artikel', array('hit' => $hit));
+			$id = str_replace('film/', '', $list['link']);
+			$film = $this->db->where('id', $id)->get('film')->row_array();
+			$hit = $film['hit'] * ($persen / 100);
+			if ($film)
+				$this->db->where('id', $id)->update('film', array('hit' => $hit));
 		}
 	}
 
 	public function list_artikel_statis()
 	{
-		// '999' adalah id_kategori untuk artikel statis
+		// '999' adalah id_kategori untuk film statis
 		$data = $this->db
 			->select('id, judul')
 			->where('id_kategori', '999')
-			->get('artikel')
+			->get('film')
 			->result_array();
 
 		return $data;

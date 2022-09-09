@@ -33,11 +33,11 @@
 							</div>
 							<div class="col-sm-12">
 								<div class="form-group">
-									<label class="control-label">Tautan ke artikel</label>
+									<label class="control-label">Tautan ke film</label>
 									<select class="form-control select2 " id="tautan" name="tautan" style="width: 100%;">
 										<option value="">-- Cari Judul Artikel --</option>
-										<?php foreach ($list_artikel as $artikel): ?>
-											<option value="<?= $artikel['id']?>" <?php selected($artikel['id'], $teks['tautan']); ?>><?=tgl_indo($artikel['tgl_upload']).' | '.$artikel['judul']?></option>
+										<?php foreach ($list_artikel as $film): ?>
+											<option value="<?= $film['id']?>" <?php selected($film['id'], $teks['tautan']); ?>><?=tgl_indo($film['tgl_upload']).' | '.$film['judul']?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -45,7 +45,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="control-label">Judul tautan</label>
-									<input class="form-control input-sm required" placeholder="Judul tautan ke artikel atau url" name="judul_tautan" value="<?= $teks['judul_tautan'] ? $teks['judul_tautan'] : '-- selengkapnya...' ?>" maxlength="150"></input>
+									<input class="form-control input-sm required" placeholder="Judul tautan ke film atau url" name="judul_tautan" value="<?= $teks['judul_tautan'] ? $teks['judul_tautan'] : '-- selengkapnya...' ?>" maxlength="150"></input>
 								</div>
 							</div>
 						</div>

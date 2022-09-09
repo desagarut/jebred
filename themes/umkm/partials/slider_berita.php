@@ -18,11 +18,11 @@
                 <h2 style="color:#FFF; text-shadow: 5px 5px 5px #081828; -webkit-text-stroke: 0.25px #081828;">
                   <?= $gambar['judul'] ?>
                 </h2>
-                <div class="row"> <a class="" href="<?='artikel/'.buat_slug($gambar); ?>">
+                <div class="row"> <a class="" href="<?='film/'.buat_slug($gambar); ?>">
                   <button class="button btn btn-warning"><i class="ri-store-2-fill" style="color:#fff;"></i>
                   <?= $gambar['judul'] ?>
                   </button>
-                  </a> <a href="<?='artikel/'.buat_slug($gambar); ?>" title="Selengkapnya">
+                  </a> <a href="<?='film/'.buat_slug($gambar); ?>" title="Selengkapnya">
                   <button class="button btn btn-success"><i class="icofont-whatsapp"></i> Baca</button>
                   </a> </div>
               </div>

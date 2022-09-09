@@ -97,7 +97,7 @@
             <?php if(is_file($file_gambar)) : ?>
             
                 <div class="carousel-item">
-                <a class="archive__link" href="<?='artikel/'.buat_slug($gambar); ?>">
+                <a class="archive__link" href="<?='film/'.buat_slug($gambar); ?>">
                     <img class="w-100" src="<?php echo base_url().$slider_gambar['lokasi'].'sedang_'.$gambar['gambar']?>" alt="Image">
                     </a>
                     <div class="carousel-caption">

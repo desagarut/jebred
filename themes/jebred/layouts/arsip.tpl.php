@@ -15,7 +15,7 @@
       <h5>Arsip Artikel</h5>
       <ol>
         <li><a href="<?= site_url("first"); ?>">Beranda</a></li>
-        <li>Arsip artikel</li>
+        <li>Arsip film</li>
       </ol>
     </div>
   </div>

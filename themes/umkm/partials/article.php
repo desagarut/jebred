@@ -62,7 +62,7 @@
                   </a></li>
               </ul>
             </div>
-            <div class="float-right share"> <a href="http://twitter.com/share?url=<?= site_url('artikel/'.buat_slug($article)) ?>" title="Share on Twitter"><i class="icofont-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=<?= site_url('artikel/'.buat_slug($article))?>" title="Share on Facebook"><i class="icofont-facebook"></i></a> <a href="https://telegram.me/share/url?url=<?= site_url('artikel/'.buat_slug($article))?>&text=<?= $article["judul"]; ?>" title="Share on Telegram"><i class="icofont-telegram"></i></a> <a href="https://api.whatsapp.com/send?text=<?= site_url('artikel/'.buat_slug($article))?>" title="Share on Whatsapp"><i class="icofont-whatsapp"></i></a> </div>
+            <div class="float-right share"> <a href="http://twitter.com/share?url=<?= site_url('film/'.buat_slug($article)) ?>" title="Share on Twitter"><i class="icofont-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=<?= site_url('film/'.buat_slug($article))?>" title="Share on Facebook"><i class="icofont-facebook"></i></a> <a href="https://telegram.me/share/url?url=<?= site_url('film/'.buat_slug($article))?>&text=<?= $article["judul"]; ?>" title="Share on Telegram"><i class="icofont-telegram"></i></a> <a href="https://api.whatsapp.com/send?text=<?= site_url('film/'.buat_slug($article))?>" title="Share on Whatsapp"><i class="icofont-whatsapp"></i></a> </div>
           </div>
         </div>
       </div>
@@ -103,19 +103,19 @@
 	<?php endif ?>
 </article>
 <div class="--mb-10 --mt-10">
-	<span>Bagikan artikel ini:</span>
+	<span>Bagikan film ini:</span>
 	<ul class="social-media">
 		<li class="social-media__item social-media--facebook">
-			<a href="http://www.facebook.com/sharer.php?u=<?= site_url('artikel/'.buat_slug($article))?>" target="_blank" class="social-media__link"><i class="fa fa-facebook"></i></a>
+			<a href="http://www.facebook.com/sharer.php?u=<?= site_url('film/'.buat_slug($article))?>" target="_blank" class="social-media__link"><i class="fa fa-facebook"></i></a>
 		</li>
 		<li class="social-media__item social-media--twitter">
-			<a href="http://twitter.com/share?url=<?= site_url('artikel/'.buat_slug($article)) ?>" target="_blank" class="social-media__link"><i class="fa fa-twitter"></i></a>
+			<a href="http://twitter.com/share?url=<?= site_url('film/'.buat_slug($article)) ?>" target="_blank" class="social-media__link"><i class="fa fa-twitter"></i></a>
 		</li>
 		<li class="social-media__item social-media--telegram">
-			<a href="https://telegram.me/share/url?url=<?= site_url('artikel/'.buat_slug($article))?>&text=<?= $article["judul"]; ?>" target="_blank" class="social-media__link"><i class="fa fa-telegram"></i></a>
+			<a href="https://telegram.me/share/url?url=<?= site_url('film/'.buat_slug($article))?>&text=<?= $article["judul"]; ?>" target="_blank" class="social-media__link"><i class="fa fa-telegram"></i></a>
 		</li>
 		<li class="social-media__item social-media--whatsapp">
-			<a href="https://api.whatsapp.com/send?text=<?= site_url('artikel/'.buat_slug($article))?>" target="_blank" class="social-media__link"><i class="fa fa-whatsapp"></i></a>
+			<a href="https://api.whatsapp.com/send?text=<?= site_url('film/'.buat_slug($article))?>" target="_blank" class="social-media__link"><i class="fa fa-whatsapp"></i></a>
 		</li>
 	</ul>
 </div>
@@ -143,7 +143,7 @@
 	?>
 	<?php if(count($k) > 0) : ?>
 		<div class="py-2 pl-4 bg-light align-middle d-flex align-items-center" style="border-left: 3px solid orange">
-			<h4 class="h5 font-weight-bold m-0"><?= count($k) ?> Komentar atas artikel <?= $single_artikel["judul"]?></h4>
+			<h4 class="h5 font-weight-bold m-0"><?= count($k) ?> Komentar atas film <?= $single_artikel["judul"]?></h4>
 		</div>
 		<ul class="comment-section">
 			<?php foreach($k as $data) : ?>
@@ -229,6 +229,6 @@
 			</div>
 		</div>
 	<?php else: ?>
-		<span class="d-block alert alert-warning px-2 py-3"><i class="fa fa-exclamation-triangle pl-1 pr-2"></i> Komentar untuk artikel ini telah ditutup.</span>
+		<span class="d-block alert alert-warning px-2 py-3"><i class="fa fa-exclamation-triangle pl-1 pr-2"></i> Komentar untuk film ini telah ditutup.</span>
 	<?php endif; ?>
 </div>-->

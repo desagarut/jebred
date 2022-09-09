@@ -12,7 +12,7 @@ class Shortcode_model extends CI_Model {
    // $this->load->model('pamong_model');
   }
 
-	// Shortcode untuk isi artikel
+	// Shortcode untuk isi film
 	public function shortcode($str = '')
 	{
 		$regex = "/\[\[(.*?)\]\]/";
@@ -237,7 +237,7 @@ class Shortcode_model extends CI_Model {
 		return $res;
 	}
 
-	// Shortcode untuk list artikel
+	// Shortcode untuk list film
 	public function convert_sc_list($str = '')
 	{
 		$regex = "/\[\[(.*?)\]\]/";

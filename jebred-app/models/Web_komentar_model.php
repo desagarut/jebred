@@ -69,7 +69,7 @@
 	private function list_data_sql($kat=0)
 	{
 		$sql = "FROM komentar k
-			LEFT JOIN artikel a ON k.id_artikel = a.id
+			LEFT JOIN film a ON k.id_artikel = a.id
 			WHERE 1";
 		if ($kat != 0) {
 			$sql .= " AND id_artikel = 775 AND tipe = $kat";
@@ -102,7 +102,7 @@
 		}
 		$paging_sql = ' LIMIT ' .$offset. ',' .$limit;
 
-		$sql = "SELECT k.*, a.judul as artikel, YEAR(a.tgl_upload) AS thn, MONTH(a.tgl_upload) AS bln, DAY(a.tgl_upload) AS hri, a.slug AS slug " . $this->list_data_sql($kat);
+		$sql = "SELECT k.*, a.judul as film, YEAR(a.tgl_upload) AS thn, MONTH(a.tgl_upload) AS bln, DAY(a.tgl_upload) AS hri, a.slug AS slug " . $this->list_data_sql($kat);
 		$sql .= $order_sql;
 		$sql .= $paging_sql;
 

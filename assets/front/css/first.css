@@ -492,52 +492,52 @@ background: #333;
  * Component: Artikel List
  * ------------------------
  */
-.artikel-list {
+.film-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-.artikel-list > .item {
+.film-list > .item {
 	border-radius: 3px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 	padding: 10px 0;
 	background: #fff;
 }
-.artikel-list > .item:before,
-.artikel-list > .item:after {
+.film-list > .item:before,
+.film-list > .item:after {
 	content: " ";
 	display: table;
 }
-.artikel-list > .item:after {
+.film-list > .item:after {
 	clear: both;
 }
-.artikel-list .artikel-img {
+.film-list .film-img {
 	float: left;
 }
-.artikel-list .artikel-img img {
+.film-list .film-img img {
 	width: 240px;
 }
-.artikel-list .artikel-info {
+.film-list .film-info {
 	margin-left: 260px;
 }
-.artikel-list .artikel-title {
+.film-list .film-title {
 	font-weight: 600;
 }
-.artikel-list .artikel-description {
+.film-list .film-description {
 	display: block;
 	color: #999;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.artikel-list-in-box > .item {
+.film-list-in-box > .item {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-radius: 0;
 	border-bottom: 1px solid #f4f4f4;
 }
-.artikel-list-in-box > .item:last-of-type {
+.film-list-in-box > .item:last-of-type {
 	border-bottom-width: 0;
 }
 
@@ -764,15 +764,15 @@ table.counter tr td img{
 /*
  * Menampilkan Artikel
  * */
-.artikel{margin-top: 1em;padding:.5em 0 0 1em;}
-.artikel .judul{font-size:1.25em;color:#336699;line-height:1em;margin-bottom:.5em;}
-.artikel .kecil{font-size:.8em;color:#888;font-style:italic;font-weight:400;margin-bottom:.5em;}
-.artikel .teks{font-size:1em;}
-.artikel .sampul{margin: 1em 0; display:block;width:600px;}
-.artikel .sampul img{display:block;width:600px;padding:.5em;background:#ccc;border:solid 1px #aaa;}
-.artikel .sampul2{float:left;margin: 0.5em 1em 0.5em 0em; width:280px;}
-.artikel .sampul2 img{width:280px;padding:.3em;background:#ccc;border:solid 1px #aaa;}
-.artikel .teks img
+.film{margin-top: 1em;padding:.5em 0 0 1em;}
+.film .judul{font-size:1.25em;color:#336699;line-height:1em;margin-bottom:.5em;}
+.film .kecil{font-size:.8em;color:#888;font-style:italic;font-weight:400;margin-bottom:.5em;}
+.film .teks{font-size:1em;}
+.film .sampul{margin: 1em 0; display:block;width:600px;}
+.film .sampul img{display:block;width:600px;padding:.5em;background:#ccc;border:solid 1px #aaa;}
+.film .sampul2{float:left;margin: 0.5em 1em 0.5em 0em; width:280px;}
+.film .sampul2 img{width:280px;padding:.3em;background:#ccc;border:solid 1px #aaa;}
+.film .teks img
 {
 	margin-right: 10px; margin-bottom: 5px;
 	max-width: 100%;
@@ -781,9 +781,9 @@ table.counter tr td img{
 	border: solid 1px #aaa;
 	padding: .5em;
 }
-.artikel .teks ol{margin:0 1em;padding:0 1em;}
-.artikel .teks p{margin:0 0 1em 0;}
-.artikel .teks li {
+.film .teks ol{margin:0 1em;padding:0 1em;}
+.film .teks p{margin:0 0 1em 0;}
+.film .teks li {
 	list-style: square;
 	margin: 0;
 	margin-left: 40px;
@@ -1477,7 +1477,7 @@ blockquote p {
 	display: inline;
 }
 
-/* Form komentar artikel */
+/* Form komentar film */
 
 #form-komentar td {
 	padding-top: 5px;
@@ -1533,7 +1533,7 @@ blockquote p {
 	text-align: center;
 }
 .layanan tr.shaded td { background-color: #eee }
-.artikel.layanan .judul {
+.film.layanan .judul {
 	font-size: 1.25em;
 	background-color: #3c8dbc !important;
 	color: black;
@@ -1569,7 +1569,7 @@ blockquote p {
 	padding-right: 200px;
 }
 
-/* Widget arsip artikel */
+/* Widget arsip film */
 #arsip_artikel.active a {background-color: honeydew;}
 #arsip_artikel .tab-content {margin-top: 10px; }
 #arsip_artikel .nav > li > a {padding: 5px 8px;}
