@@ -27,8 +27,10 @@
                             <span><?= $article['tahun'] ?></span>
                         </div>
                         <div class="team-social" style="background-color: transparent;">
+                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-xl"> Modal</button>
                             <a class="btn btn-sm btn-danger" href="<?= $url ?>">Trailer</a>
                             <a class="btn btn-sm btn-warning" href="<?= $url ?>">Movie</a>
+
                         </div>
                     </div>
                 </div>
@@ -52,5 +54,26 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
      crossorigin="anonymous"></script>
 
+    </div>
+ </div>
+
+ <div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Extra Large Modal</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+        <!-- /.modal-content -->
     </div>
  </div>
