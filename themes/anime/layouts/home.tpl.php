@@ -10,7 +10,7 @@
       <?php //$this->load->view($folder_themes .'/partials/live.php') ?>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-8">
-      <?php $this->load->view($folder_themes .'/partials/side_right.php') ?>
+      <?php //$this->load->view($folder_themes .'/partials/side_right.php') ?>
     </div>
     </div>
   </div>
