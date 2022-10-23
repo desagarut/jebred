@@ -25,7 +25,7 @@ class First extends Web_Controller {
 			}
 		}
 
-		$this->load->model('anjungan_model');
+//		$this->load->model('anjungan_model');
 		$this->load->model('config_model');
 		
 		$this->load->model('first_m');
@@ -35,11 +35,11 @@ class First extends Web_Controller {
 		
 		$this->load->model('mailbox_model');
 		
-		$this->load->model('pembangunan_model');
-		$this->load->model('pembangunan_dokumentasi_model');
+//		$this->load->model('pembangunan_model');
+//		$this->load->model('pembangunan_dokumentasi_model');
 		
 		$this->load->model('referensi_model');
-		$this->load->model('track_model');
+//		$this->load->model('track_model');
 		$this->load->model('teks_berjalan_model');
 		
 		$this->load->model('web_menu_model');
@@ -101,7 +101,7 @@ class First extends Web_Controller {
 		}
 
 		$this->_get_common_data($data);
-		$this->track_model->track_desa('first');
+		//$this->track_model->track_desa('first');
 		$this->load->view($this->template, $data);
 	}
 	
@@ -149,6 +149,45 @@ class First extends Web_Controller {
 		$this->load->view($this->template, $data);
 	}
 
+	public function film_details($url)
+	{
+		if (is_numeric($url))
+		{
+			$data_artikel = $this->first_film_m->get_artikel_by_id($url);
+			if ($data_artikel)
+			{
+				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
+				redirect('film_details/'. buat_slug($data_artikel));
+			}
+		}
+		$this->load->model('shortcode_model');
+		$data = $this->includes;
+		$this->first_film_m->hit($url); // catat film diakses
+		$data['single_artikel'] = $this->first_film_m->get_artikel($url);
+		$id = $data['single_artikel']['id'];
+
+		// replace isi film dengan shortcodify
+		$data['single_artikel']['isi'] = $this->shortcode_model->shortcode($data['single_artikel']['isi']);
+		$data['title'] = ucwords($data['single_artikel']['judul']);
+		$data['detail_agenda'] = $this->first_film_m->get_agenda($id);//Agenda
+		$data['komentar'] = $this->first_film_m->list_komentar($id);
+		$this->_get_common_data($data);
+
+		// Validasi pengisian komentar di add_comment()
+		// Kalau tidak ada error atau film pertama kali ditampilkan, kosongkan data sebelumnya
+		if (empty($_SESSION['validation_error']))
+		{
+			$_SESSION['post']['owner'] = '';
+			$_SESSION['post']['email'] = '';
+			$_SESSION['post']['no_hp'] = '';
+			$_SESSION['post']['komentar'] = '';
+			$_SESSION['post']['captcha_code'] = '';
+		}
+		$this->set_template('layouts/film_details.tpl.php');
+		$this->load->view($this->template, $data);
+	}
+
+
 	public function arsip($p=1)
 	{
 		$data = $this->includes;
@@ -159,6 +198,19 @@ class First extends Web_Controller {
 		$this->_get_common_data($data);
 
 		$this->set_template('layouts/arsip.tpl.php');
+		$this->load->view($this->template, $data);
+	}
+
+	public function arsip_film($p=1)
+	{
+		$data = $this->includes;
+		$data['p'] = $p;
+		$data['paging'] = $this->first_film_m->paging_arsip($p);
+		$data['farsip'] = $this->first_film_m->full_arsip($data['paging']->offset,$data['paging']->per_page);
+
+		$this->_get_common_data($data);
+
+		$this->set_template('layouts/film_arsip.tpl.php');
 		$this->load->view($this->template, $data);
 	}
 

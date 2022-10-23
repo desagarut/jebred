@@ -31,62 +31,6 @@ class First_film_m extends CI_Model {
 		return $data;
 	}
 
-	public function get_feed()
-	{
-		$sumber_feed = 'https://www.covid19.go.id/feed/';
-		if (!cek_bisa_akses_site($sumber_feed)) return NULL;
-
-		$this->load->library('Feed_Reader');
-		$feed = new Feed_Reader($sumber_feed);
-		$items = array_slice($feed->items, 0, 5);
-		return $items;
-	}
-	
-	public function get_feed1()
-	{
-		$sumber_feed1 = 'https://www.kecamatancisompet.id/feed/';
-		if (!cek_bisa_akses_site($sumber_feed1)) return NULL;
-
-		$this->load->library('Feed_Reader');
-		$feed1 = new Feed_Reader($sumber_feed1);
-		$items1 = array_slice($feed1->items1, 0, 2);
-		return $items1;
-	}
-
-	public function get_feed2()
-	{
-		$sumber_feed2 = 'https://www.sindangsari.kecamatancisompet.id/feed/';
-		if (!cek_bisa_akses_site($sumber_feed2)) return NULL;
-
-		$this->load->library('Feed_Reader');
-		$feed2 = new Feed_Reader($sumber_feed2);
-		$items2 = array_slice($feed2->items2, 0, 5);
-		return $items2;
-	}
-	
-	public function get_feed3()
-	{
-		$sumber_feed3 = 'https://www.neglasari.kecamatancisompet.id/feed/';
-		if (!cek_bisa_akses_site($sumber_feed3)) return NULL;
-
-		$this->load->library('Feed_Reader');
-		$feed3 = new Feed_Reader($sumber_feed3);
-		$items3 = array_slice($feed3->items3, 0, 5);
-		return $items3;
-	}
-
-	public function get_feed_sthg()
-	{
-		$feed_sthg = 'https://www.sthgarut.ac.id/feed/';
-		if (!cek_bisa_akses_site($feed_sthg)) return NULL;
-
-		$this->load->library('Feed_Reader');
-		$feed_sthg = new Feed_Reader($feed_sthg);
-		$items_sthg = array_slice($feed_sthg->items_sthg, 0, 5);
-		return $items_sthg;
-	}
-
-
 	public function get_widget()
 	{
 		$sql = "SELECT * FROM widget LIMIT 1 ";
@@ -240,7 +184,7 @@ class First_film_m extends CI_Model {
 				$tgl = date("d/m/Y",strtotime($data[$i]['tgl_upload']));
 				$data[$i]['no'] = $nomer;
 				$data[$i]['tgl'] = $tgl;
-				$data[$i]['isi'] = "<a href='".site_url("film/$id")."'>".$data[$i]['judul']."</a>, <i class=\"fa fa-user\"></i> ".$data[$i]['owner'];
+				$data[$i]['isi'] = "<a href='".site_url("film_details/$id")."'>".$data[$i]['judul']."</a>, <i class=\"fa fa-user\"></i> ".$data[$i]['owner'];
 			}
 		}
 		else
