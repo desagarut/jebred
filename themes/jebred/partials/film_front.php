@@ -3,6 +3,7 @@
  <!-- Team Start -->
  <div class="container-xxl py-2">
     <div class="container">
+    <div id="SC_TBlock_876982"></div>
         <div class="text-center mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h6 class="section-title bg-white text-center text-danger px-3">FILM TERBARU</h6>
         </div>
