@@ -101,7 +101,7 @@
                      </div>
                      <div class="anime__review__item">
                          <div class="anime__review__item__pic">
-                             <img src="img/anime/review-1.jpg" alt="">
+                             <img src="#" alt="">
                          </div>
                          <div class="anime__review__item__text">
                              <h6>Chris Curry - <span>1 Hour ago</span></h6>
@@ -111,7 +111,7 @@
                      </div>
                      <div class="anime__review__item">
                          <div class="anime__review__item__pic">
-                             <img src="img/anime/review-2.jpg" alt="">
+                             <img src="#" alt="">
                          </div>
                          <div class="anime__review__item__text">
                              <h6>Lewis Mann - <span>5 Hour ago</span></h6>
@@ -120,7 +120,7 @@
                      </div>
                      <div class="anime__review__item">
                          <div class="anime__review__item__pic">
-                             <img src="img/anime/review-3.jpg" alt="">
+                             <img src="#" alt="">
                          </div>
                          <div class="anime__review__item__text">
                              <h6>Louis Tyler - <span>20 Hour ago</span></h6>
@@ -129,7 +129,7 @@
                      </div>
                      <div class="anime__review__item">
                          <div class="anime__review__item__pic">
-                             <img src="img/anime/review-4.jpg" alt="">
+                             <img src="#" alt="">
                          </div>
                          <div class="anime__review__item__text">
                              <h6>Chris Curry - <span>1 Hour ago</span></h6>
@@ -139,7 +139,7 @@
                      </div>
                      <div class="anime__review__item">
                          <div class="anime__review__item__pic">
-                             <img src="img/anime/review-5.jpg" alt="">
+                             <img src="#" alt="">
                          </div>
                          <div class="anime__review__item__text">
                              <h6>Lewis Mann - <span>5 Hour ago</span></h6>
@@ -148,7 +148,7 @@
                      </div>
                      <div class="anime__review__item">
                          <div class="anime__review__item__pic">
-                             <img src="img/anime/review-6.jpg" alt="">
+                             <img src="#" alt="">
                          </div>
                          <div class="anime__review__item__text">
                              <h6>Louis Tyler - <span>20 Hour ago</span></h6>
