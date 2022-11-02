@@ -6,7 +6,7 @@
         <div class="text-center mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h6 class="section-title bg-white text-center text-danger px-3">FILM TERBARU</h6>
         </div>
-        <div class="row g-4">
+        <div class="row g-6">
             <?php if($film) : ?>
             <?php foreach($film as $article) : ?>
             <?php $data['article'] = $article ?>
@@ -16,23 +16,23 @@
                             AmbilFotoArtikel($article['gambar'],'sedang') : 
                             base_url($this->theme_folder.'/'.$this->theme .'/assets/img/placeholder.png');?>
 
-            <div class="col-lg-2 col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item text-center p-1">
+            <div class="col-lg-2 col-sm-3 col-xs-4 page-0 infscroll-item"">
+                <div class="team-item text-center p-4">
                 <a href="<?= $url ?>">
                     <img class="img-fluid border rounded " src="<?= $image ?>" alt="<?= $article['judul'] ?>">
-                </a>
+                
                     <div class="team-text">
                         <div class="team-title">
-                            <h7 style="color: rgb(204, 204, 204)"><?= $article['judul'] ?></h7>
-                            <span><?= $article['tahun'] ?></span>
+                            <h7 style="color: rgb(204, 204, 204)"><?= $article['judul'] ?> (<span><?= $article['tahun'] ?>)</span></h7>
+                            
                         </div>
                         <div class="team-social" style="background-color: transparent;">
-                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-xl"> Modal</button>
+                        <!--<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-xl"> Modal</button>-->
                             <a class="btn btn-sm btn-danger" href="<?= $url ?>">Trailer</a>
                             <a class="btn btn-sm btn-warning" href="<?= $url ?>">Movie</a>
 
                         </div>
-                    </div>
+                    </div></a>
                 </div>
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
                     crossorigin="anonymous"></script>
