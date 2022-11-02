@@ -2,7 +2,7 @@
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
 
-<?php $article = $single_film ?>
+<?php $article = $single_artikel ?>
 
 <div class="container-xxl py-5">
 <div id="SC_TBlock_876982"></div>
@@ -103,7 +103,7 @@
 					?>
 					<?php if (count($k) > 0) : ?>
 						<div class="py-2 pl-4 bg-light align-middle d-flex align-items-center" style="border-left: 3px solid orange">
-							<h4 class="h5 font-weight-bold m-0"><?= count($k) ?> Komentar atas film <?= $single_film["judul"] ?></h4>
+							<h4 class="h5 font-weight-bold m-0"><?= count($k) ?> Komentar atas film <?= $single_artikel["judul"] ?></h4>
 						</div>
 						<ul class="comment-section">
 							<?php foreach ($k as $data) : ?>
@@ -123,7 +123,7 @@
 				<?php endif ?>
 
 				<div class="form-group group-komentar" id="kolom-komentar">
-					<?php if ($single_film['boleh_komentar']) : ?>
+					<?php if ($single_artikel['boleh_komentar']) : ?>
 						<div class="mb-3 font-weight-bold h6" style="color: rgb(204, 204, 204);"> Silakan tulis komentar, gunakan bahasa yang santun.</div>
 						<div class="box box-default shadow-sm border border-info">
 							<div class="box-header bg-info text-light py-2 px-3 mb-2">
@@ -137,7 +137,7 @@
 								<?php unset($_SESSION['validation_error']); ?>
 							<?php endif; ?>
 							<div class="box-body py-3 px-3">
-								<form id="form-komentar" name="form" action="<?= site_url('first/add_comment/' . $single_film['id']) ?>" method="POST" onSubmit="return validasi(this);">
+								<form id="form-komentar" name="form" action="<?= site_url('first/add_comment/' . $single_artikel['id']) ?>" method="POST" onSubmit="return validasi(this);">
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label">Nama<span class="text-danger">*</span></label>
 										<div class="col-lg-9">
