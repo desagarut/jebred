@@ -12,6 +12,22 @@ $route ['ppid'] = "Api_informasi_publik/ppid";
 $route['film/(:num)'] = 'first/film/$1'; // Contoh : film/1
 $route['film/(:num)/(:num)/(:num)/(:any)'] = 'first/film/$4'; // Contoh : film/2020/5/15/contoh-film
 
+// Film Google Drive
+$route['filmgd/(:num)'] = 'first/filmgd/$1'; // Contoh : filmgd/1
+$route['filmgd/(:num)/(:num)/(:num)/(:any)'] = 'first/filmgd/$4'; // Contoh : filmgd/2020/5/15/contoh-film
+
+// Film HX File
+$route['filmhxfile/(:num)'] = 'first/filmhxfile/$1'; // Contoh : filmgd/1
+$route['filmhxfile/(:num)/(:num)/(:num)/(:any)'] = 'first/filmhxfile/$4'; // Contoh : filmgd/2020/5/15/contoh-film
+
+// Film ACE File
+$route['filmacefile/(:num)'] = 'first/filmacefile/$1'; // Contoh : filmgd/1
+$route['filmacefile/(:num)/(:num)/(:num)/(:any)'] = 'first/filmacefile/$4'; // Contoh : filmgd/2020/5/15/contoh-film
+
+// Film lk21
+$route['filmlk21/(:num)'] = 'first/filmlk21/$1'; // Contoh : filmgd/1
+$route['filmlk21/(:num)/(:num)/(:num)/(:any)'] = 'first/filmlk21/$4'; // Contoh : filmgd/2020/5/15/contoh-film
+
 // Artikel lama (Agar url lama masih dpt di akases)
 $route['first/film/(:num)'] = 'first/film/$1'; // Contoh : Contoh : first/film/1
 $route['first/film/(:num)/(:num)/(:num)/(:any)'] = 'first/film/$4'; // Contoh : first/film/2020/5/15/contoh-film
@@ -35,6 +51,9 @@ foreach ($buku_umum as $menu)
 $route['index/(:num)'] = 'first/index/$1';
 $route['(:num)'] = 'first/index/$1';
 $route['arsip'] = 'first/arsip';
+$route['arsip_film'] = 'first/arsip_film';
+$route['arsip_film/(:num)'] = 'first/arsip_film/$1';
+
 $route['arsip/(:num)'] = 'first/arsip/$1';
 $route['peraturan_desa'] = 'first/peraturan_desa';
 $route['data_analisis'] = 'first/data_analisis';

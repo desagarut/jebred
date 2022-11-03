@@ -16,14 +16,11 @@
         <?php foreach ($farsip as $data) : ?>
 
 
-          <div class="col-lg-4 col-md-6 col-sm-4 col-xs-4 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-lg-2 col-md-6 col-sm-2 col-xs-2 wow fadeInUp" data-wow-delay="0.1s">
             <a class="service-item d-block rounded text-center h-100 p-4" href="<?= site_url('film/' . buat_slug($data)) ?>">
               <img class="img-fluid rounded mb-4" src="<?= AmbilFotoArtikel($data['gambar' . $i], 'sedang') ?>" alt="">
-              <h4 class="mb-0" style="color: grey;"><?= $data['judul'] ?></h4>
-              <?= tgl_indo($data['tgl_upload']) ?>
-              </time>
-              | <span>
-                <?= $data['kategori'] ?>
+              <h7 class="mb-0" style="color: grey;"><?= $data['judul'] ?></h7><br/>
+                <small><?= $data['kategori'] ?>|<?= $data['thn'] ?></small>
 
             </a>
           </div>

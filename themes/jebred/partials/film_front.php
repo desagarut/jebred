@@ -28,6 +28,8 @@
       <?php foreach($film as $article) : ?>
       <?php $data['article'] = $article ?>
       <?php $url = site_url('film/'.buat_slug($article)) ?>
+      <?php $url2 = site_url('filmgd/'.buat_slug($article)) ?>
+
       <?php $abstract = potong_teks(strip_tags($article['isi']), 200) ?>
       <?php $image = ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'])) ? 
                             AmbilFotoArtikel($article['gambar'],'sedang') : 
@@ -41,20 +43,9 @@
               </h7></div>
             <div class="team-social" style="background-color: transparent;">
               <a class="btn btn-sm btn-danger" href="<?= $url ?>">Trailer</a> 
-              <a class="btn btn-sm btn-warning" href="<?= $url ?>">Movie</a> </div>
+              <a class="btn btn-sm btn-warning" href="<?= $url2 ?>">Movie</a> </div>
           </div>
         </div>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
-                    crossorigin="anonymous"></script> 
-        <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-format="fluid"
-                    data-ad-layout-key="-x+s8-19-44+c7"
-                    data-ad-client="ca-pub-1823410826720847"
-                    data-ad-slot="9571148667"></ins> 
-        <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script> 
       </div>
       <?php endforeach ?>
       <?php endif ?>

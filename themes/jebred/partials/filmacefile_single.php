@@ -17,14 +17,8 @@
 			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
 				<div class="img">
 					<?php if ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $article['gambar'])) : ?>
-
-						<iframe width="100%" height="550px" src="https://www.youtube.com/embed/<?= $article['link_trailer'] ?>" title="<?= $article['judul'] ?>" frameborder="0" allow="accelerometer; 
-							autoplay; clipboard-write; encrypted-media; gyroscope; 
-							picture-in-picture" allowfullscreen>
-						</iframe>
-
+						<iframe src="https://acefile.co/player/<?= $article['link_acefile'] ?>" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH="100%" HEIGHT="550" allowfullscreen="true"></iframe>
 					<?php endif ?>
-
 				</div>
 			</div>
 		</div>
