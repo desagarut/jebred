@@ -28,7 +28,7 @@
       <?php foreach($film as $article) : ?>
       <?php $data['article'] = $article ?>
       <?php $url = site_url('film/'.buat_slug($article)) ?>
-      <?php $url2 = site_url('filmgd/'.buat_slug($article)) ?>
+      <?php $url2 = site_url('filhxfile/'.buat_slug($article)) ?>
 
       <?php $abstract = potong_teks(strip_tags($article['isi']), 200) ?>
       <?php $image = ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL.'sedang_'.$article['gambar'])) ? 
