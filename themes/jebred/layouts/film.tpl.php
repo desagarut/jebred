@@ -20,7 +20,7 @@
     <?php $this->load->view($folder_themes . '/partials/main/header') ?>
     <?php $this->load->view($folder_themes . '/partials/main/nav') ?>
 
-
+    <?php $this->load->view($folder_themes .'/partials/teks_berjalan.php') ?>
 <?php if($single_film['id']) : ?>
         <?php $this->load->view($folder_themes .'/partials/film_single.php') ?>
         <?php else : ?>
