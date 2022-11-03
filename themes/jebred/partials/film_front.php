@@ -37,11 +37,8 @@
           <div class="team-text">
             <div class="team-title">
               <h7 style="color: rgb(204, 204, 204)">
-                <?= $article['judul'] ?>
-              </h7>
-              <span>
-              <?= $article['tahun'] ?>
-              </span> </div>
+                <?= $article['judul'] ?> (<?= $article['tahun'] ?>)
+              </h7></div>
             <div class="team-social" style="background-color: transparent;">
               <a class="btn btn-sm btn-danger" href="<?= $url ?>">Trailer</a> 
               <a class="btn btn-sm btn-warning" href="<?= $url ?>">Movie</a> </div>
