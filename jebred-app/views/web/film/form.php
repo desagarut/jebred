@@ -86,8 +86,8 @@
                           </input>
                         </div>
                         <div class="form-group col-sm-4">
-                          <label class="control-label" for="negara1">Negara 1</label>
-                          <select class="form-control input-sm required" name="negara1">
+                          <label class="control-label" for="negara1"><code>Negara 1</code></label>
+                          <select class="form-control input-sm required select2" name="negara1">
                             <option value="">Pilih Negara 1</option>
                             <?php foreach ($negara1 as $data) : ?>
                               <option value="<?= $data['nama'] ?>" <?php selected($film['negara1'], $data['nama']); ?>><?= $data['nama'] ?></option>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group col-sm-4">
                           <label class="control-label" for="negara2">Negara 2</label>
-                          <select class="form-control input-sm" name="negara2">
+                          <select class="form-control input-sm select2" name="negara2">
                             <option value="">Pilih Negara 2</option>
                             <?php foreach ($negara2 as $data) : ?>
                               <option value="<?= $data['nama'] ?>" <?php selected($film['negara2'], $data['nama']); ?>><?= $data['nama'] ?></option>
@@ -106,8 +106,8 @@
                       </div>
                       <div class="row">
                         <div class="form-group col-sm-4">
-                          <label class="control-label" for="genre1">Genre 1</label>
-                          <select class="form-control input-sm required" name="genre1">
+                          <label class="control-label" for="genre1"><code>Genre 1</code></label>
+                          <select class="form-control input-sm required select2" name="genre1">
                             <option value="">Pilih Genre 1</option>
                             <?php foreach ($genre1 as $data) : ?>
                               <option value="<?= $data['nama'] ?>" <?php selected($film['genre1'], $data['nama']); ?>><?= $data['nama'] ?></option>
@@ -115,8 +115,8 @@
                           </select>
                         </div>
                         <div class="form-group col-sm-4">
-                          <label class="control-label" for="genre2">Genre 2</label>
-                          <select class="form-control input-sm required" name="genre2">
+                          <label class="control-label" for="genre2"><code>Genre 2</code></label>
+                          <select class="form-control input-sm required select2" name="genre2">
                             <option value="">Pilih Genre 2</option>
                             <?php foreach ($genre2 as $data) : ?>
                               <option value="<?= $data['nama'] ?>" <?php selected($film['genre2'], $data['nama']); ?>><?= $data['nama'] ?></option>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-group col-sm-4">
                           <label class="control-label" for="genre3">Genre 3</label>
-                          <select class="form-control input-sm" name="genre3">
+                          <select class="form-control input-sm select2" name="genre3">
                             <option value="">Pilih Genre 3</option>
                             <?php foreach ($genre2 as $data) : ?>
                               <option value="<?= $data['nama'] ?>" <?php selected($film['genre3'], $data['nama']); ?>><?= $data['nama'] ?></option>
