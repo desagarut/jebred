@@ -24,7 +24,7 @@
 		</div>
 		<div class="row g-5">
 			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
+			<a class="btn btn-sm btn-info" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
 				<a class="btn btn-sm btn-info" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
 				<a class="btn btn-sm btn-info" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
 				<a class="btn btn-sm btn-info" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>

@@ -159,11 +159,6 @@
                       </div>
                       <div class="row">
                         <div class="form-group col-sm-6">
-                          <label class="control-label" for="link_hydrax">Link HYDRAX</label>
-                          <input id="link_hydrax" name="link_hydrax" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_hydrax']) ?>">
-                          </input>
-                        </div>
-                        <div class="form-group col-sm-6">
                           <label class="control-label" for="link_trailer">Link TRAILER</label>
                           <input id="link_trailer" name="link_trailer" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_trailer']) ?>">
                           </input>
@@ -173,7 +168,7 @@
                       <div class="row">
                         <div class="form-group col-sm-6">
                           <label class="control-label" for="durasi">Durasi</label>
-                          <input id="durasi" name="durasi" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['durasi']) ?>">
+                          <input id="durasi" name="durasi" class="form-control input-sm" type="text" placeholder="ex: 120" value="<?= $film['durasi'] ?>">
                           </input>
                         </div>
                         <div class="form-group col-sm-6">
