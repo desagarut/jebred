@@ -136,19 +136,19 @@
                       <div class="row">
                         <div class="form-group col-sm-6">
                           <label class="control-label" for="link_hxfile">Link HXFILE</label>
-                          <input id="link_hxfile" name="link_hxfile" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_hxfile']) ?>">
+                          <input id="link_hxfile" name="link_hxfile" class="form-control input-sm" type="text" placeholder="ex: https://hxfile.co/embed-3mjy87wsb90p.html" value="<?= htmlspecialchars($film['link_hxfile']) ?>">
                           </input>
                         </div>
                         <div class="form-group col-sm-6">
                           <label class="control-label" for="link_lk21">Link LK-21</label>
-                          <input id="link_lk21" name="link_lk21" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_lk21']) ?>">
+                          <input id="link_lk21" name="link_lk21" class="form-control input-sm" type="text" placeholder="ex: http://lk......" value="<?= htmlspecialchars($film['link_lk21']) ?>">
                           </input>
                         </div>
                       </div>
                       <div class="row">
                         <div class="form-group col-sm-6">
                           <label class="control-label" for="link_acefile">Link ACE FILE</label>
-                          <input id="link_acefile" name="link_acefile" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_acefile']) ?>">
+                          <input id="link_acefile" name="link_acefile" class="form-control input-sm" type="text" placeholder="ex: 1_KAuG5-iSHxzcZgsMiui2vXkNykZxRAN" value="<?= htmlspecialchars($film['link_acefile']) ?>">
                           </input>
                         </div>
                         <div class="form-group col-sm-6">
@@ -160,7 +160,7 @@
                       <div class="row">
                         <div class="form-group col-sm-6">
                           <label class="control-label" for="link_trailer">Link TRAILER</label>
-                          <input id="link_trailer" name="link_trailer" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_trailer']) ?>">
+                          <input id="link_trailer" name="link_trailer" class="form-control input-sm" type="text" placeholder="ex: x2PZWmnRAS8" value="<?= htmlspecialchars($film['link_trailer']) ?>">
                           </input>
                         </div>
                       </div>
