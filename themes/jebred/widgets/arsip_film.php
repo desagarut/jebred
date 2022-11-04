@@ -26,10 +26,10 @@
 								<small>
 									<font color="yellow"><?= $arsip['judul'] ?></font><br/>
 									Dilihat: <?= hit($arsip['hit']); ?><br/>
-									Tanggal Upload: <?= tgl_indo($arsip['tgl_upload']); ?><br/>
+									<!--Tanggal Upload: <?= tgl_indo($arsip['tgl_upload']); ?><br/>
 									Kategori:  <?= $arsip['kategori']; ?>
 									Genre:  <?= $arsip['kategori']; ?>
-									Negara:  <?= $arsip['kategori']; ?>
+									Negara:  <?= $arsip['kategori']; ?>-->
 
 								</small>
 							</a>
