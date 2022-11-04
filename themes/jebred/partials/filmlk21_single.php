@@ -19,21 +19,17 @@
 					<?php if ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $article['gambar'])) : ?>
 						<iframe src="<?= $article['link_lk21'] ?>" width="100%" height="550px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" allowFullScreen="allowFullScreen"></iframe>
 					<?php endif ?>
+					<div class="col-md-12" style="background-color: purple; padding:10px 0 10px 10px">
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
+						<a class="btn btn-sm btn-warning" href="<?= site_url('film/' . buat_slug($article)) ?>">Trailer</a>
+					</div>
+					<div class="col-md-12" style="padding:10px 0 10px 10px">
+					Jika Film tidak dapat diputar silahkan pilih Server lain.
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row g-5">
-			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-			<a class="btn btn-sm btn-info" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('film/' . buat_slug($article)) ?>">Server 5</a>
-			</div>
-		</div>
-		<div class="row g-5">
-			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-				Jika Server 1 tidak bisa diputar silahkan pilih Server lain.
 			</div>
 		</div>
 		<div class="row" style="padding-top: 20px;">

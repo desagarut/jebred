@@ -1,4 +1,4 @@
-<?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -20,23 +20,23 @@
     <?php $this->load->view($folder_themes . '/partials/main/header') ?>
     <?php $this->load->view($folder_themes . '/partials/main/nav') ?>
 
-    <?php $this->load->view($folder_themes .'/partials/teks_berjalan.php') ?>
-<?php if($single_film['id']) : ?>
-        <?php $this->load->view($folder_themes .'/partials/filmhxfile_single.php') ?>
-        <?php else : ?>
-                <?php $this->load->view($folder_themes .'/partials/404.php') ?>
-<?php endif ?>
+    <?php $this->load->view($folder_themes . '/partials/teks_berjalan.php') ?>
+    <?php if ($single_film['id']) : ?>
+        <?php $this->load->view($folder_themes . '/partials/filmhxfile_single.php') ?>
+    <?php else : ?>
+        <?php $this->load->view($folder_themes . '/partials/404.php') ?>
+    <?php endif ?>
 
-<?php $this->load->view($folder_themes . '/partials/main/footer') ?>
+    <?php $this->load->view($folder_themes . '/partials/main/footer') ?>
 
 
-<script type="text/javascript">
-    (sc_adv_out = window.sc_adv_out || []).push({
-        id: 876982,
-        domain: "n.ads1-adnow.com",
-    });
-</script>
-<script type="text/javascript" src="//st-n.ads1-adnow.com/js/a.js" async></script>
+    <script type="text/javascript">
+        (sc_adv_out = window.sc_adv_out || []).push({
+            id: 876982,
+            domain: "n.ads1-adnow.com",
+        });
+    </script>
+    <script type="text/javascript" src="//st-n.ads1-adnow.com/js/a.js" async></script>
 </body>
 
 </html>

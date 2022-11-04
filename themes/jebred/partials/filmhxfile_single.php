@@ -4,7 +4,7 @@
 
 <?php $article = $single_film ?>
 
-<div class="container-xxl py-5">
+<div class="container-xxl py-1">
 	<div id="SC_TBlock_876982"></div>
 	<div class="container">
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
-						<a class="btn btn-sm btn-dark" href="<?= site_url('film/' . buat_slug($article)) ?>">Server 5</a>
+						<a class="btn btn-sm btn-warning" href="<?= site_url('film/' . buat_slug($article)) ?>">Trailer</a>
 					</div>
 					<div class="col-md-12" style="padding:10px 0 10px 10px">
 					Jika Film tidak dapat diputar silahkan pilih Server lain.
@@ -122,9 +122,9 @@
 
 				<div class="form-group group-komentar" id="kolom-komentar">
 					<?php if ($single_film['boleh_komentar']) : ?>
-						<div class="mb-3 font-weight-bold h6" style="color: rgb(204, 204, 204);"> Silakan tulis komentar, gunakan bahasa yang santun.</div>
-						<div class="box box-default shadow-sm border border-info">
-							<div class="box-header bg-info text-light py-2 px-3 mb-2">
+						<div class="mb-3 font-weight-bold h7" style="color: rgb(204, 204, 204);"> Silakan tulis komentar, gunakan bahasa yang santun.</div>
+						<div class="card card-default shadow-sm border border-info">
+							<div class="box-header bg-primary text-light py-2 px-3 mb-2">
 								<div class="h6 font-weight-bold m-0 py-2"><i class="fa fa-comments"></i> <span class="font-weight-normal">Komentar akan terbit setelah disetujui Admin</span></div>
 							</div>
 

@@ -19,21 +19,17 @@
 					<?php if ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $article['gambar'])) : ?>
 						<iframe src="https://acefile.co/player/<?= $article['link_acefile'] ?>" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH="100%" HEIGHT="550" allowfullscreen="true"></iframe>
 					<?php endif ?>
+					<div class="col-md-12" style="background-color: purple; padding:10px 0 10px 10px">
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
+						<a class="btn btn-sm btn-warning" href="<?= site_url('film/' . buat_slug($article)) ?>">Trailer</a>
+					</div>
+					<div class="col-md-12" style="padding:10px 0 10px 10px">
+					Jika Film tidak dapat diputar silahkan pilih Server lain.
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-			<a class="btn btn-sm btn-info" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('film/' . buat_slug($article)) ?>">Server 5</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				Jika Server 1 tidak bisa diputar silakan pilih Server lain.
 			</div>
 		</div>
 		<div class="row" style="padding-top: 20px;">
