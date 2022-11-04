@@ -123,18 +123,18 @@
 				<div class="form-group group-komentar" id="kolom-komentar">
 					<?php if ($single_film['boleh_komentar']) : ?>
 						<div class="mb-3 font-weight-bold h7" style="color: rgb(204, 204, 204);"> Silakan tulis komentar, gunakan bahasa yang santun.</div>
-						<div class="card card-default shadow-sm border border-info">
-							<div class="box-header bg-primary text-light py-2 px-3 mb-2">
+						<div class="card card-primary shadow-sm border border-dark">
+							<div class="card-header bg-primary text-light py-2 px-3 mb-2">
 								<div class="h6 font-weight-bold m-0 py-2"><i class="fa fa-comments"></i> <span class="font-weight-normal">Komentar akan terbit setelah disetujui Admin</span></div>
 							</div>
 
 							<!-- Tampilkan hanya jika 'flash_message' ada -->
 							<?php $label = !empty($_SESSION['validation_error']) ? 'alert-danger' : 'alert-success'; ?>
 							<?php if ($flash_message) : ?>
-								<div class="box-header alert <?= $label ?> mx-2 rounded-0"><?= $flash_message ?></div>
+								<div class="card-header alert <?= $label ?> mx-2 rounded-0"><?= $flash_message ?></div>
 								<?php unset($_SESSION['validation_error']); ?>
 							<?php endif; ?>
-							<div class="box-body py-3 px-3">
+							<div class="card-body py-3 px-3 text-light " style="background-color: grey;">
 								<form id="form-komentar" name="form" action="<?= site_url('first/add_comment/' . $single_film['id']) ?>" method="POST" onSubmit="return validasi(this);">
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label">Nama<span class="text-danger">*</span></label>
