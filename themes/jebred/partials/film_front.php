@@ -83,7 +83,7 @@
                           <?php endif; ?>
                           <small>
                             <font color="yellow"><?= $arsip['judul'] ?></font><br />
-                            Dilihat: <?= hit($arsip['hit']); ?><br />
+                            Ditonton: <?= hit($arsip['hit']); ?><br />
                             <!--Tanggal Upload: <?= tgl_indo($arsip['tgl_upload']); ?><br/>
 									Kategori:  <?= $arsip['kategori']; ?>
 									Genre:  <?= $arsip['kategori']; ?>
