@@ -153,7 +153,7 @@
                         </div>
                         <div class="form-group col-sm-6">
                           <label class="control-label" for="link_gdiframe">Link GDIFRAME</label>
-                          <input id="link_gdiframe" name="link_gdiframe" class="form-control input-sm" type="text" placeholder="link" value="<?= htmlspecialchars($film['link_gdiframe']) ?>">
+                          <input id="link_gdiframe" name="link_gdiframe" class="form-control input-sm" type="text" placeholder="ex: x2PZWmnRAS8" value="<?= htmlspecialchars($film['link_gdiframe']) ?>">
                           </input>
                         </div>
                       </div>
