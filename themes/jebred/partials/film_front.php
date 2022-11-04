@@ -41,8 +41,8 @@
                       </h7>
                     </div>
                     <div class="team-social" style="background-color: transparent;">
-                      <a class="btn btn-sm btn-danger" href="<?= $url ?>">Trailer</a>
-                      <a class="btn btn-sm btn-warning" href="<?= $url2 ?>">Movie</a>
+                      <a class="btn btn-sm btn-danger" href="<?= $url ?>"><small>Trailer</small></a>
+                      <a class="btn btn-sm btn-warning" href="<?= $url2 ?>"><small>Movie</small></a>
                     </div>
                   </div>
                 </div>
