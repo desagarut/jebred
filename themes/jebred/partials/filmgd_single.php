@@ -21,7 +21,7 @@
 					<?php endif ?>
 					<div class="col-md-12" style="background-color: purple; padding:10px 0 10px 10px">
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
-						<a class="btn btn-sm btn-dark" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
+						<a class="btn btn-sm btn-success" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
 						<a class="btn btn-sm btn-warning" href="<?= site_url('film/' . buat_slug($article)) ?>">Trailer</a>
