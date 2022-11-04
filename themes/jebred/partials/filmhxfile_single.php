@@ -19,21 +19,17 @@
 					<?php if ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $article['gambar'])) : ?>
 						<iframe src="<?= $article['link_hxfile'] ?>" width="100%" height="550px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" allowFullScreen="allowFullScreen"></iframe>
 					<?php endif ?>
+					<div class="col-md-12" style="background-color: purple; padding:10px 0 10px 10px">
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
+						<a class="btn btn-sm btn-dark" href="<?= site_url('film/' . buat_slug($article)) ?>">Server 5</a>
+					</div>
+					<div class="col-md-12" style="padding:10px 0 10px 10px">
+					Jika Film tidak dapat diputar silahkan pilih Server lain.
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-			<a class="btn btn-sm btn-info" href="<?= site_url('filmhxfile/' . buat_slug($article)) ?>">Server 1</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
-				<a class="btn btn-sm btn-info" href="<?= site_url('film/' . buat_slug($article)) ?>">Server 5</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				Jika Server 1 tidak bisa diputar silakan pilih Server lain.
 			</div>
 		</div>
 		<div class="row" style="padding-top: 20px;">
@@ -80,7 +76,7 @@
 
 
 		<div class="row g-5">
-			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+			<div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
 				<h6 class="section-title bg-white text-start text-danger pe-3">KOMENTAR ANDA</h6>
 				<ul class="--mt-4 content__list">
 					<?php foreach ($komentar as $comment) : ?>
@@ -195,9 +191,9 @@
 					<?php endif; ?>
 				</div>
 			</div>
-			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+			<div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="h-100">
-					<h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM SEJENIS</h6>
+					<h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM</h6>
 					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
 					<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
 					<script>
