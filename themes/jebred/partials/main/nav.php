@@ -1,4 +1,4 @@
-<?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <!-- Navbar Start -->
 
@@ -6,26 +6,26 @@
   <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"> <span class="navbar-toggler-icon"></span> </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav me-auto p-3 p-lg-0"> <a href="<?= site_url('first') ?>" class="nav-item nav-link " aria-label="Toggle navigation">Home</a>
-      <?php if(menu_atas) : ?>
-      <?php foreach($menu_atas as $menu) : ?>
-      <div class="nav-item dropdown">
-        <?php if(count($menu['submenu']) > 0) : ?>
-        <a href="<?= $menu['link'] ?>" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-        <?= $menu['nama'] ?>
-        </a>
-        <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
-          <?php foreach($menu['submenu'] as $submenu) : ?>
-          <a href="<?= $submenu['link'] ?>" class="dropdown-item">
-          <?= $submenu['nama'] ?>
-          </a>
-          <?php endforeach ?>
-        </div>
-        <?php endif ?>
-      </div>
-      <?php endforeach ?>
+      <?php if (menu_atas) : ?>
+        <?php foreach ($menu_atas as $menu) : ?>
+          <div class="nav-item dropdown">
+            <?php if (count($menu['submenu']) > 0) : ?>
+              <a href="<?= $menu['link'] ?>" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <?= $menu['nama'] ?>
+              </a>
+              <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
+                <?php foreach ($menu['submenu'] as $submenu) : ?>
+                  <a href="<?= $submenu['link'] ?>" class="dropdown-item">
+                    <?= $submenu['nama'] ?>
+                  </a>
+                <?php endforeach ?>
+              </div>
+            <?php endif ?>
+          </div>
+        <?php endforeach ?>
       <?php endif ?>
       <div class="navbar-nav me-auto p-3 p-lg-0"> <a href="<?= site_url('arsip') ?>" class="nav-item nav-link " aria-label="Toggle navigation">Arsip</a>
+      </div>
     </div>
-  </div>
 </nav>
-<!-- Navbar End --> 
+<!-- Navbar End -->
