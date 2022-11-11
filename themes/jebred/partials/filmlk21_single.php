@@ -23,7 +23,7 @@
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmgd/' . buat_slug($article)) ?>">Server 2</a>
 						<a class="btn btn-sm btn-success" href="<?= site_url('filmlk21/' . buat_slug($article)) ?>">Server 3</a>
 						<a class="btn btn-sm btn-dark" href="<?= site_url('filmacefile/' . buat_slug($article)) ?>">Server 4</a>
-						<a class="btn btn-sm btn-warning" href="<?= site_url('film/' . buat_slug($article)) ?>">Trailer</a>
+						<a class="btn btn-sm btn-warning" href="<?= site_url('trailer/' . buat_slug($article)) ?>">Trailer</a>
 					</div>
 					<div class="col-md-12" style="padding:10px 0 10px 10px">
 					Jika Film tidak dapat diputar silahkan pilih Server lain.

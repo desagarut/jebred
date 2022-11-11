@@ -123,6 +123,45 @@ class First extends Web_Controller {
 		$this->load->view($this->template, $data);
 	}
 
+	public function trailer($url)
+	{
+		if (is_numeric($url))
+		{
+			$data_artikel = $this->first_film_m->get_artikel_by_id();
+			if ($data_artikel)
+			{
+				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
+				redirect('trailer/'. buat_slug($data_artikel));
+			}
+		}
+		$this->load->model('shortcode_model');
+		$data = $this->includes;
+		$this->first_film_m->hit($url); // catat film diakses
+		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$id = $data['single_film']['id'];
+
+		// replace isi film dengan shortcodify
+		$data['single_film']['isi'] = $this->shortcode_model->shortcode($data['single_film']['isi']);
+		$data['title'] = ucwords($data['single_film']['judul']);
+		$data['detail_agenda'] = $this->first_film_m->get_agenda($id);//Agenda
+		$data['komentar'] = $this->first_film_m->list_komentar($id);
+		$this->_get_common_data($data);
+
+		// Validasi pengisian komentar di add_comment()
+		// Kalau tidak ada error atau film pertama kali ditampilkan, kosongkan data sebelumnya
+		if (empty($_SESSION['validation_error']))
+		{
+			$_SESSION['post']['owner'] = '';
+			$_SESSION['post']['email'] = '';
+			$_SESSION['post']['no_hp'] = '';
+			$_SESSION['post']['komentar'] = '';
+			$_SESSION['post']['captcha_code'] = '';
+		}
+		$this->_get_common_data($data);
+		$this->set_template('layouts/trailer.tpl.php');
+		$this->load->view($this->template, $data);
+	}
+
 	public function filmgd($url)
 	{
 		if (is_numeric($url))
