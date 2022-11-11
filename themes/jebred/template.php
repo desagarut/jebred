@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
 <?php $this->load->view($folder_themes . '/partials/main/meta') ?>
 <?php $this->load->view($folder_themes . '/partials/main/head') ?>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
+     crossorigin="anonymous"></script>
 </head>
 
 <body style="font-family:SF Pro,Roboto,Noto Sans,sans-serif;">
