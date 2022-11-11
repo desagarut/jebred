@@ -5,7 +5,6 @@
 <?php $article = $single_artikel ?>
 
 <div class="container-xxl py-5">
-<div id="SC_TBlock_876982"></div>
 	<div class="container">
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847"
 			crossorigin="anonymous"></script>

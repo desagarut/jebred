@@ -4,7 +4,6 @@
 
 <div class="container py-3">
   <div class="container">
-    <div id="SC_TBlock_876982"></div>
     <div class="row">
       <div class="col-md-9">
         <div class="row g-3">
@@ -33,7 +32,7 @@
                 AmbilFotoArtikel($article['gambar'], 'sedang') :
                 base_url($this->theme_folder . '/' . $this->theme . '/assets/img/placeholder.png'); ?>
               <div class="col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item text-center p-1"> <a href="<?= $url2 ?>"> <img class="img-fluid " src="<?= $image ?>" alt="<?= $article['judul'] ?>"> </a>
+                <div class="team-item text-center p-1"> <a href="<?= $url2 ?>"> <img class="img-fluid " style="width: 380px;" src="<?= $image ?>" alt="<?= $article['judul'] ?>"> </a>
                   <div class="team-text">
                     <div class="team-title">
                       <h7 style="color: rgb(204, 204, 204)">
