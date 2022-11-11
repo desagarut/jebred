@@ -24,7 +24,7 @@
           </div>
         <?php endforeach ?>
       <?php endif ?>
-      <div class="navbar-nav me-auto p-3 p-lg-0"> <a href="<?= site_url('arsip') ?>" class="nav-item nav-link " aria-label="Toggle navigation">Arsip</a>
+      <div class="navbar-nav me-auto p-3 p-lg-0"> <a href="<?= site_url('arsip') ?>" class="nav-item nav-link " aria-label="Toggle navigation">Semua Film</a>
       </div>
     </div>
 </nav>
