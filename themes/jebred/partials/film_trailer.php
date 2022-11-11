@@ -196,13 +196,7 @@
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="h-100">
 					<h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM SEJENIS</h6>
-					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
-					<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
-					<script>
-						(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>
 					<?php $this->load->view($folder_themes . '/widgets/arsip_film') ?>
-
 				</div>
 			</div>
 		</div>
