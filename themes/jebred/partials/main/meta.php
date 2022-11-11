@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<?php defined('THEME_VERSION') or define('THEME_VERSION', 'V2.0.1') ?>
 
+<?php defined('THEME_VERSION') or define('THEME_VERSION', 'V2.0.1') ?>
 <meta content="utf-8" http-equiv="encoding">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport">

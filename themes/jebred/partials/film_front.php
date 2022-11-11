@@ -4,7 +4,6 @@
 
 <div class="container py-3">
   <div class="container">
-    <div id="SC_TBlock_876982"></div>
     <div class="row">
       <div class="col-md-9">
         <div class="row g-3">
@@ -13,6 +12,8 @@
           </div>
         </div>
         <div class="row g-3">
+        <script async src="https://cse.google.com/cse.js?cx=2fdd71c38cbf39a25"></script>
+<div class="gcse-search"></div>
           <div class="col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
             <div class="team-item text-center p-1">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
@@ -50,17 +51,11 @@
             <?php endforeach ?>
           <?php endif ?>
         </div>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
       </div>
 
       <div class="col-md-3 wow fadeInUp" data-wow-delay="0.5s">
         <div class="h-100">
-         <!-- <h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM</h6>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
-          <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>-->
+          <!-- <h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM</h6>-->
 
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item active" role="presentation">
@@ -85,10 +80,9 @@
                             <font color="yellow"><?= $arsip['judul'] ?></font><br />
                             Ditonton: <?= hit($arsip['hit']); ?><br />
                             <!--Tanggal Upload: <?= tgl_indo($arsip['tgl_upload']); ?><br/>
-									Kategori:  <?= $arsip['kategori']; ?>
-									Genre:  <?= $arsip['kategori']; ?>
-									Negara:  <?= $arsip['kategori']; ?>-->
-
+                                Kategori:  <?= $arsip['kategori']; ?>
+                                Genre:  <?= $arsip['kategori']; ?>
+                                Negara:  <?= $arsip['kategori']; ?>-->
                           </small>
                         </a>
                       </td>
@@ -97,16 +91,17 @@
                 </table>
               </div>
             <?php endforeach ?>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
+          <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
           </div>
-
           <script>
             var firstTabEl = document.querySelector('#myTab li:last-child a')
             var firstTab = new bootstrap.Tab(firstTabEl)
-
             firstTab.show()
           </script>
-
-
         </div>
       </div>
     </div>

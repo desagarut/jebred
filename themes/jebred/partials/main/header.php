@@ -26,7 +26,6 @@
       <a href="<?= site_url('first') ?>" class="navbar-brand m-0 p-0">
         <h3 class="fw-bold text-danger m-1" style="color:#F00;">
           <a href="<?= site_url('first') ?>"> <img src="<?= logo_web($desa['logo']) ?>" style="width:35px;" alt="Logo">
-
           </a> <?= $this->setting->website_title ?>
         </h3>
       </a>
