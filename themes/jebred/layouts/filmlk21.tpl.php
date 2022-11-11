@@ -8,7 +8,7 @@
 <?php $this->load->view($folder_themes . '/partials/main/head') ?>
 </head>
 
-<body>
+<body style="font-family:SF Pro,Roboto,Noto Sans,sans-serif;">
 <!-- Spinner Start
 <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
   <div class="spinner-border position-relative text-danger" style="width: 6rem; height: 6rem;" role="status"></div>
