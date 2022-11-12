@@ -12,6 +12,12 @@
           </div>
         </div>
         <div class="row g-3">
+          <div class="col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s" style="padding-bottom: 15px;">
+          <script async src="https://cse.google.com/cse.js?cx=ce1ed54db28733f39"></script>
+<div class="gcse-search"></div>  
+        </div>
+        </div>
+        <div class="row g-3">
           <div class="col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
             <div class="team-item text-center p-1">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
@@ -54,7 +60,7 @@
 
       <div class="col-md-3 wow fadeInUp" data-wow-delay="0.5s">
         <div class="h-100">
-         <!-- <h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM</h6>
+          <!-- <h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM</h6>
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
           <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
           <script>
