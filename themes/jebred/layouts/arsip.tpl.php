@@ -7,6 +7,18 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
   <?php $this->load->view($folder_themes . '/partials/main/meta') ?>
   <?php $this->load->view($folder_themes . '/partials/main/head') ?>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGEGS5PF1H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-SGEGS5PF1H');
+  </script>
 </head>
 
 <body style="font-family:SF Pro,Roboto,Noto Sans,sans-serif;">
