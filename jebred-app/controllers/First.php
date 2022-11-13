@@ -351,7 +351,7 @@ class First extends Web_Controller {
 
 		$data['p'] = $p;
 		$data["judul_kategori"] = $this->first_film_m->get_kategori($id);
-		$data['title'] = 'Artikel ' . $data['judul_kategori']['kategori'];
+		$data['title'] = 'Film ' . $data['judul_kategori']['kategori'];
 		$data['paging'] = $this->first_film_m->paging_kat($p, $id);
 		$data['paging_page'] = 'kategori/' . $id;
 		$data['paging_range'] = 3;

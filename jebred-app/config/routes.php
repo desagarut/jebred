@@ -40,7 +40,6 @@ $route['first/film/(:num)/(:num)/(:num)/(:any)'] = 'first/film/$4'; // Contoh : 
 $route['film/kategori/(:any)'] = 'first/kategori/$1'; // Contoh : Contoh : film/kategori/berita-desa
 $route['film/kategori/(:any)/(:num)'] = 'first/kategori/$1/$2'; // Contoh : Contoh : film/kategori/berita-desa/1
 
-
 $buku_umum = ['ekspedisi', 'lembaran_desa', 'surat_keluar', 'surat_masuk'];
 foreach ($buku_umum as $menu)
 {

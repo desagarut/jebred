@@ -1,4 +1,6 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
+$genre = $this->db->query('SELECT nama FROM ref_genre')->result_array();
+?>
 
 <!-- Footer Start -->
 
@@ -21,8 +23,8 @@
       </div>
       <div class="col-lg-3 col-md-6">
         <h5 class="text-light mb-4">Genre</h5>
-        <?php foreach($menu_kiri as $data):?>
-        <a class="btn btn-link" href="<?= site_url("film/kategori/$data[slug]"); ?>"><?= $data['kategori']; ?><?php (count($data['submenu'])>0) and print('<span class="caret"></span>');?></a> 
+        <?php foreach($genre as $data):?>
+        <a class="btn btn-link" href="<?= site_url("film/kategori/$data[slug]"); ?>"><?= $data['nama']; ?><?php (count($data['submenu'])>0) and print('<span class="caret"></span>');?></a> 
         <?php endforeach;?>
       </div>
       <div class="col-lg-3 col-md-6">
