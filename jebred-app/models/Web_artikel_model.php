@@ -159,7 +159,7 @@
 	// TODO: pindahkan dan gunakan web_kategori_model
 	public function get_kategori($cat=0)
 	{
-		$sql = "SELECT kategori FROM kategori WHERE id = ?";
+		$sql = "SELECT kategori FROM kategori_blog WHERE id = ?";
 		$query = $this->db->query($sql, $cat);
 
 		return $query->row_array();
