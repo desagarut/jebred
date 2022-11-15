@@ -21,7 +21,7 @@ class MY_Model extends CI_Model {
 		{
 			case 'film':
 
-				$data = $this->first_film_m->get_artikel($cut[1]);
+				$data = $this->first_film_m->get_film($cut[1]);
 				$url = ($data) ? ($cut[0] . '/' . buat_slug($data)) : ($url);
 				break;
 

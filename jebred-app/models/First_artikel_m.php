@@ -1,20 +1,20 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class First_film_m extends CI_Model {
+class First_artikel_m extends CI_Model {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('web_sosmed_model');
 		$this->load->model('shortcode_model');
-		if (!isset($_SESSION['film']))
-			$_SESSION['film'] = array();
+		if (!isset($_SESSION['artikel']))
+			$_SESSION['artikel'] = array();
 	}
 
 	public function get_headline()
 	{
 		$sql = "SELECT a.*, u.nama AS owner, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri
-			FROM film a
+			FROM artikel a
 			LEFT JOIN user u ON a.id_user = u.id
 			WHERE headline = 1 AND a.tgl_upload < NOW()
 			ORDER BY tgl_upload DESC LIMIT 1 ";
@@ -26,10 +26,66 @@ class First_film_m extends CI_Model {
 		{
 			$id = $data['id'];
 			//$panjang=str_split($data['isi'],800);
-			//$data['isi'] = "<label>".strip_tags($panjang[0])."...</label><a href='".site_url("film/$id")."'>Baca Selengkapnya</a>";
+			//$data['isi'] = "<label>".strip_tags($panjang[0])."...</label><a href='".site_url("artikel/$id")."'>Baca Selengkapnya</a>";
 		}
 		return $data;
 	}
+
+	public function get_feed()
+	{
+		$sumber_feed = 'https://www.covid19.go.id/feed/';
+		if (!cek_bisa_akses_site($sumber_feed)) return NULL;
+
+		$this->load->library('Feed_Reader');
+		$feed = new Feed_Reader($sumber_feed);
+		$items = array_slice($feed->items, 0, 5);
+		return $items;
+	}
+	
+	public function get_feed1()
+	{
+		$sumber_feed1 = 'https://www.kecamatancisompet.id/feed/';
+		if (!cek_bisa_akses_site($sumber_feed1)) return NULL;
+
+		$this->load->library('Feed_Reader');
+		$feed1 = new Feed_Reader($sumber_feed1);
+		$items1 = array_slice($feed1->items1, 0, 2);
+		return $items1;
+	}
+
+	public function get_feed2()
+	{
+		$sumber_feed2 = 'https://www.sindangsari.kecamatancisompet.id/feed/';
+		if (!cek_bisa_akses_site($sumber_feed2)) return NULL;
+
+		$this->load->library('Feed_Reader');
+		$feed2 = new Feed_Reader($sumber_feed2);
+		$items2 = array_slice($feed2->items2, 0, 5);
+		return $items2;
+	}
+	
+	public function get_feed3()
+	{
+		$sumber_feed3 = 'https://www.neglasari.kecamatancisompet.id/feed/';
+		if (!cek_bisa_akses_site($sumber_feed3)) return NULL;
+
+		$this->load->library('Feed_Reader');
+		$feed3 = new Feed_Reader($sumber_feed3);
+		$items3 = array_slice($feed3->items3, 0, 5);
+		return $items3;
+	}
+
+	public function get_feed_sthg()
+	{
+		$feed_sthg = 'https://www.sthgarut.ac.id/feed/';
+		if (!cek_bisa_akses_site($feed_sthg)) return NULL;
+
+		$this->load->library('Feed_Reader');
+		$feed_sthg = new Feed_Reader($feed_sthg);
+		$items_sthg = array_slice($feed_sthg->items_sthg, 0, 5);
+		return $items_sthg;
+	}
+
 
 	public function get_widget()
 	{
@@ -42,7 +98,7 @@ class First_film_m extends CI_Model {
 	public function paging($p=1)
 	{
 		$this->db->select('COUNT(a.id) AS jml');
-		$this->paging_film_sql();
+		$this->paging_artikel_sql();
 		$cari = trim($this->input->get('cari'));
 		if ( ! empty($cari))
 		{
@@ -54,19 +110,19 @@ class First_film_m extends CI_Model {
 
 		$this->load->library('paging');
 		$cfg['page'] = $p;
-		$cfg['per_page'] = $this->setting->web_film_per_page;
+		$cfg['per_page'] = $this->setting->web_artikel_per_page;
 		$cfg['num_rows'] = $jml;
 		$this->paging->init($cfg);
 
 		return $this->paging;
 	}
 
-	private function paging_film_sql()
+	private function paging_artikel_sql()
 	{
 		$this->db
-			->from('film a')
+			->from('artikel a')
 			->join('user u', 'a.id_user = u.id', 'LEFT')
-			->join('kategori k', 'a.id_kategori = k.id', 'LEFT')
+			->join('kategori_blog k', 'a.id_kategori = k.id', 'LEFT')
 			->where('a.enabled', 1)
 			->where('a.headline <>', 1)
 			->where('a.id_kategori NOT IN (1000)')
@@ -84,9 +140,9 @@ class First_film_m extends CI_Model {
 		}
 	}
 
-	public function film_show($offset, $limit)
+	public function artikel_show($offset, $limit)
 	{
-		$this->paging_film_sql();
+		$this->paging_artikel_sql();
 		$data = $this->db
 			->select('a.*, u.nama AS owner, k.kategori, k.slug AS kat_slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
 			->order_by('a.tgl_upload DESC')
@@ -96,14 +152,13 @@ class First_film_m extends CI_Model {
 
 		for ($i=0; $i < count($data); $i++)
 		{
-			$this->sterilkan_film($data[$i]);
-			//$this->icon_keuangan($data[$i]);
+			$this->sterilkan_artikel($data[$i]);
 		}
 
 		return $data;
 	}
 
-	private function sterilkan_film(&$data)
+	private function sterilkan_artikel(&$data)
 	{
 		$data['judul'] = $this->security->xss_clean($data['judul']);
 		$data['slug'] = $this->security->xss_clean($data['slug']);
@@ -112,10 +167,9 @@ class First_film_m extends CI_Model {
 			$data['isi'] = $this->security->xss_clean($data['isi']);
 	}
 
-
 	public function arsip_show($type = '')
 	{
-		// film agenda (kategori=1000) tidak ditampilkan
+		// Artikel agenda (kategori=1000) tidak ditampilkan
 		$this->db
 			->select('a.*, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
 			->where('a.enabled', 1)
@@ -138,7 +192,7 @@ class First_film_m extends CI_Model {
 		}
 
 		$this->db->limit(7);
-		$data = $this->db->get('film a')->result_array();
+		$data = $this->db->get('artikel a')->result_array();
 
 		for ($i=0; $i < count($data); $i++)
 		{
@@ -150,7 +204,7 @@ class First_film_m extends CI_Model {
 
 	public function paging_arsip($p=1)
 	{
-		$sql = "SELECT COUNT(a.id) AS id FROM film a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=1 AND a.tgl_upload < NOW()";
+		$sql = "SELECT COUNT(a.id) AS id FROM artikel a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=1 AND a.tgl_upload < NOW()";
 		$query = $this->db->query($sql);
 		$row = $query->row_array();
 		$jml_data = $row['id'];
@@ -167,7 +221,7 @@ class First_film_m extends CI_Model {
 	public function full_arsip($offset=0, $limit=50)
 	{
 		$paging_sql = ' LIMIT ' .$offset. ',' .$limit;
-		$sql = "SELECT a.*,u.nama AS owner,k.kategori, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri FROM film a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=?
+		$sql = "SELECT a.*,u.nama AS owner,k.kategori, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri FROM artikel a LEFT JOIN user u ON a.id_user = u.id LEFT JOIN kategori k ON a.id_kategori = k.id WHERE a.enabled=?
 			AND a.tgl_upload < NOW()
 		ORDER BY a.tgl_upload DESC";
 
@@ -184,7 +238,7 @@ class First_film_m extends CI_Model {
 				$tgl = date("d/m/Y",strtotime($data[$i]['tgl_upload']));
 				$data[$i]['no'] = $nomer;
 				$data[$i]['tgl'] = $tgl;
-				$data[$i]['isi'] = "<a href='".site_url("film_details/$id")."'>".$data[$i]['judul']."</a>, <i class=\"fa fa-user\"></i> ".$data[$i]['owner'];
+				$data[$i]['isi'] = "<a href='".site_url("artikel/$id")."'>".$data[$i]['judul']."</a>, <i class=\"fa fa-user\"></i> ".$data[$i]['owner'];
 			}
 		}
 		else
@@ -198,7 +252,7 @@ class First_film_m extends CI_Model {
 	{
 		$this->db
 			->select('id, judul, gambar, slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
-			->from('film')
+			->from('artikel')
 			->where('enabled', 1)
 			->where('headline', 3)
 			->where($gambar.' !=', '')
@@ -207,7 +261,7 @@ class First_film_m extends CI_Model {
 
 	}
 
-	// Jika $gambar_utama, hanya tampilkan gambar utama masing2 film terbaru
+	// Jika $gambar_utama, hanya tampilkan gambar utama masing2 artikel terbaru
 	public function slide_show($gambar_utama=FALSE)
 	{
 		$sql = [];
@@ -236,19 +290,19 @@ class First_film_m extends CI_Model {
 		switch ($sumber)
 		{
 			case '1':
-				# 10 gambar utama semua film terbaru
+				# 10 gambar utama semua artikel terbaru
 				$slider_gambar['gambar'] = $this->db
 					->select('id, judul, gambar, slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
 					->where('enabled', 1)
 					->where('gambar !=', '')
 					->where('tgl_upload < NOW()')
 					->order_by('tgl_upload DESC')
-					->limit(10)->get('film')->result_array();
+					->limit(10)->get('artikel')->result_array();
 				$slider_gambar['lokasi'] = LOKASI_FOTO_ARTIKEL;
 				break;
 
 			case '2':
-				# 10 gambar utama film terbaru yang masuk ke slider atas
+				# 10 gambar utama artikel terbaru yang masuk ke slider atas
 				$slider_gambar['gambar'] = $this->slide_show(true);
 				$slider_gambar['lokasi'] = LOKASI_FOTO_ARTIKEL;
 				break;
@@ -273,7 +327,7 @@ class First_film_m extends CI_Model {
 	{
 		$this->db
 			->select('a.*, g.*, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
-			->join('film a', 'a.id = g.id_artikel', 'LEFT')
+			->join('artikel a', 'a.id = g.id_artikel', 'LEFT')
 			->where('a.enabled', 1)
 			->where('a.id_kategori', '1000');
 
@@ -304,7 +358,7 @@ class First_film_m extends CI_Model {
 	{
 		$sql = "SELECT a.*, b.*, YEAR(b.tgl_upload) AS thn, MONTH(b.tgl_upload) AS bln, DAY(b.tgl_upload) AS hri, b.slug as slug
 			FROM komentar a
-			INNER JOIN film b ON a.id_artikel = b.id
+			INNER JOIN artikel b ON a.id_artikel = b.id
 			WHERE a.status = ? AND a.id_artikel <> 775
 			ORDER BY a.tgl_upload DESC LIMIT 10 ";
 		$query = $this->db->query($sql, 1);
@@ -317,7 +371,7 @@ class First_film_m extends CI_Model {
 			$pendek2 = str_split($pendek[0], 90);
 			$data[$i]['komentar_short'] = $pendek2[0]."...";
 			$panjang = str_split($data[$i]['komentar'], 50);
-			$data[$i]['komentar'] = "".$panjang[0]."...<a href='".site_url("film/".$data[$i]['thn']."/".$data[$i]['bln']."/".$data[$i]['hri']."/".$data[$i]['slug']." ")."'>baca selengkapnya</a>";
+			$data[$i]['komentar'] = "".$panjang[0]."...<a href='".site_url("artikel/".$data[$i]['thn']."/".$data[$i]['bln']."/".$data[$i]['hri']."/".$data[$i]['slug']." ")."'>baca selengkapnya</a>";
 		}
 
 		return $data;
@@ -348,10 +402,10 @@ class First_film_m extends CI_Model {
 		return $data;
 	}
 
-	public function get_film($url)
+	public function get_artikel($url)
 	{
 		$this->db->select('a.*, u.nama AS owner, k.kategori, k.slug AS kat_slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')
-			->from('film a')
+			->from('artikel a')
 			->join('user u', 'a.id_user = u.id', 'left')
 			->join('kategori k', 'a.id_kategori = k.id', 'left')
 			->where('a.enabled', 1)
@@ -366,7 +420,7 @@ class First_film_m extends CI_Model {
 		if ($query->num_rows() > 0)
 		{
 			$data = $query->row_array();
-			$this->sterilkan_film($data);
+			$this->sterilkan_artikel($data);
 		}
 		else
 		{
@@ -385,26 +439,26 @@ class First_film_m extends CI_Model {
 
 	public function paging_kat($p = 1, $id = 0)
 	{
-		$this->list_film_sql($id);
+		$this->list_artikel_sql($id);
 		$this->db->select('COUNT(a.id) AS jml');
 		$jml_data = $this->db->get()->row()->jml;
 
 		$this->load->library('paging');
 		$cfg['page'] = $p;
-		$cfg['per_page'] = $this->setting->web_film_per_page;
+		$cfg['per_page'] = $this->setting->web_artikel_per_page;
 		$cfg['num_rows'] = $jml_data;
 		$this->paging->init($cfg);
 
 		return $this->paging;
 	}
 
-	// Query sama untuk paging and ambil daftar film menurut kategori
-	private function list_film_sql($id)
+	// Query sama untuk paging and ambil daftar artikel menurut kategori
+	private function list_artikel_sql($id)
 	{
 		$this->db
-			->from('film a')
+			->from('artikel a')
 			->join('user u', 'a.id_user = u.id', 'left')
-			->join('kategori k', 'a.id_kategori = k.id', 'left')
+			->join('kategori_blog k', 'a.id_kategori = k.id', 'left')
 			->where('a.enabled', 1)
 			->where('tgl_upload < NOW()');
 
@@ -418,9 +472,9 @@ class First_film_m extends CI_Model {
 		}
 	}
 
-	public function list_film($offset = 0, $limit = 50, $id = 0)
+	public function list_artikel($offset = 0, $limit = 50, $id = 0)
 	{
-		$this->list_film_sql($id);
+		$this->list_artikel_sql($id);
 		$this->db->select('a.*, u.nama AS owner, k.kategori, k.slug AS kat_slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri');
 		$this->db->order_by('a.tgl_upload', DESC);
 		$this->db->limit($limit, $offset);
@@ -512,20 +566,20 @@ class First_film_m extends CI_Model {
 		$id = $this->db->select('id')
 			->where('slug', $url)
 			->or_where('id', $url)
-			->get('film')
+			->get('artikel')
 			->row()->id;
 
 		//membatasi hit hanya satu kali dalam setiap session
-		if (in_array($id, $_SESSION['film']) OR $this->agent->is_robot() OR crawler() === TRUE) return;
+		if (in_array($id, $_SESSION['artikel']) OR $this->agent->is_robot() OR crawler() === TRUE) return;
 
 		$this->db->set('hit', 'hit + 1', false)
 			->where('id', $id)
-			->update('film');
-		$_SESSION['film'][] = $id;
+			->update('artikel');
+		$_SESSION['artikel'][] = $id;
 	}
 
-	public function get_film_by_id($id)
+	public function get_artikel_by_id($id)
 	{
-		return $this->db->select('slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')->where(array('id' => $id))->get('film')->row_array();
+		return $this->db->select('slug, YEAR(tgl_upload) AS thn, MONTH(tgl_upload) AS bln, DAY(tgl_upload) AS hri')->where(array('id' => $id))->get('artikel')->row_array();
 	}
 }

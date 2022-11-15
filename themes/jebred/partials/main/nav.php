@@ -20,6 +20,7 @@
             </div>
         <?php endforeach ?>
       <?php endif ?>
+      <a href="<?= site_url('artikel') ?>" class="nav-item nav-link">Review</a>
     </div>
     <a href="#" class="btn btn-sm btn-light rounded-pill py-2 px-4 d-lg-block">Advertising</a>
   </div>

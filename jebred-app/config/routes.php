@@ -8,6 +8,14 @@ $route['sitemap\.xml'] = "Sitemap/index";
 $route['feed\.xml'] = "Feed/index";
 $route ['ppid'] = "Api_informasi_publik/ppid";
 
+// Artikel
+$route['artikel/(:num)'] = 'first/artikel/$1'; // Contoh : artikel/1
+$route['artikel/(:num)/(:num)/(:num)/(:any)'] = 'first/artikel/$4'; // Contoh : artikel/2020/5/15/contoh-film
+
+// Film
+$route['review/(:num)'] = 'first/review/$1'; // Contoh : film/1
+$route['review/(:num)/(:num)/(:num)/(:any)'] = 'first/review/$4'; // Contoh : film/2020/5/15/contoh-film
+
 // Film
 $route['film/(:num)'] = 'first/film/$1'; // Contoh : film/1
 $route['film/(:num)/(:num)/(:num)/(:any)'] = 'first/film/$4'; // Contoh : film/2020/5/15/contoh-film

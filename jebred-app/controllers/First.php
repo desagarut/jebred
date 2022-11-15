@@ -60,7 +60,7 @@ class First extends Web_Controller {
 		$data['start_paging'] = max($data['paging']->start_link, $p - $data['paging_range']);
 		$data['end_paging'] = min($data['paging']->end_link, $p + $data['paging_range']);
 		$data['pages'] = range($data['start_paging'], $data['end_paging']);
-		$data['film'] = $this->first_film_m->artikel_show($data['paging']->offset, $data['paging']->per_page);
+		$data['film'] = $this->first_film_m->film_show($data['paging']->offset, $data['paging']->per_page);
 
 		$data['headline'] = $this->first_film_m->get_headline();
 		$data['cari'] = htmlentities($this->input->get('cari'));
@@ -80,7 +80,7 @@ class First extends Web_Controller {
 	
 
 	/*
-	| Artikel bisa ditampilkan menggunakan parameter pertama sebagai id, dan semua parameter lainnya dikosongkan. url film/:id
+	| film bisa ditampilkan menggunakan parameter pertama sebagai id, dan semua parameter lainnya dikosongkan. url film/:id
 	| Kalau menggunakan slug, dipanggil menggunakan url film/:thn/:bln/:hri/:slug
 	*/
 
@@ -88,17 +88,17 @@ class First extends Web_Controller {
 	{
 		if (is_numeric($url))
 		{
-			$data_artikel = $this->first_film_m->get_artikel_by_id();
-			if ($data_artikel)
+			$data_film = $this->first_film_m->get_film_by_id();
+			if ($data_film)
 			{
-				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
-				redirect('film/'. buat_slug($data_artikel));
+				$data_film['slug'] = $this->security->xss_clean($data_film['slug']);
+				redirect('film/'. buat_slug($data_film));
 			}
 		}
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$data['single_film'] = $this->first_film_m->get_film($url);
 		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
@@ -127,17 +127,17 @@ class First extends Web_Controller {
 	{
 		if (is_numeric($url))
 		{
-			$data_artikel = $this->first_film_m->get_artikel_by_id();
-			if ($data_artikel)
+			$data_film = $this->first_film_m->get_film_by_id();
+			if ($data_film)
 			{
-				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
-				redirect('trailer/'. buat_slug($data_artikel));
+				$data_film['slug'] = $this->security->xss_clean($data_film['slug']);
+				redirect('trailer/'. buat_slug($data_film));
 			}
 		}
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$data['single_film'] = $this->first_film_m->get_film($url);
 		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
@@ -166,17 +166,17 @@ class First extends Web_Controller {
 	{
 		if (is_numeric($url))
 		{
-			$data_artikel = $this->first_film_m->get_artikel_by_id();
-			if ($data_artikel)
+			$data_film = $this->first_film_m->get_film_by_id();
+			if ($data_film)
 			{
-				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
-				redirect('filmgd/'. buat_slug($data_artikel));
+				$data_film['slug'] = $this->security->xss_clean($data_film['slug']);
+				redirect('filmgd/'. buat_slug($data_film));
 			}
 		}
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$data['single_film'] = $this->first_film_m->get_film($url);
 		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
@@ -205,17 +205,17 @@ class First extends Web_Controller {
 	{
 		if (is_numeric($url))
 		{
-			$data_artikel = $this->first_film_m->get_artikel_by_id();
-			if ($data_artikel)
+			$data_film = $this->first_film_m->get_film_by_id();
+			if ($data_film)
 			{
-				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
-				redirect('filmacefile/'. buat_slug($data_artikel));
+				$data_film['slug'] = $this->security->xss_clean($data_film['slug']);
+				redirect('filmacefile/'. buat_slug($data_film));
 			}
 		}
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$data['single_film'] = $this->first_film_m->get_film($url);
 		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
@@ -244,17 +244,17 @@ class First extends Web_Controller {
 	{
 		if (is_numeric($url))
 		{
-			$data_artikel = $this->first_film_m->get_artikel_by_id();
-			if ($data_artikel)
+			$data_film = $this->first_film_m->get_film_by_id();
+			if ($data_film)
 			{
-				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
-				redirect('filmgd/'. buat_slug($data_artikel));
+				$data_film['slug'] = $this->security->xss_clean($data_film['slug']);
+				redirect('filmgd/'. buat_slug($data_film));
 			}
 		}
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$data['single_film'] = $this->first_film_m->get_film($url);
 		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
@@ -283,17 +283,17 @@ class First extends Web_Controller {
 	{
 		if (is_numeric($url))
 		{
-			$data_artikel = $this->first_film_m->get_artikel_by_id();
-			if ($data_artikel)
+			$data_film = $this->first_film_m->get_film_by_id();
+			if ($data_film)
 			{
-				$data_artikel['slug'] = $this->security->xss_clean($data_artikel['slug']);
-				redirect('filmlk21/'. buat_slug($data_artikel));
+				$data_film['slug'] = $this->security->xss_clean($data_film['slug']);
+				redirect('filmlk21/'. buat_slug($data_film));
 			}
 		}
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_artikel($url);
+		$data['single_film'] = $this->first_film_m->get_film($url);
 		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
@@ -358,7 +358,7 @@ class First extends Web_Controller {
 		$data['start_paging'] = max($data['paging']->start_link, $p - $data['paging_range']);
 		$data['end_paging'] = min($data['paging']->end_link, $p + $data['paging_range']);
 		$data['pages'] = range($data['start_paging'], $data['end_paging']);
-		$data['film'] = $this->first_film_m->list_artikel($data['paging']->offset, $data['paging']->per_page, $id);
+		$data['film'] = $this->first_film_m->list_film($data['paging']->offset, $data['paging']->per_page, $id);
 
 		$this->_get_common_data($data);
 		$this->load->view($this->template, $data);
@@ -410,7 +410,7 @@ class First extends Web_Controller {
 		$data['menu_atas'] = $this->first_menu_m->list_menu_atas();
 		$data['menu_kiri'] = $this->first_menu_m->list_menu_kiri();
 		$data['teks_berjalan'] = $this->teks_berjalan_model->list_data(TRUE);
-		$data['slide_artikel'] = $this->first_film_m->slide_show();
+		$data['slide_film'] = $this->first_film_m->slide_show();
 		$data['slider_gambar'] = $this->first_film_m->slider_gambar();
 		$data['w_cos'] = $this->web_widget_model->get_widget_aktif();
 
