@@ -20,7 +20,7 @@
                                         </a>
                                         <h6 class="text-primary text-uppercase mb-2 animated zoomIn"><?= $gambar['genre1'] ?> <?= $gambar['negara1'] ?></h6>
                                         <p><?= potong_teks($gambar['isi'], 250) ?> </p>
-                                        <a href="#" class="btn btn-lg btn-success">Sinopsis</a>&nbsp;<a href="#" class="btn btn-lg btn-danger">Movie</a>
+                                        <a href="#" class="btn btn-lg btn-success">Sinopsis</a>&nbsp;<a href="#" class="btn btn-lg btn-warning">Movie</a>
                                     </div>
                                 </div>
 
