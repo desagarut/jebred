@@ -7,7 +7,7 @@ for ($i = $paging->start_link; $i <= $paging->end_link; $i++) {
 }
 ?>
 
-<div class="btn" align="center">
+<div class="btn wow fadeInUp" data-wow-delay="0.1s" align="center">
 	<?php if ((int) $paging->end_link > 1) : ?>
 		<div class="justify-content-center">
 			<?php if ($paging->start_link) : ?>
