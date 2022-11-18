@@ -18,8 +18,9 @@
                                         <a href="<?='film/'.buat_slug($gambar); ?>">
                                         <h1 class="display-1 text-white mb-2 animated zoomIn"><?= $gambar['judul'] ?></h1>
                                         </a>
-                                        <h6 class="text-primary text-uppercase mb-0 animated zoomIn"><?= $gambar['genre1'] ?> <?= $gambar['negara1'] ?></h6>
-                                        <p><?= potong_teks($gambar['isi'], 250) ?></p>
+                                        <h6 class="text-primary text-uppercase mb-2 animated zoomIn"><?= $gambar['genre1'] ?> <?= $gambar['negara1'] ?></h6>
+                                        <p><?= potong_teks($gambar['isi'], 250) ?> </p>
+                                        <a href="#" class="btn btn-lg btn-success">Sinopsis</a>&nbsp;<a href="#" class="btn btn-lg btn-danger">Movie</a>
                                     </div>
                                 </div>
 
