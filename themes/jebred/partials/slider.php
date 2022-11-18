@@ -5,6 +5,7 @@
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <?php $active = true; ?>
+            <?php $abstract = potong_teks($gambar['isi'], 250); ?>
             <?php foreach ($slider_gambar['gambar'] as $gambar) : ?>
                 <?php $file_gambar = $slider_gambar['lokasi'] . 'sedang_' . $gambar['gambar']; ?>
                 <?php if (is_file($file_gambar)) : ?>
@@ -39,7 +40,7 @@
                                         <div class="col-md-4">
                                             <h6 class="display-5 text-primary animated zoomIn" style=" text-shadow: 4px 4px 4px #081828; -webkit-text-stroke: 0.25px #081828; width:100%"><?= $gambar['judul'] ?></h6>
                                             <h6 class="text-white animated zoomIn">Pemeran: <?= $gambar['artis1'] ?>, <?= $gambar['artis2'] ?>, <?= $gambar['artis3'] ?><br />
-                                                <small><?= $gambar['isi'] ?></small></>
+                                                <small><?= $gambar['abstract'] ?></small></>
                                             </h6>
                                         </div>
                                         <div class="col-md-4">
