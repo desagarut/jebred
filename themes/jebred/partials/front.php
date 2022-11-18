@@ -2,11 +2,10 @@
 
 <!-- Team Start -->
 
-<div class="container py-3">
-  <div class="container">
-    <?php $this->load->view($folder_themes . '/partials/film') ?>
-    <?php //$this->load->view($folder_themes . '/partials/slider_artikel_4') ?>
-
-    <?php $this->load->view($folder_themes . '/partials/artikel') ?>
-  </div>
+<?php $this->load->view($folder_themes . '/partials/slider') ?>
+<div class="container">
+  <?php //$this->load->view($folder_themes . '/partials/teks_berjalan.php') 
+  ?>
+  <?php $this->load->view($folder_themes . '/partials/film') ?>
+  <?php $this->load->view($folder_themes . '/partials/artikel') ?>
 </div>

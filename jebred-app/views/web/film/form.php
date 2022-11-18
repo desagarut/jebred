@@ -243,14 +243,68 @@
                           </div>
                         </div>
                       </div>
-
-
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <?php if ($film['gambar1']) : ?>
+                            <input type="hidden" name="old_gambar1" value="<?= $film['gambar1'] ?>">
+                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($film['gambar1'], 'kecil') ?>" alt="Gambar Utama">
+                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar1_hapus" value="<?= $film['gambar1'] ?>" /> Hapus Gambar</label></p>
+                          <?php else : ?>
+                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
+                          <?php endif; ?>
+                          <label class="control-label" for="gambar1">Gambar Tambahan</label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" id="file_path1">
+                            <input type="file" class="hidden" id="file1" name="gambar1">
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-info btn-box" id="file_browser1"><i class="fa fa-search"></i> Browse</button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <?php if ($film['gambar2']) : ?>
+                            <input type="hidden" name="old_gambar2" value="<?= $film['gambar2'] ?>">
+                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($film['gambar2'], 'kecil') ?>" alt="Gambar Utama">
+                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar2_hapus" value="<?= $film['gambar2'] ?>" /> Hapus Gambar</label></p>
+                          <?php else : ?>
+                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
+                          <?php endif; ?>
+                          <label class="control-label" for="gambar2">Gambar Tambahan</label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" id="file_path2">
+                            <input type="file" class="hidden" id="file2" name="gambar2">
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-info btn-box" id="file_browser2"><i class="fa fa-search"></i> Browse</button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <?php if ($film['gambar3']) : ?>
+                            <input type="hidden" name="old_gambar3" value="<?= $film['gambar3'] ?>">
+                            <img class="profile-user-img img-responsive img-circle" src="<?= AmbilFotoArtikel($film['gambar3'], 'kecil') ?>" alt="Gambar Utama">
+                            <p class="text-center"><label class="control-label"><input type="checkbox" name="gambar3_hapus" value="<?= $film['gambar3'] ?>" /> Hapus Gambar</label></p>
+                          <?php else : ?>
+                            <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/files/logo/home.png" alt="Tidak Ada Gambar">
+                          <?php endif; ?>
+                          <label class="control-label" for="gambar3">Gambar Tambahan</label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" id="file_path3">
+                            <input type="file" class="hidden" id="file3" name="gambar3">
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-info btn-box" id="file_browser3"><i class="fa fa-search"></i> Browse</button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class='card-footer text-right'>
                       <button type='reset' class='btn btn-box btn-danger btn-sm'><i class='fa fa-times'></i> Batal</button>
                       <button type='submit' class='btn btn-box btn-info btn-sm pull-right'><i class='fa fa-check'></i> Simpan</button>
                     </div>
-
                   </div>
                   <div class="card">
                     <div class="card-header">

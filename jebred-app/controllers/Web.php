@@ -15,7 +15,7 @@ class Web extends Admin_Controller {
 			exit;
 		}
 
-		$this->load->model(['web_artikel_model', 'web_kategori_model', 'referensi_model']);
+		$this->load->model(['web_film_model', 'web_kategori_model', 'referensi_model']);
 		$this->_set_page = ['20', '50', '100'];
 		$this->modul_ini = 2;
 	}
@@ -47,11 +47,11 @@ class Web extends Admin_Controller {
 		$data['per_page'] = $this->session->per_page;
 		$data['set_page'] = $this->_set_page;
 
-		$paging = $this->web_artikel_model->paging($cat, $p, $o);
-		$data['main'] = $this->web_artikel_model->list_data($cat, $o, $paging->offset, $paging->per_page);
-		$data['keyword'] = $this->web_artikel_model->autocomplete($cat);
-		$data['list_kategori'] = $this->web_artikel_model->list_kategori();
-		$data['kategori'] = $this->web_artikel_model->get_kategori($cat);
+		$paging = $this->web_film_model->paging($cat, $p, $o);
+		$data['main'] = $this->web_film_model->list_data($cat, $o, $paging->offset, $paging->per_page);
+		$data['keyword'] = $this->web_film_model->autocomplete($cat);
+		$data['list_kategori'] = $this->web_film_model->list_kategori();
+		$data['kategori'] = $this->web_film_model->get_kategori($cat);
 		$data['negara1'] = $this->referensi_model->list_data('ref_negara');
 		$data['negara2'] = $this->referensi_model->list_data('ref_negara');
 		$data['genre'] = $this->referensi_model->list_data('ref_genre');
@@ -76,10 +76,10 @@ class Web extends Admin_Controller {
 
 		if ($id)
 		{
-			$cek_data = $this->web_artikel_model->get_artikel($id);
+			$cek_data = $this->web_film_model->get_artikel($id);
 			if ( ! $cek_data) show_404();
 
-			if ( ! $this->web_artikel_model->boleh_ubah($id, $this->session->user)) redirect("web");
+			if ( ! $this->web_film_model->boleh_ubah($id, $this->session->user)) redirect("web");
 
 			
 			$this->session->kategori = $cek_data['id_kategori'];
@@ -103,7 +103,7 @@ class Web extends Admin_Controller {
 		}
 
 		$data['cat'] = $cat;
-		$data['kategori'] = $this->web_artikel_model->get_kategori($cat);
+		$data['kategori'] = $this->web_film_model->get_kategori($cat);
 			$data['negara'] = $this->referensi_model->list_data('ref_negara');
 			$data['genre'] = $this->referensi_model->list_data('ref_genre');
 
@@ -124,7 +124,7 @@ class Web extends Admin_Controller {
 	{
 		$cat = $this->session->kategori ?: 0;
 
-		$this->web_artikel_model->insert($cat);
+		$this->web_film_model->insert($cat);
 		redirect("web");
 	}
 
@@ -132,9 +132,9 @@ class Web extends Admin_Controller {
 	{
 		$cat = $this->session->kategori ?: 0;
 
-		if ( ! $this->web_artikel_model->boleh_ubah($id, $this->session->user)) redirect("web");
+		if ( ! $this->web_film_model->boleh_ubah($id, $this->session->user)) redirect("web");
 
-		$this->web_artikel_model->update($cat, $id);
+		$this->web_film_model->update($cat, $id);
 		if ($this->session->success == -1)
 			redirect("web/form/$id");
 		else
@@ -144,14 +144,14 @@ class Web extends Admin_Controller {
 	public function delete($id = 0)
 	{
 		$this->redirect_hak_akses('h');
-		$this->web_artikel_model->delete($id);
+		$this->web_film_model->delete($id);
 		redirect("web");
 	}
 
 	public function delete_all()
 	{
 		$this->redirect_hak_akses('h');
-		$this->web_artikel_model->delete_all();
+		$this->web_film_model->delete_all();
 		redirect("web");
 	}
 
@@ -161,7 +161,7 @@ class Web extends Admin_Controller {
 		$cat = $this->session->kategori ?: 0;
 
 		$this->redirect_hak_akses('h');
-		$this->web_artikel_model->hapus($cat);
+		$this->web_film_model->hapus($cat);
 		$this->session->kategori = 0;
 		redirect("web");
 	}
@@ -169,20 +169,20 @@ class Web extends Admin_Controller {
 	// TODO: Pindahkan ke controller kategoris
 	public function ubah_kategori_form($id = 0)
 	{
-		if ( ! $this->web_artikel_model->boleh_ubah($id, $this->session->user)) redirect("web");
+		if ( ! $this->web_film_model->boleh_ubah($id, $this->session->user)) redirect("web");
 
 		$data['list_kategori'] = $this->web_kategori_model->list_kategori("kategori");
 		$data['form_action'] = site_url("web/update_kategori/$id");
-		$data['kategori_sekarang'] = $this->web_artikel_model->get_kategori_artikel($id);
+		$data['kategori_sekarang'] = $this->web_film_model->get_kategori_artikel($id);
 		$this->load->view('web/film/ajax_ubah_kategori_form', $data);
 	}
 
 	public function update_kategori($id = 0)
 	{
-		if ( ! $this->web_artikel_model->boleh_ubah($id, $this->session->user)) redirect("web");
+		if ( ! $this->web_film_model->boleh_ubah($id, $this->session->user)) redirect("web");
 
 		$cat = $this->input->post('kategori');
-		$this->web_artikel_model->update_kategori($id, $cat);
+		$this->web_film_model->update_kategori($id, $cat);
 		$this->session->kategori = $cat;
 		redirect("web");
 	}
@@ -192,7 +192,7 @@ class Web extends Admin_Controller {
 		// Kontributor tidak boleh mengubah status aktif film
 		$this->redirect_hak_akses('u');
 
-		$this->web_artikel_model->artikel_lock($id, $val);
+		$this->web_film_model->artikel_lock($id, $val);
 		redirect("web");
 	}
 
@@ -201,7 +201,7 @@ class Web extends Admin_Controller {
 		// Kontributor tidak boleh mengubah status komentar film
 		$this->redirect_hak_akses('u');
 
-		$this->web_artikel_model->komentar_lock($id, $val);
+		$this->web_film_model->komentar_lock($id, $val);
 		redirect("web");
 	}
 
@@ -216,7 +216,7 @@ class Web extends Admin_Controller {
 	public function insert_kategori($cat = 1, $p = 1, $o = 0)
 	{
 		redirect_hak_akses('u', "web/index/$cat/$p/$o", 'kategori');
-		$this->web_artikel_model->insert_kategori();
+		$this->web_film_model->insert_kategori();
 		redirect("web/index/$cat/$p/$o");
 	}
 
@@ -225,7 +225,7 @@ class Web extends Admin_Controller {
 		// Kontributor tidak boleh melakukan ini
 		$this->redirect_hak_akses('u');
 
-		$this->web_artikel_model->headline($id);
+		$this->web_film_model->headline($id);
 		redirect("web");
 	}
 
@@ -234,7 +234,7 @@ class Web extends Admin_Controller {
 		// Kontributor tidak boleh melakukan ini
 		$this->redirect_hak_akses('u');
 
-		$this->web_artikel_model->slide($id);
+		$this->web_film_model->slide($id);
 		redirect("web");
 	}
 
@@ -274,7 +274,7 @@ class Web extends Admin_Controller {
 	{
 		$cat = $this->session->kategori ?: 0;
 
-		if ($cat == 999) $this->web_artikel_model->reset($cat);
+		if ($cat == 999) $this->web_film_model->reset($cat);
 
 		redirect("web");
 	}

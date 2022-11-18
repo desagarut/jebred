@@ -42,7 +42,7 @@
         <div class="card-header">
           <?php if ($this->CI->cek_hak_akses('h')) : ?>
           <?php if ($cat > 0) : ?>
-          <a href="<?= site_url("web/form") ?>" class="btn btn-box btn-success btn-sm btn-sm " title="Tambah Artikel"> <i class="fa fa-plus"></i>Tambah
+          <a href="<?= site_url("web/form") ?>" class="btn btn-box btn-success btn-sm btn-sm " title="Tambah Artikel"> <i class="fa fa-plus"></i> Tambah
           <?php if ($kategori) : ?>
           <?= $kategori['kategori']; ?>
           <?php elseif ($cat == 1000) : ?>

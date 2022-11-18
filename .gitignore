@@ -1,4 +1,7 @@
 instansi/config/
+instansi/upload/
+instansi/themes/
+instansi/upload/
 themes/anime/
 theme/iqiyi/
 .htaccess

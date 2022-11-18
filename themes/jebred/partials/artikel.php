@@ -19,7 +19,10 @@
         </div>
       </div>
       <div class="row g-3">
+        <?php $this->load->view($folder_themes . '/partials/headlines') ?>
+      </div>
 
+      <div class="row g-3">
         <?php foreach ($artikel as $article) : ?>
           <?php $data['review'] = $article ?>
           <?php $url = site_url('artikel/' . buat_slug($article)) ?>
@@ -45,9 +48,10 @@
           </div>
         <?php endforeach ?>
       </div>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
     </div>
-    <?php $this->load->view($folder_themes . '/widgets/sisi_kanan_populer') ?>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
+  </div>
+  <?php $this->load->view($folder_themes . '/widgets/sisi_kanan_populer') ?>
   </div>
 <?php endif ?>
 <?php $this->load->view($folder_themes . '/partials/slider_artikel_4') ?>

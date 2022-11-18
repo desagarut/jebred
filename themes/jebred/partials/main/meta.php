@@ -21,14 +21,13 @@
     <meta property='og:description' content="<?= str_replace('"', "'", substr(strip_tags($single_film['isi']), 0, 400)); ?>" />
 <?php else : ?>
 
-
     <meta name='description' content="Jebred - Nonton Online Film Gratis jebred Movie, Jebred Film, Jebread Streaming" />
     <meta property="og:title" content="Nonton Online Film Gratis" />
     <meta property='og:description' content="Jebred - Nonton Online Film Gratis jebred Movie, Jebred Film, Jebread Streaming" />
     <meta property="og:site_name" content="<?= $website_title ?>" />
     <meta property="og:type" content="article" />
-
 <?php endif; ?>
+
 <meta property='og:url' content="<?= current_url(); ?>" />
 <?php if (is_file(LOKASI_LOGO . "favicon.ico")) : ?>
     <link rel="shortcut icon" href="<?= base_url() . LOKASI_LOGO ?>favicon.ico" />

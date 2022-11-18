@@ -197,7 +197,8 @@ class First_film_m extends CI_Model {
 	private function sql_gambar_slide_show($gambar)
 	{
 		$this->db
-			->select('id, judul, gambar, slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
+			->select('id, judul, isi, gambar, gambar1, gambar2, gambar3, slug, negara1, negara2, genre1, genre2, tahun, artis1, artis2, artis3
+						rating, qualitas, durasi, rilis, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
 			->from('film')
 			->where('enabled', 1)
 			->where('headline', 3)
@@ -238,7 +239,8 @@ class First_film_m extends CI_Model {
 			case '1':
 				# 10 gambar utama semua film terbaru
 				$slider_gambar['gambar'] = $this->db
-					->select('id, judul, gambar, slug, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
+					->select('id, judul, gambar, gambar1, gambar2, gambar3, slug, negara1, negara2, genre1, genre2, tahun, artis1, artis2, artis3
+					rating, qualitas, durasi, rilis, YEAR(tgl_upload) as thn, MONTH(tgl_upload) as bln, DAY(tgl_upload) as hri')
 					->where('enabled', 1)
 					->where('gambar !=', '')
 					->where('tgl_upload < NOW()')

@@ -9,7 +9,7 @@
 
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item active" role="presentation">
-              <button class="nav-link active <?php ($jenis == 'populer') and print('active') ?>" id="populer-tab" data-bs-toggle="tab" data-bs-target="#populer" type="button" role="tab" aria-controls="populer" aria-selected="false">Populer</button>
+              <button class="nav-link active <?php ($jenis == 'populer') and print('active') ?>" id="populer-tab" data-bs-toggle="tab" data-bs-target="#populer" type="button" role="tab" aria-controls="populer" aria-selected="false">Film Populer</button>
             </li>
           </ul>
 

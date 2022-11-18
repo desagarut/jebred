@@ -5,17 +5,17 @@
 <?php if ($film) : ?>
   <div class="row">
     <div class="col-md-9">
-      <div class="row g-3">
+      <!--<div class="row g-3">
         <div class="text-center mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
           <h6 class="section-title bg-white text-center text-danger px-3">FILM TERBARU</h6>
         </div>
-      </div>
-      <div class="row g-3">
+      </div>-->
+      <!--<div class="row g-3">
         <div class="col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s" style="padding-bottom: 15px;">
           <script async src="https://cse.google.com/cse.js?cx=ce1ed54db28733f39"></script>
           <div class="gcse-search"></div>
         </div>
-      </div>
+      </div>-->
       <div class="row g-3">
         <div class="col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
           <div class="team-item text-center p-1">

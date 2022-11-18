@@ -63,5 +63,24 @@ $genre = $this->db->query('SELECT nama FROM ref_genre')->result_array();
 <script src="<?= base_url("$this->theme_folder/$this->theme/lib/owlcarousel/owl.carousel.min.js") ?>"></script>
 <script src="<?= base_url("$this->theme_folder/$this->theme/lib/lightbox/js/lightbox.min.js") ?>"></script>
 
+
 <!-- Template Javascript -->
 <script src="<?= base_url("$this->theme_folder/$this->theme/js/main.js") ?>"></script>
+
+<script src="<?= base_url("$this->theme_folder/$this->theme/js/jquery.fractionslider.js") ?>"></script>
+
+<script type="text/javascript"> /*-- Fraction Slider Parameters --*/
+        $(window).load(function () {
+            $('.slider').fractionSlider({
+                'fullWidth': true,
+                'controls': true,
+                'responsive': true,
+                'dimensions': "1920,450",
+                'increase': true,
+                'pauseOnHover': true,
+                'slideEndAnimation': true,
+                'autoChange': true
+            });
+
+        });
+    </script>

@@ -1,11 +1,16 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <title>
-  <?= $this->setting->website_title ?>
+<?php if ($single_artikel["judul"] == ""): ?>
+	<?= $this->setting->website_title; ?>
+<?php else: ?>
+	<?= $single_film["judul"]; ?>
+<?php endif; ?>
 </title>
 
 <!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
+<?php	$favicon = LOKASI_LOGO . 'favicon.ico'; ?>
+<link rel="shortcut icon" href="<?= base_url(is_file($favicon) ? $favicon : 'favicon.ico') ?>"/>
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,3 +31,6 @@
 
 <!-- Template Stylesheet -->
 <link href="<?= base_url("$this->theme_folder/$this->theme/css/style.css") ?>" rel="stylesheet">
+
+<link href="<?= base_url("$this->theme_folder/$this->theme/css/fractionslider.css") ?>" rel="stylesheet">
+<link href="<?= base_url("$this->theme_folder/$this->theme/css/style-fraction.css") ?>" rel="stylesheet">

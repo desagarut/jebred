@@ -3,7 +3,6 @@
 <?php //$this->load->view($folder_themes .'/partials/slider-kecil') ?>
 <?php //$this->load->view($folder_themes .'/partials/slider-kecil') ?>
 <?php //$this->load->view($folder_themes .'/partials/headlines') ?>
-<?php $this->load->view($folder_themes .'/partials/teks_berjalan.php') ?>
 <?php $this->load->view($folder_themes .'/partials/front') ?>
 <?php //$this->load->view($folder_themes .'/partials/film_kategori') ?>
 <?php //$this->load->view($folder_themes .'/partials/statistik') ?>
