@@ -8,12 +8,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <!--<div class="row g-3">
+          <div class="row g-3">
             <div class="text-center mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                        <h6 class="section-title bg-white text-center text-danger px-3">REVIEW FILM</h6>
-              <h1 class="display-6 mb-4 text-danger">Review Film</h1>
+                        <h6 class="section-title bg-white text-center text-danger px-3">Baca review film terlengkap di Jebred</h6>
+              <h1 class="display-7 mb-4 text-danger">Review Film Seru</h1>
             </div>
-          </div>-->
+          </div>
           <div class="row g-3">
             <div class="col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s" style="padding-bottom: 15px;">
               <script async src="https://cse.google.com/cse.js?cx=ce1ed54db28733f39"></script>

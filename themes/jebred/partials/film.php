@@ -8,6 +8,13 @@
       <div class="row">
         <div class="col-md-9">
           <div class="row g-3">
+            <div class="text-start mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s">
+              <h6 class="section-title bg-white text-start text-danger px-3 py-1">Jebred Movie Film Terbaru</h6>
+              <!--<h1 class="display-9 mb-4 text-danger">Jebred Movie Film Terbaru</h1>-->
+            </div>
+          </div>
+
+          <div class="row g-3">
             <div class="col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
               <div class="team-item text-center p-1">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
@@ -17,21 +24,21 @@
                 </script>
               </div>
             </div>
-            <?php foreach ($film as $article) : ?>
-              <?php $data['article'] = $article ?>
-              <?php $url = site_url('film/' . buat_slug($article)) ?>
-              <?php $url2 = site_url('trailer/' . buat_slug($article)) ?>
+            <?php foreach ($film as $movie) : ?>
+              <?php $data['movie'] = $movie ?>
+              <?php $url = site_url('film/' . buat_slug($movie)) ?>
+              <?php $url2 = site_url('trailer/' . buat_slug($movie)) ?>
 
-              <?php $abstract = potong_teks(strip_tags($article['isi']), 200) ?>
-              <?php $image = ($article['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'sedang_' . $article['gambar'])) ?
-                AmbilFotoArtikel($article['gambar'], 'sedang') :
+              <?php $abstract = potong_teks(strip_tags($movie['isi']), 200) ?>
+              <?php $image = ($movie['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'sedang_' . $movie['gambar'])) ?
+                AmbilFotoArtikel($movie['gambar'], 'sedang') :
                 base_url($this->theme_folder . '/' . $this->theme . '/assets/img/placeholder.png'); ?>
               <div class="col-md-2 col-sm-2 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item text-center p-1"> <a href="<?= $url2 ?>"> <img class="img-fluid " style="width: 380px;" src="<?= $image ?>" alt="<?= $article['judul'] ?>"> </a>
+                <div class="team-item text-center p-1"> <a href="<?= $url2 ?>"> <img class="img-fluid " style="width: 380px;" src="<?= $image ?>" alt="<?= $movie['judul'] ?>"> </a>
                   <div class="team-text">
                     <div class="team-title">
                       <h7 style="color: rgb(204, 204, 204)">
-                        <small><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</small>
+                        <small><?= $movie['judul'] ?> (<?= $movie['tahun'] ?>)</small>
                       </h7>
                     </div>
                     <div class="team-social" style="background-color: transparent;">
