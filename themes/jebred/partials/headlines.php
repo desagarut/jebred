@@ -17,8 +17,8 @@
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="h-100">
-                    <h6 class="section-title bg-white text-start text-danger pe-3">Sorotan</h6>
-                    <h1 class="display-6 mb-4"><span class="text-danger">#1</span> <?= $headline['judul'] ?></h1>
+                    <h6 class="section-title bg-white text-start text-danger pe-3">Headline Review Film Di Jebred</h6>
+                    <h1 class="display-6 mb-4"><span class="text-danger"> <?= $headline['judul'] ?></span></h1>
                     <p><?= $abstract ?></p>
                     <div class="d-flex align-items-center mb-4 pb-2">
                         <img class="flex-shrink-0 rounded-circle" src="<?= base_url("$this->theme_folder/$this->theme/img/team-1.jpg") ?>" alt="" style="width: 50px; height: 50px;">
