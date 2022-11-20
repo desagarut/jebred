@@ -25,23 +25,15 @@
       <div class="row">
         <?php $this->load->view('beranda/stat_bidang.php'); ?>
       </div>
-    
+    </div>
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+
       <div class="row">
         <?php $this->load->view('beranda/pengunjung.php'); ?>
         <?php $this->load->view('beranda/user_login.php'); ?>
-		<?php $this->load->view('beranda/layanan.php');?>
-      </div>
-
-      <div class='row'>
-        <?php //$this->load->view('beranda/helpdesk.php'); 
-        ?>
-        <?php //$this->load->view('beranda/changelog.php'); 
-        ?>
-      </div>
-
-      <div class='row'>
-        <?php //$this->load->view('beranda/teks_berjalan.php'); 
-        ?>
+        <?php $this->load->view('beranda/layanan.php'); ?>
       </div>
     </div>
   </section>
