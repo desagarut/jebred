@@ -29,7 +29,6 @@
   </section>
   <section class="content">
     <div class="container-fluid">
-
       <div class="row">
         <?php $this->load->view('beranda/pengunjung.php'); ?>
         <?php $this->load->view('beranda/user_login.php'); ?>
