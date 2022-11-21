@@ -29,7 +29,7 @@
 						<a class="btn btn-sm btn-warning" href="<?= site_url('trailer/' . buat_slug($article)) ?>">Trailer</a>
 					</div>
 					<div class="col-md-12" style="padding:10px 0 10px 10px">
-					Jika Film tidak dapat diputar silahkan pilih Server lain.
+						Jika Film tidak dapat diputar silahkan pilih Server lain.
 					</div>
 				</div>
 			</div>
@@ -37,8 +37,8 @@
 		<div class="row" style="padding-top: 20px;">
 			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="h-100">
-					<h6 class="section-title bg-white text-start text-danger pe-3">FILM <?= strtoupper($article['genre1']) ?> GRATIS</h6>
-					<h1 class="display-6 mb-4"><span class="text-primary"><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
+					<h6 class="section-title bg-white text-start text-danger px-3 py-1">NONTON FILM <?= strtoupper($article['genre1']) ?> GRATIS HANYA DI JEBRED MOVIE</h6>
+					<h1 class="display-6 mb-4"><span class="text-primary"><small class="text-warning">Jebred Nonton Film <?= $article['genre1'] ?> : </small><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
 					<h5 style="color: rgb(204, 204, 204);">Sinopsis:</h5>
 					<p><?= $article['isi'] ?></p>
 					<?php for ($i = 1; $i <= 3; $i++) : ?>
@@ -54,7 +54,7 @@
 						</div>
 
 						<div class="ps-0">
-							<h6 style="color: rgb(204, 204, 204);">Judul: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
+							<h6 style="color: rgb(204, 204, 204);">Judul Film: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
 							<small>
 								Sutradara: <?= $article['sutradara'] ?><br />
 								Pemain: <?= $article['artis1'] ?>, <?= $article['artis2'] ?>, <?= $article['artis3'] ?> <br />
@@ -78,8 +78,8 @@
 
 
 		<div class="row g-5">
-			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-				<h6 class="section-title bg-white text-start text-danger pe-3">KOMENTAR ANDA</h6>
+			<div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+				<h6 class="section-title bg-white text-start text-danger px-3 py-1">KOMENTAR ANDA</h6>
 				<ul class="--mt-4 content__list">
 					<?php foreach ($komentar as $comment) : ?>
 						<li class="--mt-2 --mb-2">
@@ -193,10 +193,16 @@
 					<?php endif; ?>
 				</div>
 			</div>
-			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+			<div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
 				<div class="h-100">
-					<h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM SEJENIS</h6>
+					<h6 class="section-title bg-white text-start text-danger px-3 py-1">REKOMENDASI FILM SEJENIS</h6>
 					<?php $this->load->view($folder_themes . '/widgets/arsip_film') ?>
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
+					<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+
 				</div>
 			</div>
 		</div>

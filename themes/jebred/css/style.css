@@ -349,7 +349,7 @@
 .project-item:hover a {
     opacity: 1;
 }
-*/
+
 .project-carousel .owl-dots {
     display: flex;
     align-items: center;
@@ -375,6 +375,56 @@
     color: #FFFFFF;
     border-color: var(--primary);
     background: var(--primary);
+}
+
+#project-carousel .carousel-control-prev,
+#project-carousel .carousel-control-next {
+    width: 10%;
+}
+
+#project-carousel .carousel-control-prev-icon,
+#project-carousel .carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+}
+*/
+/** Project2 **/
+.project2-carousel .owl-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.project2-carousel .owl-dot {
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #DEE2E6;
+    border-radius: 35px;
+    transition: .5s;
+}
+
+.project2-carousel .owl-dot:hover,
+.project2-carousel .owl-dot.active {
+    color: #FFFFFF;
+    border-color: var(--primary);
+    background: var(--primary);
+}
+
+#project2-carousel .carousel-control-prev,
+#project2-carousel .carousel-control-next {
+    width: 10%;
+}
+
+#project2-carousel .carousel-control-prev-icon,
+#project2-carousel .carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
 }
 
 

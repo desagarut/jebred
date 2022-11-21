@@ -2,6 +2,8 @@ instansi/config/
 instansi/upload/
 instansi/themes/
 instansi/upload/
+instansi/status_pelanggan.json
 themes/anime/
 theme/iqiyi/
 .htaccess
+logs/

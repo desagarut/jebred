@@ -10,8 +10,8 @@
         <div class="col-md-9">
           <div class="row g-3">
             <div class="text-center mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                        <!--<h6 class="section-title bg-white text-center text-danger px-3">Baca review film terlengkap di Jebred</h6>-->
-              <h3 class="mb-4 text-danger">Review Film Seru Terlengkap di Jebred</h3>
+                        <h6 class="section-title bg-white text-center text-danger px-3">Baca review film terlengkap di Jebred</h6>
+              <h1 class="display-7 mb-4 text-danger">Review Film Seru</h1>
             </div>
           </div>
           <div class="row g-3">

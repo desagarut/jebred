@@ -30,21 +30,22 @@ class First extends Web_Controller {
 		
 		$this->load->model('first_m');
 		$this->load->model('first_film_m');
+		$this->load->model('first_artikel_m');
+
 		$this->load->model('first_gallery_m');
 		$this->load->model('first_menu_m');
 		
 		$this->load->model('mailbox_model');
 		
-//		$this->load->model('pembangunan_model');
-//		$this->load->model('pembangunan_dokumentasi_model');
 		
 		$this->load->model('referensi_model');
-//		$this->load->model('track_model');
 		$this->load->model('teks_berjalan_model');
 		
 		$this->load->model('web_menu_model');
 		$this->load->model('web_widget_model');
 		$this->load->model('web_gallery_model');
+		$this->load->model('web_artikel_blog_model');
+
 		
 		$this->load->library('upload');
 	}
@@ -61,8 +62,9 @@ class First extends Web_Controller {
 		$data['end_paging'] = min($data['paging']->end_link, $p + $data['paging_range']);
 		$data['pages'] = range($data['start_paging'], $data['end_paging']);
 		$data['film'] = $this->first_film_m->film_show($data['paging']->offset, $data['paging']->per_page);
-
-		$data['headline'] = $this->first_film_m->get_headline();
+		$data['review'] = $this->first_artikel_m->artikel_show($data['paging']->offset, $data['paging']->per_page);
+		$data['headline_film'] = $this->first_film_m->get_headline();
+		$data['headline_review'] = $this->first_artikel_m->get_headline();
 		$data['cari'] = htmlentities($this->input->get('cari'));
 		
 		$cari = trim($this->input->get('cari'));
@@ -137,12 +139,12 @@ class First extends Web_Controller {
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['single_film'] = $this->first_film_m->get_film($url);
-		$id = $data['single_film']['id'];
+		$data['trailer'] = $this->first_film_m->get_film($url);
+		$id = $data['trailer']['id'];
 
 		// replace isi film dengan shortcodify
-		$data['single_film']['isi'] = $this->shortcode_model->shortcode($data['single_film']['isi']);
-		$data['title'] = ucwords($data['single_film']['judul']);
+		$data['trailer']['isi'] = $this->shortcode_model->shortcode($data['trailer']['isi']);
+		$data['title'] = ucwords($data['trailer']['judul']);
 		$data['detail_agenda'] = $this->first_film_m->get_agenda($id);//Agenda
 		$data['komentar'] = $this->first_film_m->list_komentar($id);
 		$this->_get_common_data($data);

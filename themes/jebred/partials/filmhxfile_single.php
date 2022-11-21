@@ -26,7 +26,7 @@
 						<a class="btn btn-sm btn-warning" href="<?= site_url('trailer/' . buat_slug($article)) ?>">Trailer</a>
 					</div>
 					<div class="col-md-12" style="padding:10px 0 10px 10px">
-					Jika Film tidak dapat diputar silahkan pilih Server lain.
+						Jika Film tidak dapat diputar silahkan pilih Server lain.
 					</div>
 				</div>
 			</div>
@@ -34,8 +34,8 @@
 		<div class="row" style="padding-top: 20px;">
 			<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="h-100">
-					<h6 class="section-title bg-white text-start text-danger pe-3">FILM <?= strtoupper($article['genre1']) ?> GRATIS</h6>
-					<h1 class="display-6 mb-4"><span class="text-primary"><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
+					<h6 class="section-title bg-white text-start text-danger px-3 py-1">NONTON FILM <?= strtoupper($article['genre1']) ?> GRATIS HANYA DI JEBRED MOVIE</h6>
+					<h1 class="display-6 mb-4"><span class="text-primary"><small class="text-warning">Jebred Nonton Film <?= $article['genre1'] ?> : </small><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
 					<h5 style="color: rgb(204, 204, 204);">Sinopsis:</h5>
 					<p><?= $article['isi'] ?></p>
 					<?php for ($i = 1; $i <= 3; $i++) : ?>
@@ -51,7 +51,7 @@
 						</div>
 
 						<div class="ps-0">
-							<h6 style="color: rgb(204, 204, 204);">Judul: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
+							<h6 style="color: rgb(204, 204, 204);">Judul Film: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
 							<small>
 								Sutradara: <?= $article['sutradara'] ?><br />
 								Pemain: <?= $article['artis1'] ?>, <?= $article['artis2'] ?>, <?= $article['artis3'] ?> <br />
@@ -76,7 +76,7 @@
 
 		<div class="row g-5">
 			<div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
-				<h6 class="section-title bg-white text-start text-danger pe-3">KOMENTAR ANDA</h6>
+				<h6 class="section-title bg-white text-start text-danger px-3 py-1">KOMENTAR ANDA</h6>
 				<ul class="--mt-4 content__list">
 					<?php foreach ($komentar as $comment) : ?>
 						<li class="--mt-2 --mb-2">
@@ -121,19 +121,19 @@
 
 				<div class="form-group group-komentar" id="kolom-komentar">
 					<?php if ($single_film['boleh_komentar']) : ?>
-						<div class="mb-3 font-weight-bold h7" style="color: rgb(204, 204, 204);"> Silakan tulis komentar, gunakan bahasa yang santun.</div>
-						<div class="card card-primary shadow-sm border border-dark">
-							<div class="card-header bg-primary text-light py-2 px-3 mb-2">
+						<div class="mb-3 font-weight-bold h6" style="color: rgb(204, 204, 204);"> Silakan tulis komentar, gunakan bahasa yang santun.</div>
+						<div class="box box-default shadow-sm border border-info">
+							<div class="box-header bg-info text-light py-2 px-3 mb-2">
 								<div class="h6 font-weight-bold m-0 py-2"><i class="fa fa-comments"></i> <span class="font-weight-normal">Komentar akan terbit setelah disetujui Admin</span></div>
 							</div>
 
 							<!-- Tampilkan hanya jika 'flash_message' ada -->
 							<?php $label = !empty($_SESSION['validation_error']) ? 'alert-danger' : 'alert-success'; ?>
 							<?php if ($flash_message) : ?>
-								<div class="card-header alert <?= $label ?> mx-2 rounded-0"><?= $flash_message ?></div>
+								<div class="box-header alert <?= $label ?> mx-2 rounded-0"><?= $flash_message ?></div>
 								<?php unset($_SESSION['validation_error']); ?>
 							<?php endif; ?>
-							<div class="card-body py-3 px-3 text-light " style="background-color: grey;">
+							<div class="box-body py-3 px-3">
 								<form id="form-komentar" name="form" action="<?= site_url('first/add_comment/' . $single_film['id']) ?>" method="POST" onSubmit="return validasi(this);">
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label">Nama<span class="text-danger">*</span></label>
@@ -190,15 +190,15 @@
 					<?php endif; ?>
 				</div>
 			</div>
-			<div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+			<div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
 				<div class="h-100">
-					<h6 class="section-title bg-white text-start text-danger pe-3">REKOMENDASI FILM</h6>
+					<h6 class="section-title bg-white text-start text-danger px-3 py-1">REKOMENDASI FILM SEJENIS</h6>
+					<?php $this->load->view($folder_themes . '/widgets/arsip_film') ?>
 					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
 					<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-1823410826720847" data-ad-slot="1153031774"></ins>
 					<script>
 						(adsbygoogle = window.adsbygoogle || []).push({});
 					</script>
-					<?php $this->load->view($folder_themes . '/widgets/arsip_film') ?>
 
 				</div>
 			</div>

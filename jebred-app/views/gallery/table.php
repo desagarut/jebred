@@ -31,7 +31,6 @@
 
 			<div class="card">
 				<form id="mainform" name="mainform" action="" method="post">
-					<div class="row">
 						<div class="col-md-12">
 
 							<div class="card-header">
@@ -41,9 +40,8 @@
 								<a href="#confirm-delete" title="Hapus Data" onclick="deleteAllBox('mainform', '<?= site_url("gallery/delete_all/$p/$o") ?>')" class="btn btn-box btn-danger btn-sm  hapus-terpilih"><i class='fa fa-trash'></i> Hapus Data Terpilih</a>
 							</div>
 							<div class="card-body">
-								<div class="row">
 									<div class="col-sm-12">
-										<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+										<div class="dataTables_wrapper form-inline dt-bootstrap">
 											<form id="mainform" name="mainform" action="" method="post">
 												<div class="row">
 													<div class="col-sm-6">
@@ -132,8 +130,7 @@
 														</div>
 													</div>
 												</div>
-											</form>
-											<div class="row">
+												<div class="row">
 												<div class="col-sm-6">
 													<div class="dataTables_length">
 														<form id="paging" action="<?= site_url("gallery") ?>" method="post" class="form-horizontal">
@@ -173,12 +170,12 @@
 													</div>
 												</div>
 											</div>
+
+											</form>
 										</div>
 									</div>
-								</div>
 							</div>
 						</div>
-					</div>
 				</form>
 			</div>
 		</div>

@@ -1,4 +1,3 @@
-<div class="col-md-3 wow fadeInUp" data-wow-delay="0.5s">
 	<div class="h-100">
 
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -44,7 +43,6 @@
 			<?php endforeach ?>
 		</div>
 	</div>
-</div>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1823410826720847" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:inline-block;width:360px;height:800px" data-ad-client="ca-pub-1823410826720847" data-ad-slot="2492499723"></ins>
 <script>
