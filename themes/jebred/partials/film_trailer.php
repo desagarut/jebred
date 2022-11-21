@@ -46,11 +46,11 @@
 					<?php endfor ?>
 
 					<div class="d-flex align-items-center mb-4 pb-2">
-					<div class="row g-5">
-					<div class="col-md-2">
-							<img class="img-fluid border w-75 p-2 mb-4" src="<?php echo base_url() . $slider_gambar['lokasi'] . 'sedang_' . $article['gambar'] ?>" alt="<?= $article['judul'] ?>" width="100px">
-						</div>
-							<div class="col-md-4">
+						<div class="row g-5">
+							<div class="col-md-2">
+								<img class="img-fluid border w-75 p-2 mb-4" src="<?php echo base_url() . $slider_gambar['lokasi'] . 'sedang_' . $article['gambar'] ?>" alt="<?= $article['judul'] ?>" width="100px">
+							</div>
+							<div class="col-md-6">
 								<h6 style="color: rgb(204, 204, 204);">Judul Film: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
 								<small>
 									Sutradara: <?= $article['sutradara'] ?><br />
@@ -68,7 +68,9 @@
 									<small>Kategori: <?= $article['kategori'] ?></small>
 								<?php endif ?>
 							</div>
-							<div class="col-md-4">
+						</div>
+						<div class="row g-5">
+							<div class="col-md-12">
 								<h5 style="color: rgb(204, 204, 204);">Sinopsis:</h5>
 								<p><?= $article['isi'] ?></p>
 							</div>
