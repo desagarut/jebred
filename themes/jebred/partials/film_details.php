@@ -46,9 +46,7 @@
 
 					<div class="d-flex align-items-center mb-4 pb-2">
 
-						<div>
 							<img class="img-fluid border w-75 p-2 mb-4" src="<?php echo base_url() . $slider_gambar['lokasi'] . 'sedang_' . $article['gambar'] ?>" alt="<?= $article['judul'] ?>" width="100px">
-						</div>
 						<div class="row g-5">
 							<div class="col-md-6">
 								<h6 style="color: rgb(204, 204, 204);">Judul Film: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
