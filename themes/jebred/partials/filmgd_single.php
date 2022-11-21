@@ -36,8 +36,6 @@
 				<div class="h-100">
 					<h6 class="section-title bg-white text-start text-danger px-3 py-1">NONTON FILM <?= strtoupper($article['genre1']) ?> GRATIS HANYA DI JEBRED MOVIE</h6>
 					<h1 class="display-6 mb-4"><span class="text-primary"><small class="text-warning">Jebred Nonton Film <?= $article['genre1'] ?> : </small><?= $article['judul'] ?> (<?= $article['tahun'] ?>)</span></h1>
-					<h5 style="color: rgb(204, 204, 204);">Sinopsis:</h5>
-					<p><?= $article['isi'] ?></p>
 					<?php for ($i = 1; $i <= 3; $i++) : ?>
 						<?php if ($article['gambar' . $i] && is_file(LOKASI_FOTO_ARTIKEL . 'sedang_' . $article['gambar' . $i])) : ?>
 							<p></p>
@@ -49,30 +47,34 @@
 						<div>
 							<img class="img-fluid border w-75 p-2 mb-4" src="<?php echo base_url() . $slider_gambar['lokasi'] . 'sedang_' . $article['gambar'] ?>" alt="<?= $article['judul'] ?>" width="100px">
 						</div>
-
-						<div class="ps-0">
-							<h6 style="color: rgb(204, 204, 204);">Judul Film: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
-							<small>
-								Sutradara: <?= $article['sutradara'] ?><br />
-								Pemain: <?= $article['artis1'] ?>, <?= $article['artis2'] ?>, <?= $article['artis3'] ?> <br />
-								Tahun: <?= $article['tahun'] ?><br />
-								Rilis: <?= tgl_indo($article['rilis']) ?><br />
-								Ditonton: <?= hit($article['hit']) ?><br />
-								Durasi: <?= $article['durasi'] ?><br />
-								Negara: <?= $article['negara1'] ?>, <?= $article['negara2'] ?>, <?= $article['negara3'] ?><br />
-								Genre: <?= $article['genre1'] ?>, <?= $article['genre2'] ?>, <?= $article['genre3'] ?><br />
-								Rating: <?= $article['rating'] ?><br />
-								Publish: <?= tgl_indo($article['tgl_upload']) ?><br />
-							</small>
-							<?php if ($article['kategori']) : ?>
-								<small>Kategori: <?= $article['kategori'] ?></small>
-							<?php endif ?>
+						<div class="row g-5">
+							<div class="col-md-6">
+								<h6 style="color: rgb(204, 204, 204);">Judul Film: <?= $article['judul'] ?> - <?= $article['tahun'] ?></h6>
+								<small>
+									Sutradara: <?= $article['sutradara'] ?><br />
+									Pemain: <?= $article['artis1'] ?>, <?= $article['artis2'] ?>, <?= $article['artis3'] ?> <br />
+									Tahun: <?= $article['tahun'] ?><br />
+									Rilis: <?= tgl_indo($article['rilis']) ?><br />
+									Ditonton: <?= hit($article['hit']) ?><br />
+									Durasi: <?= $article['durasi'] ?><br />
+									Negara: <?= $article['negara1'] ?>, <?= $article['negara2'] ?>, <?= $article['negara3'] ?><br />
+									Genre: <?= $article['genre1'] ?>, <?= $article['genre2'] ?>, <?= $article['genre3'] ?><br />
+									Rating: <?= $article['rating'] ?><br />
+									Publish: <?= tgl_indo($article['tgl_upload']) ?><br />
+								</small>
+								<?php if ($article['kategori']) : ?>
+									<small>Kategori: <?= $article['kategori'] ?></small>
+								<?php endif ?>
+							</div>
+							<div class="col-md-6">
+								<h5 style="color: rgb(204, 204, 204);">Sinopsis:</h5>
+								<p><?= $article['isi'] ?></p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 
 		<div class="row g-5">
 			<div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">

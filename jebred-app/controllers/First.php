@@ -64,7 +64,7 @@ class First extends Web_Controller {
 		$data['film'] = $this->first_film_m->film_show($data['paging']->offset, $data['paging']->per_page);
 		$data['review'] = $this->first_artikel_m->artikel_show($data['paging']->offset, $data['paging']->per_page);
 		$data['headline_film'] = $this->first_film_m->get_headline();
-		$data['headline_review'] = $this->first_artikel_m->get_headline();
+		$data['headline'] = $this->first_artikel_m->get_headline();
 		$data['cari'] = htmlentities($this->input->get('cari'));
 		
 		$cari = trim($this->input->get('cari'));
@@ -139,12 +139,12 @@ class First extends Web_Controller {
 		$this->load->model('shortcode_model');
 		$data = $this->includes;
 		$this->first_film_m->hit($url); // catat film diakses
-		$data['trailer'] = $this->first_film_m->get_film($url);
-		$id = $data['trailer']['id'];
+		$data['single_film'] = $this->first_film_m->get_film($url);
+		$id = $data['single_film']['id'];
 
 		// replace isi film dengan shortcodify
-		$data['trailer']['isi'] = $this->shortcode_model->shortcode($data['trailer']['isi']);
-		$data['title'] = ucwords($data['trailer']['judul']);
+		$data['single_film']['isi'] = $this->shortcode_model->shortcode($data['single_film']['isi']);
+		$data['title'] = ucwords($data['single_film']['judul']);
 		$data['detail_agenda'] = $this->first_film_m->get_agenda($id);//Agenda
 		$data['komentar'] = $this->first_film_m->list_komentar($id);
 		$this->_get_common_data($data);
