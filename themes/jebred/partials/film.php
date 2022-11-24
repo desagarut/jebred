@@ -9,7 +9,7 @@
         <div class="col-md-9">
           <div class="row g-3">
             <div class="text-start mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s">
-              <h6 class="section-title bg-white text-start text-danger px-3 py-1">Jebred Movie Upload Terbaru</h6>
+              <h6 class="bg-dark text-center text-danger px-2 py-1">Jebred Movie Upload Terbaru</h6>
               <!--<h1 class="display-9 mb-4 text-danger">Jebred Movie Film Terbaru</h1>-->
             </div>
           </div>
