@@ -16,13 +16,13 @@ $genre = $this->db->query('SELECT nama FROM ref_genre')->result_array();
         <div class="d-flex pt-2"> <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a> <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a> <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a> <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a> </div>
       </div>
       <div class="col-lg-3 col-md-6">
-        <h5 class="text-light mb-4">Kategori</h5>
+        <h5 class="text-light mb-4">Kategori Jebred Film</h5>
         <?php foreach($menu_kiri as $data):?>
         <a class="btn btn-link" href="<?= site_url("film/kategori/$data[slug]"); ?>"><?= $data['kategori']; ?><?php (count($data['submenu'])>0) and print('<span class="caret"></span>');?></a> 
         <?php endforeach;?>
       </div>
       <div class="col-lg-3 col-md-6">
-        <h5 class="text-light mb-4">Genre</h5>
+        <h5 class="text-light mb-4">Genre Jebred Film</h5>
         <?php foreach($genre as $data):?>
         <a class="btn btn-link" href="<?= site_url("film/kategori/$data[slug]"); ?>"><?= $data['nama']; ?><?php (count($data['submenu'])>0) and print('<span class="caret"></span>');?></a> 
         <?php endforeach;?>
