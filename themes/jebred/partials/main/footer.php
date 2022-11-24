@@ -8,7 +8,7 @@ $genre = $this->db->query('SELECT nama FROM ref_genre')->result_array();
   <div class="container py-5">
     <div class="row g-5">
       <div class="col-lg-3 col-md-6">
-        <h5 class="text-light mb-4">Address</h5>
+        <h5 class="text-light mb-4">Tentang Jebred Film</h5>
         <p class="mb-2">
           Jebred Movies adalah sebuah website hiburan yang menyajikan streaming film atau download movie gratis. Subtitle Indonesa.
           Perlu diketahui, film-film yang terdapat pada web ini didapatkan dari web pencarian di internet. Kami tidak menyimpan file film tersebut di server sendiri dan kami hanya menempelkan link-link tersebut di website kami.
