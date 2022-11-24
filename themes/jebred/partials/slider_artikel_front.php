@@ -1,14 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <!-- Slider Artikel -->
-<div class="container-xxl py-5">
-  <div class="container" style="border-bottom: 1px red;">
-    <div class="row g-3">
-      <div class="text-center mx-auto mb-1 wow fadeInUp" data-wow-delay="0.1s">
-        <h6 class="bg-dark text-center text-danger px-5 py-1">Jebred Review Film Terbaru <a href="<?= site_url('artikel') ?>" class="text-end"> Semua</a></h6>
-        <!--<h1 class="display-9 mb-4 text-danger">Jebred Movie Film Terbaru</h1>-->
-      </div>
-    </div>
+<div class="container-xxl py-0">
+  <div class="container">
 
     <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.1s">
       <?php foreach ($review as $article) : ?>

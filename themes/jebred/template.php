@@ -20,7 +20,6 @@
 </head>
 
 <body>
-  <?php //$this->load->view($folder_themes . '/partials/main/header') ?>
   <?php $this->load->view($folder_themes . '/partials/main/nav') ?>
   <?php $this->load->view($folder_themes . '/layouts/home.tpl.php') ?>
   <?php $this->load->view($folder_themes . '/partials/main/footer') ?>
