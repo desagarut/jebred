@@ -10,7 +10,7 @@
   </h3>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav me-auto">
-      <div class="col-md-4 text-lg-start py-2 px-2 d-lg-block">
+      <div class="col-md-5 text-lg-start py-2 px-2 d-lg-block">
         <a href="<?= site_url('first') ?>" class="navbar-brand m-0 p-0">
           <h3 class="fw-bold text-danger m-1" style="color:#F00;">
             <a href="<?= site_url('first') ?>"> <img src="<?= logo_web($desa['logo']) ?>" style="width:35px;" alt="Logo">
